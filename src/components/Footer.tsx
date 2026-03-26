@@ -126,9 +126,7 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps) {
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
-          <p>
-            &copy; {new Date().getFullYear()} voitechrj. Todos os direitos reservados.
-          </p>
+         
 
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <button
@@ -149,14 +147,14 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps) {
           </div>
 
           <div className="mt-6 text-xs text-gray-600">
-            © 2026{" "}
+            © 2026 voitechrj. Todos os direitos reservados.
             <a 
               href="https://voitechrj.github.io/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors underline-offset-4 hover:underline"
             >
-              voitechrj
+              
             </a>
           </div>
         </div>
