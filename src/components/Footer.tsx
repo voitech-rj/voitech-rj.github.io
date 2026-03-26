@@ -149,7 +149,7 @@ export default function Footer({ onOpenPrivacy, onOpenTerms }: FooterProps) {
           </div>
 
           <div className="mt-6 text-xs text-gray-600">
-            created by{" "}
+            © 2026{" "}
             <a 
               href="https://voitechrj.github.io/" 
               target="_blank" 
