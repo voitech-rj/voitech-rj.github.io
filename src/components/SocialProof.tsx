@@ -149,7 +149,7 @@ export default function SocialProof() {
             rel="noopener noreferrer"
             className="text-[#8ab4f8] hover:underline text-xl font-medium focus:outline-none"
           >
-            139 avaliações no Google
+            140 avaliações no Google
           </a>
         </div>
       </div>
