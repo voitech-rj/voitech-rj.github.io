@@ -1,17 +1,509 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>voitechrj - Manutenção de Informática</title>
-    <link rel="icon" href="/voitechrj-logo.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>voitechrj - Manutenção de Informática</title>
+  <link rel="icon" href="./assets/voitechrj-logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
 
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-container" onclick="document.getElementById('hero').scrollIntoView({ behavior: 'smooth' })">
+        <div class="header-logo-wrapper">
+          <img src="./assets/voitechrj-logo.png" alt="voitechrj Logo" class="header-logo-img" />
+        </div>
+        <span class="logo-text">voitechrj</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <button data-scroll="features" class="nav-link">Diferenciais</button>
+        <button data-scroll="booking" class="nav-link">Agendar</button>
+        <button data-scroll="social-proof" class="nav-link">Depoimentos</button>
+        <button data-scroll="faq" class="btn-primary btn-nav-faq">Dúvidas Frequentes</button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <i id="menu-icon" data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="mobile-nav">
+      <div class="mobile-nav-content">
+        <button data-scroll="features" class="nav-link text-left">Diferenciais</button>
+        <button data-scroll="booking" class="nav-link text-left">Agendar</button>
+        <button data-scroll="social-proof" class="nav-link text-left">Depoimentos</button>
+        <button data-scroll="faq" class="btn-primary btn-mobile-faq">Dúvidas Frequentes</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+
+      <div class="container hero-content">
+        <div class="hero-text fade-in-left">
+          <h1 class="hero-title">Sua Solução Rápida e Confiável.</h1>
+          <p class="hero-desc">Especialistas em upgrade de performance, limpeza e manutenção. Agende a entrega do seu equipamento e deixe o resto conosco.</p>
+          
+          <div class="hero-actions">
+            <button data-scroll="booking" class="btn-primary btn-hero-main">
+              Agendar pelo WhatsApp
+              <i data-lucide="arrow-right" class="icon-md"></i>
+            </button>
+
+            <div class="hero-secondary-actions">
+              <a href="https://www.google.com.br/search?q=Voitechrj" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <i data-lucide="external-link" class="icon-sm"></i>
+                <span>Ver Avaliações</span>
+              </a>
+              <a href="https://g.page/r/Cca4oIYk54ueEBE/review" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <i data-lucide="star" class="icon-sm icon-filled"></i>
+                <span>Avaliar</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-cards fade-in-right">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=800&auto=format&fit=crop" alt="Instalação de SSD" />
+            <div class="service-card-overlay"></div>
+            <div class="service-card-content">
+              <h3 class="service-card-title">Instalação de SSD</h3>
+              <p class="service-card-desc">Até 10x mais velocidade</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=800&auto=format&fit=crop" alt="Limpeza Completa" />
+            <div class="service-card-overlay"></div>
+            <div class="service-card-content">
+              <h3 class="service-card-title">Limpeza Completa</h3>
+              <p class="service-card-desc">Remoção de poeira e sujeira</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1555617778-02518510b9fa?q=80&w=800&auto=format&fit=crop" alt="Troca de Pasta Térmica" />
+            <div class="service-card-overlay"></div>
+            <div class="service-card-content">
+              <h3 class="service-card-title">Troca de Pasta Térmica</h3>
+              <p class="service-card-desc">Evite superaquecimento</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=800&auto=format&fit=crop" alt="Formatação" />
+            <div class="service-card-overlay"></div>
+            <div class="service-card-content">
+              <h3 class="service-card-title">Formatação</h3>
+              <p class="service-card-desc">Sistema limpo e otimizado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section id="social-proof" class="social-proof">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Por que a voitechrj?</h2>
+          <p class="section-subtitle">Veja o que dizem as pessoas que já utilizaram nossos serviços.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card fade-in-up">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <p class="testimonial-author">Maria Silva</p>
+                <div class="testimonial-stars">
+                  <i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p class="testimonial-text">"A voitechrj resolveu meu problema em minutos! Serviço excelente e preço justo."</p>
+            </div>
+            <p class="testimonial-time">1 mês atrás</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card fade-in-up delay-100">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">J</div>
+              <div>
+                <p class="testimonial-author">João Pereira</p>
+                <div class="testimonial-stars">
+                  <i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p class="testimonial-text">"Profissionalismo nota 10. O técnico explicou tudo com clareza e não tentou empurrar serviços desnecessários."</p>
+            </div>
+            <p class="testimonial-time">2 meses atrás</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card fade-in-up delay-200">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <p class="testimonial-author">Ana Costa</p>
+                <div class="testimonial-stars">
+                  <i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p class="testimonial-text">"Melhor custo-benefício que encontrei no Rio. Recomendo de olhos fechados!"</p>
+            </div>
+            <p class="testimonial-time">3 semanas atrás</p>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card fade-in-up delay-300">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">C</div>
+              <div>
+                <p class="testimonial-author">Carlos Santos</p>
+                <div class="testimonial-stars">
+                  <i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p class="testimonial-text">"Rápido e eficiente. Meu computador estava travando muito e agora parece novo."</p>
+            </div>
+            <p class="testimonial-time">1 semana atrás</p>
+          </div>
+        </div>
+
+        <div class="social-proof-footer fade-in-up">
+          <div class="brand-logo-large">
+            <img src="./assets/voitechrj-logo.png" alt="voitechrj Logo" />
+          </div>
+          <h3 class="brand-name-large">voitechrj</h3>
+          <div class="rating-summary">
+            <span class="rating-number">5,0</span>
+            <div class="stars">
+              <i data-lucide="star" class="icon-md icon-filled"></i>
+              <i data-lucide="star" class="icon-md icon-filled"></i>
+              <i data-lucide="star" class="icon-md icon-filled"></i>
+              <i data-lucide="star" class="icon-md icon-filled"></i>
+              <i data-lucide="star" class="icon-md icon-filled"></i>
+            </div>
+          </div>
+          <a href="https://www.google.com.br/search?q=Voitechrj" target="_blank" class="google-link">140 avaliações no Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Diferenciais</h2>
+          <p class="section-subtitle">Descubra por que somos a escolha certa para cuidar dos seus equipamentos.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card fade-in-up">
+            <div class="feature-icon-wrapper"><i data-lucide="shield"></i></div>
+            <h3 class="feature-title">Transparência</h3>
+            <p class="feature-desc">Preços claros, sem surpresas. Orçamentos detalhados e comunicação aberta.</p>
+          </div>
+          <div class="feature-card fade-in-up delay-100">
+            <div class="feature-icon-wrapper"><i data-lucide="gauge"></i></div>
+            <h3 class="feature-title">Rapidez e Eficiência</h3>
+            <p class="feature-desc">Atendimento rápido e soluções eficazes para minimizar o tempo de inatividade.</p>
+          </div>
+          <div class="feature-card fade-in-up delay-200">
+            <div class="feature-icon-wrapper"><i data-lucide="coins"></i></div>
+            <h3 class="feature-title">Custo-Benefício</h3>
+            <p class="feature-desc">Serviços de alta qualidade com preços acessíveis para o seu orçamento.</p>
+          </div>
+          <div class="feature-card fade-in-up delay-300">
+            <div class="feature-icon-wrapper"><i data-lucide="headset"></i></div>
+            <h3 class="feature-title">Suporte Dedicado</h3>
+            <p class="feature-desc">Assistência profissional para resolver suas dúvidas e problemas de informática.</p>
+          </div>
+          <div class="feature-card fade-in-up delay-400">
+            <div class="feature-icon-wrapper"><i data-lucide="check-circle"></i></div>
+            <h3 class="feature-title">Garantia de Satisfação</h3>
+            <p class="feature-desc">Garantimos a qualidade dos nossos serviços. Sua satisfação é nossa prioridade.</p>
+          </div>
+          <div class="feature-card fade-in-up delay-500">
+            <div class="feature-icon-wrapper"><i data-lucide="cpu"></i></div>
+            <h3 class="feature-title">Peças de Qualidade</h3>
+            <p class="feature-desc">Trabalhamos apenas com componentes originais e de marcas reconhecidas no mercado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <div class="benefits-pattern"></div>
+      <div class="container benefits-content">
+        <div class="benefits-text fade-in-left">
+          <h2 class="benefits-title">Mais do que Manutenção, Oferecemos Tranquilidade</h2>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i data-lucide="check" class="icon-md"></i></div>
+              <p class="benefit-desc">Acabe com as dores de cabeça da informática. Deixe a voitechrj cuidar de tudo.</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i data-lucide="check" class="icon-md"></i></div>
+              <p class="benefit-desc">Tenha mais tempo para se concentrar no seu negócio, sem se preocupar com problemas técnicos.</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i data-lucide="check" class="icon-md"></i></div>
+              <p class="benefit-desc">Conte com um parceiro de confiança para manter seus sistemas funcionando sem problemas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="benefits-image-wrapper fade-in-right">
+          <div class="benefits-image-glow"></div>
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" alt="Tranquilidade no trabalho" class="benefits-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="booking">
+      <div class="container booking-container">
+        <div class="text-center">
+          <h2 class="section-title">Agendar</h2>
+          <p class="section-subtitle">Agende a entrega do seu equipamento em nosso endereço para avaliação.</p>
+        </div>
+
+        <div class="booking-card fade-in-up">
+          <form id="booking-form" class="booking-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="form-label">Nome</label>
+                <input type="text" id="firstName" name="firstName" required class="form-input" placeholder="Seu nome" />
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="form-label">Sobrenome</label>
+                <input type="text" id="lastName" name="lastName" required class="form-input" placeholder="Seu sobrenome" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="summary" class="form-label">Resumo do que precisa (Opcional)</label>
+              <textarea id="summary" name="summary" rows="4" class="form-input" placeholder="Ex: Meu notebook não liga, preciso formatar meu PC..."></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn-primary btn-submit">
+                <i data-lucide="message-circle"></i>
+                Agendar via WhatsApp
+              </button>
+              <p class="form-hint">Ao clicar, você será redirecionado para o WhatsApp (21 99447-2406)</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+      <div class="container faq-container">
+        <div class="text-center">
+          <h2 class="section-title">Dúvidas Frequentes</h2>
+          <p class="section-subtitle">Tire suas dúvidas sobre nossos serviços.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item fade-in-up">
+            <button class="faq-question">
+              <span>Quais tipos de serviços de manutenção vocês oferecem?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Oferecemos manutenção preventiva e corretiva para computadores e notebooks. Também realizamos formatação, remoção de vírus e upgrades de hardware.</div>
+            </div>
+          </div>
+          <div class="faq-item fade-in-up delay-100">
+            <button class="faq-question">
+              <span>Qual o tempo de resposta para um chamado?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Nosso objetivo é atender o mais rápido possível. Para chamados urgentes, buscamos responder em até 2 horas. O tempo de resolução depende da complexidade do problema.</div>
+            </div>
+          </div>
+          <div class="faq-item fade-in-up delay-200">
+            <button class="faq-question">
+              <span>Como funciona o processo de orçamento?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">O orçamento é gratuito e sem compromisso. Avaliamos o equipamento e apresentamos um diagnóstico detalhado com o valor do serviço e peças, se necessário.</div>
+            </div>
+          </div>
+          <div class="faq-item fade-in-up delay-300">
+            <button class="faq-question">
+              <span>Quais as formas de pagamento aceitas?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Aceitamos dinheiro, PIX, cartões de crédito e débito.</div>
+            </div>
+          </div>
+          <div class="faq-item fade-in-up delay-400">
+            <button class="faq-question">
+              <span>A Voitechrj atende a domicílio?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Não, não atendemos a domicílio.</div>
+            </div>
+          </div>
+          <div class="faq-item fade-in-up delay-500">
+            <button class="faq-question">
+              <span>Vocês têm loja física?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Nosso atendimento é em Niterói, RJ, dentro do condomínio 7 de Setembro, no bairro Fonseca. Não somos uma loja de rua aberta ao público: o endereço exibido no site é para entrega e retirada de equipamentos mediante agendamento prévio, feito pelo formulário ou pelo WhatsApp.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="./assets/voitechrj-logo.png" alt="voitechrj Logo" />
+            </div>
+            <h3 class="footer-brand-name">voitechrj</h3>
+          </div>
+          <p class="footer-desc">Sua parceira confiável para soluções de TI. Manutenção rápida, honesta e eficiente para você e sua empresa.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/voitechrj/" target="_blank" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/voitechrj" target="_blank" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Entre em Contato</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <i data-lucide="phone" class="icon-sm"></i>
+              <a href="tel:+5521994472406">(21) 99447-2406</a>
+            </li>
+            <li class="footer-link-item">
+              <i data-lucide="mail" class="icon-sm"></i>
+              <a href="mailto:voitechrj@gmail.com">voitechrj@gmail.com</a>
+            </li>
+            <li class="footer-link-item">
+              <i data-lucide="map-pin" class="icon-sm"></i>
+              <a href="https://www.google.com/maps/..." target="_blank">Niterói, RJ</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Links Rápidos</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="#hero">Início</a></li>
+            <li class="footer-link-item"><a href="#features">Diferenciais</a></li>
+            <li class="footer-link-item"><a href="#social-proof">Depoimentos</a></li>
+            <li class="footer-link-item"><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 voitechrj. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <button data-modal="privacy">Política de Privacidade</button>
+          <button data-modal="terms">Termos de Serviço</button>
+        </div>
+        <div class="footer-credits">
+          <a href="https://voitechrj.github.io/" target="_blank">voitechrj</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Privacy Modal -->
+  <div id="privacy-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Política de Privacidade</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Na voitechrj levamos a sua privacidade a sério. As informações que você compartilha conosco são usadas exclusivamente para viabilizar o atendimento e melhorar nossos serviços.</p>
+        <p class="font-semibold">1. Dados que coletamos</p>
+        <p>Podemos coletar dados como nome, telefone, e-mail, endereço e informações básicas sobre o equipamento ou serviço solicitado. Esses dados geralmente são informados por você em formulários, mensagens ou ligações.</p>
+        <p class="font-semibold">2. Como usamos seus dados</p>
+        <p>Utilizamos seus dados para: entrar em contato sobre orçamentos e agendamentos, prestar suporte técnico, enviar informações relacionadas ao seu atendimento e, quando você autorizar, compartilhar novidades e promoções da voitechrj.</p>
+        <p class="font-semibold">3. Compartilhamento de informações</p>
+        <p>Não vendemos seus dados. Podemos compartilhá-los apenas com parceiros estritamente necessários para a prestação do serviço (por exemplo, provedores de hospedagem, ferramentas de agendamento ou meios de pagamento), sempre seguindo boas práticas de segurança.</p>
+        <p class="font-semibold">4. Armazenamento e segurança</p>
+        <p>Adotamos medidas técnicas e organizacionais razoáveis para proteger seus dados contra acessos não autorizados, perda ou uso indevido. Mantemos suas informações apenas pelo tempo necessário para cumprir as finalidades descritas nesta política ou obrigações legais.</p>
+        <p class="font-semibold">5. Seus direitos sobre os dados</p>
+        <p>Você pode solicitar a atualização, correção ou exclusão dos seus dados pessoais, bem como tirar dúvidas sobre como eles são utilizados. Para isso, entre em contato pelo e-mail <a href="mailto:voitechrj@gmail.com">voitechrj@gmail.com</a>.</p>
+        <p class="font-semibold">6. Atualizações desta política</p>
+        <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir melhorias nos nossos serviços ou mudanças legais. Sempre que houver alterações relevantes, a nova versão será publicada neste site.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div id="terms-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Termos de Serviço</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Ao solicitar um atendimento ou serviço da voitechrj, você concorda com os termos abaixo. Nosso objetivo é sempre oferecer um atendimento transparente, ético e profissional.</p>
+        <p class="font-semibold">1. Objeto do serviço</p>
+        <p>Prestamos serviços de manutenção e suporte em informática, consultoria em TI e outros serviços relacionados, conforme descrito em cada orçamento ou proposta enviada a você.</p>
+        <p class="font-semibold">2. Agendamentos e orçamentos</p>
+        <p>Os valores e prazos informados em orçamentos são estimativas baseadas nas informações fornecidas e na análise inicial do equipamento. Caso sejam identificados problemas adicionais, o orçamento poderá ser atualizado mediante sua aprovação.</p>
+        <p class="font-semibold">3. Responsabilidades do cliente</p>
+        <p>É responsabilidade do cliente fornecer informações verdadeiras sobre o equipamento e manter cópias de segurança (backup) de dados importantes antes da realização de qualquer serviço. Sempre que possível, orientaremos sobre a necessidade de backup antes de procedimentos mais sensíveis.</p>
+        <p class="font-semibold">4. Limitação de responsabilidade</p>
+        <p>Embora adotemos o máximo cuidado técnico, não podemos garantir a recuperação integral de dados ou o funcionamento perfeito de equipamentos que já apresentem defeitos graves. A voitechrj não se responsabiliza por perdas de dados quando não houver backup prévio ou quando o risco tiver sido informado e autorizado.</p>
+        <p class="font-semibold">5. Garantia dos serviços</p>
+        <p>Serviços de manutenção podem ter garantia limitada, informada no momento do atendimento, cobrindo apenas o trabalho realizado e não defeitos novos ou causados por mau uso, quedas, vírus, etc.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
