@@ -58,7 +58,7 @@ img {
 
 /* Utilities */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -458,18 +458,20 @@ header {
 
 /* Social Proof */
 .social-proof {
+  
   padding: 5rem 0;
   background-color: var(--color-surface);
 }
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 0.75rem;
-  margin-top: 3rem;
+  margin-top: 0rem;
+  
 }
 
-@media (min-width: 640px) {
+@media (min-width: 740px) {
   .testimonials-grid { gap: 1rem; }
 }
 
@@ -549,7 +551,7 @@ header {
 
 .testimonial-stars {
   display: flex;
-  color: #fbbf24;
+  color: #ffffff;
   margin-top: 0.125rem;
 }
 
@@ -630,7 +632,7 @@ header {
 
 .rating-summary .stars {
   display: flex;
-  color: #fbbf24;
+  color: #ffffff;
   gap: 0.125rem;
 }
 
