@@ -107,7 +107,14 @@ Alterações diretas no `main` devem ser feitas somente quando forem explicitame
 
 ## 9. Documentação do projeto
 
-A documentação será construída progressivamente. A estrutura planejada é:
+A documentação será construída progressivamente e mantida no próprio repositório. Os documentos podem ser desenvolvidos em chats separados dentro do Projeto no ChatGPT, mas o arquivo correspondente no GitHub é a fonte oficial daquele documento.
+
+### Documentos existentes
+
+- `00_CONTEXT.md` — contexto geral, estado atual e regras fundamentais do projeto.
+- `01_PRD.md` — requisitos, objetivos, público-alvo, proposta de valor, escopo e evolução do produto.
+
+### Estrutura planejada
 
 ```text
 00_CONTEXT.md
@@ -122,6 +129,8 @@ A documentação será construída progressivamente. A estrutura planejada é:
 09_MANUTENCAO.md
 10_COMO-PEDIR-MUDANCA.md
 ```
+
+Ao iniciar uma nova etapa de documentação ou desenvolvimento, deve-se consultar este arquivo e os documentos relacionados ao assunto. A existência de um documento deve ser confirmada no GitHub antes de assumir que ele já está disponível.
 
 Os documentos devem conter informações reais do projeto. Não criar documentação artificial apenas para preencher a estrutura.
 
