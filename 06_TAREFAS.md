@@ -52,47 +52,64 @@ Os status utilizados neste documento são:
 - [x] Criar `04_IDENTIDADE_VISUAL.md`.
 - [x] Criar `05_CONTEUDO.md`.
 - [x] Criar `06_TAREFAS.md`.
-- [ ] Criar `07_CHANGELOG.md`.
-- [ ] Criar `08_ERROS.md`.
-- [ ] Criar `09_MANUTENCAO.md`.
-- [ ] Criar `10_COMO-PEDIR-MUDANCA.md`.
+- [x] Criar `07_CHANGELOG.md`.
+- [x] Criar `08_ERROS.md`.
+- [x] Criar `09_MANUTENCAO.md`.
+- [x] Criar `10_COMO-PEDIR-MUDANCA.md`.
+- [x] Realizar auditoria inicial do código atual e registrar os achados em `AUDITORIA.md`.
 
 ### Resultado esperado
 
 Ter uma base documental suficiente para orientar o desenvolvimento sem depender exclusivamente do histórico das conversas.
+
+**Status da fase:** concluída.
 
 ---
 
 ## 5. Fase 1 — Auditoria do código atual
 
 **Prioridade:** Alta  
-**Status:** Pendente
+**Status:** Concluída
 
 ### Tarefas
 
-- [ ] Analisar `index.html` integralmente.
-- [ ] Analisar `style.css` integralmente.
-- [ ] Analisar `script.js` integralmente.
-- [ ] Mapear a estrutura de `assets/`.
-- [ ] Identificar dependências externas utilizadas atualmente.
-- [ ] Identificar funcionalidades JavaScript existentes.
-- [ ] Identificar possíveis códigos duplicados ou obsoletos.
-- [ ] Identificar problemas de responsividade.
-- [ ] Identificar problemas de acessibilidade.
-- [ ] Identificar problemas básicos de SEO técnico.
-- [ ] Identificar imagens e recursos que podem impactar desempenho.
-- [ ] Registrar riscos e problemas encontrados antes do redesign.
+- [x] Analisar `index.html` integralmente.
+- [x] Analisar `style.css` integralmente.
+- [x] Analisar `script.js` integralmente.
+- [x] Mapear a estrutura de `assets/`.
+- [x] Identificar dependências externas utilizadas atualmente.
+- [x] Identificar funcionalidades JavaScript existentes.
+- [x] Identificar possíveis códigos duplicados ou obsoletos.
+- [x] Identificar problemas de responsividade.
+- [x] Identificar problemas de acessibilidade.
+- [x] Identificar problemas básicos de SEO técnico.
+- [x] Identificar imagens e recursos que podem impactar desempenho.
+- [x] Registrar riscos e problemas encontrados antes do redesign em `AUDITORIA.md`.
 
 ### Resultado esperado
 
 Obter uma visão objetiva do estado atual do site e evitar alterações baseadas em suposições.
+
+### Resultado da auditoria
+
+A arquitetura atual foi considerada adequada para evolução incremental. Não foi identificada necessidade de reescrita completa ou adoção de framework.
+
+Principais pontos registrados em `AUDITORIA.md`:
+
+- Google Maps do Footer precisa ser corrigido;
+- prova social e quantidade/nota das avaliações precisam ser validadas;
+- informações e promessas comerciais precisam ser confirmadas;
+- SEO técnico básico está incompleto;
+- acessibilidade precisa de melhorias incrementais;
+- recursos externos devem ser avaliados posteriormente com foco em desempenho e estabilidade;
+- refatorações de CSS devem ocorrer somente quando relacionadas a alterações concretas.
 
 ---
 
 ## 6. Fase 2 — Validação do conteúdo e operação
 
 **Prioridade:** Alta  
-**Status:** Pendente
+**Status:** Próxima etapa
 
 ### Tarefas
 
@@ -113,6 +130,10 @@ Obter uma visão objetiva do estado atual do site e evitar alterações baseadas
 ### Resultado esperado
 
 Garantir que o conteúdo publicado represente a operação real da Voitechrj.
+
+### Observação
+
+Nenhuma alteração visual definitiva deve ser baseada em informações comerciais ainda não confirmadas.
 
 ---
 
@@ -273,11 +294,11 @@ Publicar somente versões verificadas e sem regressões conhecidas.
 A ordem preferencial para o desenvolvimento é:
 
 ```text
-Documentação
+Documentação ✓
     ↓
-Auditoria do código atual
+Auditoria do código atual ✓
     ↓
-Validação do conteúdo
+Validação do conteúdo ← PRÓXIMA ETAPA
     ↓
 Estrutura e UX
     ↓
@@ -300,16 +321,16 @@ Essa ordem evita investir tempo em detalhes visuais antes de conhecer limitaçõ
 
 ## 14. Próxima tarefa recomendada
 
-A próxima tarefa de desenvolvimento é a **auditoria do código atual**.
+A auditoria do código atual foi concluída e registrada em `AUDITORIA.md`.
 
-Antes dela, recomenda-se concluir a documentação básica restante somente quando os documentos realmente agregarem informação útil ao projeto.
+A próxima tarefa é a **Fase 2 — Validação do conteúdo e operação**. Ela deve confirmar as informações que serão efetivamente publicadas no site, principalmente serviços, promessas comerciais, garantias, horários, atendimento, localização, formas de pagamento e prova social.
 
-A auditoria deve analisar principalmente `index.html`, `style.css`, `script.js` e `assets/`, registrando problemas e oportunidades antes de qualquer redesign estrutural.
+Somente após essa validação deve-se avançar para mudanças estruturais ou redesign visual significativo.
 
 ---
 
 ## 15. Estado do documento
 
-**Status:** documento inicial.
+**Status:** atualizado após conclusão da auditoria em 2026-08-19.
 
-Este arquivo representa o roadmap inicial do projeto e deve ser atualizado conforme as tarefas forem executadas, reordenadas ou descartadas.
+Este arquivo representa o roadmap atual do projeto e deve ser atualizado conforme as tarefas forem executadas, reordenadas ou descartadas.
