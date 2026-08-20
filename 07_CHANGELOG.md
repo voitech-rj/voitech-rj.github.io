@@ -100,9 +100,40 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 - Header mais próximo da direção visual definida.
 - Funcionalidades existentes de navegação suave e menu mobile preservadas.
 
-### Próxima etapa — Revisão visual e UX
+### 2026-08-20 — Padronização de largura dos containers
 
-- Continuar o redesign progressivo do website a partir da Hero.
+#### Alterado
+- Container principal padronizado para `max-width: 1200px`.
+- Header, conteúdo das seções e Footer passam a utilizar o mesmo limite quando baseados na classe `.container`.
+- Espaçamento lateral foi preservado para manter a responsividade em telas menores.
+
+#### Motivo
+- Criar uma largura estrutural consistente para o redesign e melhorar o aproveitamento de espaço em telas desktop.
+
+#### Impacto
+- Maior consistência horizontal entre Header, seções e Footer.
+- Mantida a responsividade do layout.
+
+### 2026-08-20 — Ajuste final da navegação do Header
+
+#### Alterado
+- Menu hambúrguer ocultado em telas desktop e mantido somente no mobile.
+- Links da navegação desktop alinhados à direita dentro do container de 1200px.
+- `Solicitar atendimento` definido como último item da navegação e mantido como CTA destacado.
+- Ordem visual da navegação corrigida para evitar que o CTA apareça entre os demais links.
+
+#### Motivo
+- Corrigir a organização visual identificada durante a validação do Header.
+
+#### Impacto
+- Header desktop com navegação convencional, alinhada à direita.
+- CTA claramente posicionado como última ação.
+- Menu mobile preservado para telas pequenas.
+
+### Próxima etapa — Revisão dos nomes da navegação e Hero
+
+- Antes de continuar o redesign visual, revisar se os nomes atuais da navegação (`Diferenciais`, `Depoimentos`, `Dúvidas frequentes` e `Solicitar atendimento`) são os mais adequados para uma landing page.
+- Em seguida, continuar o redesign progressivo pela Hero.
 - Preservar as funcionalidades e regras operacionais já definidas.
 
 ---
