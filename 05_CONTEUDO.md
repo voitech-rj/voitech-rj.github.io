@@ -245,6 +245,18 @@ Coletar informações suficientes para que o cliente possa iniciar o atendimento
 
 O formulário continua sendo um facilitador de contato. Os dados preenchidos são utilizados pelo JavaScript para montar uma mensagem e encaminhar o usuário ao WhatsApp.
 
+### Mensagem inicial de triagem
+
+A mensagem enviada ao WhatsApp deve priorizar uma pequena ficha de triagem, sem transformar o site em um formulário extenso:
+
+> Olá! Gostaria de solicitar atendimento da Voitechrj.  
+> Nome completo: [informar]  
+> Equipamento: [computador/notebook]  
+> O que está acontecendo? [descrever]  
+> Quando começou? [informar, se souber]
+
+A identificação de cliente antigo não precisa ser solicitada. O histórico do contato no próprio WhatsApp é suficiente para essa distinção.
+
 ### Princípio de conteúdo
 
 O formulário deve solicitar somente informações úteis para compreender a solicitação e iniciar o atendimento.
@@ -261,15 +273,88 @@ As informações institucionais utilizadas pelo site devem permanecer alinhadas 
 
 - Atendimento em Niterói/RJ.
 - Entrega e retirada de equipamentos mediante agendamento prévio.
+- Não há visita técnica/domiciliar como modalidade padrão.
+- O cliente leva o computador ou notebook para atendimento presencial.
 - Contato principal pelo WhatsApp.
 - E-mail: `voitechrj@gmail.com`.
 - Google Maps utilizado para localização.
-
-O endereço completo, horários, formas de pagamento, prazo de atendimento e demais condições devem ser apresentados somente quando estiverem confirmados no conteúdo operacional vigente.
+- Equipamentos atendidos: computadores e notebooks.
+- O atendimento remoto existe, mas não deve ser oferecido automaticamente para clientes novos; a autorização é decidida manualmente conforme o caso.
 
 ---
 
-## 13. FAQ
+## 13. Regras comerciais e operacionais
+
+Esta seção registra as regras operacionais definidas para orientar o conteúdo do site e futuras automações de atendimento. O site não deve apresentar regras diferentes das praticadas pela Voitechrj.
+
+### 13.1 Primeiro contato
+
+- O WhatsApp é o principal canal de conversão.
+- O contato inicial deve coletar nome completo, tipo de equipamento, descrição do problema e quando o problema começou, se o cliente souber informar.
+- O atendimento é direcionado à triagem e contratação, não à prestação de diagnóstico técnico gratuito como regra.
+
+### 13.2 Atendimento presencial
+
+- O atendimento presencial ocorre mediante agendamento.
+- O cliente leva o equipamento até o endereço de atendimento.
+- Não há visita técnica/domiciliar como modalidade padrão.
+- Para clientes novos, o atendimento presencial é a modalidade preferencial.
+
+### 13.3 Atendimento remoto
+
+- O atendimento remoto pode ser realizado, mas não é oferecido automaticamente a clientes novos.
+- Para um cliente novo, a realização de atendimento remoto é uma decisão manual, tomada conforme o caso.
+- O fluxo de remoto não deve ser tratado pelo site como uma modalidade garantida para qualquer novo contato.
+
+### 13.4 Diagnóstico e orçamento
+
+- O objetivo principal é resolver o problema do cliente, e não cobrar pelo diagnóstico.
+- O equipamento deve ser analisado o mínimo necessário para decidir se vale a pena avançar.
+- Se a avaliação indicar que não vale a pena prosseguir, não deve haver cobrança automática de diagnóstico e não deve ser realizada intervenção significativa apenas para justificar uma cobrança.
+- Uma taxa de diagnóstico de **R$ 50,00** pode ser aplicada somente em situações específicas que exijam trabalho técnico mais demorado.
+- Quando aplicada, a taxa de R$ 50,00 é abatida do valor do serviço caso o cliente aprove o orçamento.
+- O orçamento pode ser informado diretamente quando o serviço tiver valor definido ou depender de avaliação quando a natureza do serviço exigir.
+- A avaliação não obriga o cliente a aprovar o serviço.
+- Se a desmontagem for necessária para avaliação e o serviço não for aprovado, o equipamento pode ser devolvido desmontado ou parcialmente desmontado. Essa possibilidade deve ser informada ao cliente antes do procedimento que possa alterar o estado do equipamento.
+
+### 13.5 Peças
+
+- A Voitechrj não mantém estoque de peças como regra.
+- Quando uma peça for necessária, o cliente é orientado a comprar a peça e levá-la até o atendimento ou solicitar que a loja/vendedor entregue diretamente no endereço de atendimento.
+- A Voitechrj não assume a compra de peças para o cliente como procedimento padrão.
+
+### 13.6 Prazo
+
+- O prazo padrão informado é de **até 24 horas**.
+- O serviço pode ser concluído antes desse prazo.
+- Casos que exijam mais tempo podem ter o prazo estendido mediante conversa com o cliente, considerando complexidade, disponibilidade de peças ou necessidade específica.
+- O prazo de 24 horas não deve ser apresentado como garantia absoluta para todos os serviços.
+
+### 13.7 Pagamento
+
+A ordem de preferência é:
+
+1. **PIX**;
+2. **Cartão de crédito ou débito pela maquininha Ton**, com juros/taxas repassados ao cliente;
+3. **Transferência bancária**;
+4. **Dinheiro**.
+
+No atendimento presencial, o pagamento ocorre após a conclusão do serviço e antes da devolução do equipamento.
+
+### 13.8 Garantia
+
+- A garantia padrão do serviço é de **7 dias**.
+- A garantia está relacionada ao serviço efetivamente realizado.
+- O surgimento de uma nova falha, alteração posterior, uso inadequado ou outro problema não relacionado ao serviço não caracteriza automaticamente garantia.
+
+### 13.9 Retirada do equipamento
+
+- Após a conclusão, o cliente é avisado de que o equipamento está pronto.
+- Não há, neste momento, prazo fixo de retirada definido na comunicação operacional.
+
+---
+
+## 14. FAQ
 
 ### Objetivo
 
@@ -294,7 +379,7 @@ As respostas devem ser curtas, objetivas e verdadeiras. Informações operaciona
 
 ---
 
-## 14. Contato
+## 15. Contato
 
 ### Canais principais
 
@@ -308,7 +393,7 @@ O WhatsApp deve permanecer como ação de maior destaque por ser o principal can
 
 ---
 
-## 15. Footer
+## 16. Footer
 
 O footer deve concentrar informações institucionais, contato, navegação secundária e links legais.
 
@@ -321,7 +406,7 @@ Links legais atuais:
 
 ---
 
-## 16. Conteúdo legal
+## 17. Conteúdo legal
 
 O site possui modais para Política de Privacidade e Termos de Serviço.
 
@@ -331,7 +416,7 @@ Quando houver mudança relevante na coleta, processamento ou compartilhamento de
 
 ---
 
-## 17. SEO e conteúdo local
+## 18. SEO e conteúdo local
 
 O conteúdo deve reforçar de forma natural a atuação da Voitechrj em Niterói/RJ e os serviços relacionados à manutenção de informática.
 
@@ -351,7 +436,7 @@ Esses termos não devem ser inseridos artificialmente. A prioridade continua sen
 
 ---
 
-## 18. Regras para novos textos
+## 19. Regras para novos textos
 
 Antes de adicionar conteúdo novo:
 
@@ -366,7 +451,7 @@ Antes de adicionar conteúdo novo:
 
 ---
 
-## 19. Conteúdo que requer validação
+## 20. Conteúdo que requer validação
 
 Os seguintes pontos devem ser validados antes de serem tratados como conteúdo definitivo:
 
@@ -385,7 +470,7 @@ Esses itens podem mudar com a operação da empresa e não devem ser considerado
 
 ---
 
-## 20. Conteúdo prioritário para o próximo redesign
+## 21. Conteúdo prioritário para o próximo redesign
 
 Antes de alterações visuais maiores, a prioridade de conteúdo é:
 
@@ -400,10 +485,8 @@ Antes de alterações visuais maiores, a prioridade de conteúdo é:
 
 ---
 
-## 21. Estado do documento
+## 22. Estado do documento
 
-**Status:** documento inicial.
+**Status:** documento atualizado.
 
-Este documento consolida o conteúdo conhecido do website no momento da sua criação e estabelece regras para evolução textual.
-
-Conteúdos operacionais ou comerciais devem ser atualizados quando a realidade da Voitechrj mudar. Alterações permanentes de posicionamento, estrutura de conteúdo ou estratégia de conversão devem ser refletidas também no PRD ou na documentação correspondente.
+Este documento consolida o conteúdo conhecido do website e as regras operacionais definidas para orientar a comunicação da Voitechrj. Conteúdos operacionais ou comerciais devem ser atualizados quando a realidade da empresa mudar. Alterações permanentes de posicionamento, estrutura de conteúdo ou estratégia de conversão devem ser refletidas também no PRD ou na documentação correspondente.
