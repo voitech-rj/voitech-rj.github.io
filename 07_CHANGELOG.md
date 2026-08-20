@@ -60,10 +60,36 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Impacto
 - A documentação do projeto passa a contar com um local específico para acompanhar alterações relevantes.
 
+### 2026-08-20 — Alinhamento operacional e de conteúdo
+
+#### Alterado
+- Ajustado o formulário de agendamento para funcionar como solicitação inicial de atendimento.
+- Formulário atualizado para coletar nome, sobrenome, equipamento, descrição do problema e quando começou, quando informado.
+- Fluxo do formulário direcionado ao WhatsApp sem confirmação automática de horário ou execução do serviço.
+- FAQ alinhada às regras atuais de prazo, pagamento, garantia, diagnóstico, atendimento presencial, remoto e peças.
+- Removidas afirmações comerciais incompatíveis com a operação atual.
+- Depoimentos fictícios deixaram de ser apresentados como avaliações reais.
+- Contexto do projeto atualizado para refletir o fluxo atual.
+- Descrição do atendimento remoto corrigida, removendo a referência a clientes já conhecidos.
+- O valor específico da taxa de diagnóstico deixou de ser tratado como informação pública do site; eventual taxa deve ser informada previamente ao cliente quando aplicável.
+
+#### Motivo
+- Garantir que o conteúdo público do website represente a operação real da Voitechrj sem expor regras internas desnecessariamente.
+
+#### Impacto
+- Maior coerência entre site e operação.
+- Fluxo de primeiro contato mais claro.
+- Regras comerciais internas ficam separadas do conteúdo público.
+
+### Próxima etapa — Revisão visual e UX
+
+- Revisar visual e experiência do usuário do website com base no código atual e em referências visuais fornecidas pelo proprietário.
+- Preservar as funcionalidades e regras operacionais já definidas.
+
 ---
 
 ## 5. Estado do documento
 
-**Status:** documento inicial.
+**Status:** documento em manutenção.
 
 Este arquivo deve ser atualizado conforme alterações relevantes sejam realizadas e validadas no projeto.
