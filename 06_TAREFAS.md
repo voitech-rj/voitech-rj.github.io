@@ -14,15 +14,16 @@
 - [x] Definir direção visual para a prova social: **6 avaliações reais em grade 3×2 no desktop**, adaptada para coluna única no mobile.
 - [x] Definir CTA da prova social: **“Veja as mais de 150 avaliações no Google”**.
 - [x] Selecionar as 6 avaliações reais para a seção.
+- [x] Definir que não será publicada uma promessa fixa de garantia de 7 dias sem validação jurídica e comercial.
+- [x] Definir que a Voitechrj não comercializa peças; orienta o cliente na pesquisa e envia links para compra quando necessário.
+- [x] Validar horários de entrega/agendamento.
+- [x] Validar lógica de prazo e fluxo de análise/orçamento.
+- [x] Validar formas de pagamento e definir que detalhes operacionais de confirmação serão tratados no WhatsApp.
 - [ ] Validar textos da Hero com a operação real.
 - [ ] Validar serviços realmente oferecidos.
 - [ ] Validar diferenciais e promessas comerciais.
-- [ ] Validar informações sobre garantia.
-- [ ] Validar informações sobre peças e componentes.
-- [ ] Validar horários de atendimento.
-- [ ] Validar prazo de atendimento.
-- [ ] Validar formas de pagamento.
-- [ ] Validar endereço e regras de entrega/retirada.
+- [ ] Validar política de responsabilidade/garantia do serviço com segurança jurídica antes de publicar regras específicas.
+- [ ] Validar endereço e regras de entrega/retirada para definir o que será publicado no site e o que ficará somente no WhatsApp.
 - [ ] Validar disponibilidade de atendimento remoto.
 - [ ] Revisar FAQ com base nas informações operacionais confirmadas.
 
@@ -57,21 +58,78 @@ A seção não utilizará widget externo do Google nem integração com API nest
 
 Isso reduz dependências e manutenção técnica. A atualização das seis avaliações será eventual, quando houver motivo para substituir uma delas; o Google continuará sendo a fonte completa e atualizada.
 
+### Garantia e responsabilidade pelo serviço
+
+O proprietário informou que **7 dias não é uma política comercial atualmente definida**, tendo sido apenas uma hipótese considerada razoável. Portanto, não deve ser publicada como garantia de 7 dias neste momento.
+
+A comunicação do site deverá evitar criar uma promessa de prazo de garantia sem que a política comercial e os aspectos jurídicos estejam definidos. Uma formulação futura poderá explicar que problemas relacionados diretamente ao serviço devem ser comunicados para avaliação e solução, mas o texto definitivo deverá ser validado antes da publicação.
+
+### Peças e componentes
+
+A Voitechrj **não comercializa peças ou componentes**. Quando necessário, o proprietário auxilia o cliente a identificar o componente adequado, pesquisa opções e pode enviar links para que o próprio cliente realize a compra.
+
+Portanto, a afirmação anterior de que a empresa trabalha com “componentes originais e de marcas reconhecidas” não representa corretamente a operação e não deve ser mantida como conteúdo definitivo.
+
+A comunicação recomendada é apresentar a atividade como **orientação na escolha de peças/componentes**, deixando clara a separação entre o serviço prestado e a compra do componente pelo cliente.
+
+### Horários, entrega e agendamento
+
+As informações fornecidas pelo proprietário são:
+
+- a portaria do condomínio funciona 24 horas e pode receber equipamentos destinados ao atendimento;
+- a entrega diretamente ao proprietário pode ser combinada por horário;
+- o período em que ele geralmente está disponível para entrega em mãos é entre 13h e 14h e após as 18h, de segunda a sexta-feira.
+
+Para o site, não é necessário publicar todos os detalhes operacionais nem o número do bloco/apartamento. A comunicação preferencial é informar que existe **entrega pela portaria 24h** e que a **entrega em mãos depende de agendamento pelo WhatsApp**.
+
+A portaria 24h deve ser apresentada como facilidade para entrega, não como horário de atendimento do serviço.
+
+### Prazos e processo de atendimento
+
+O fluxo operacional validado é:
+
+1. Cliente entra em contato e informa o problema.
+2. Equipamento é entregue.
+3. É realizada análise técnica para confirmar diagnóstico.
+4. Orçamento e prazo são informados antes da execução.
+5. O serviço somente é executado após aprovação.
+6. O prazo de resolução depende da complexidade do problema identificado.
+
+O objetivo interno de responder chamados urgentes em até 2 horas **não deve ser publicado como promessa de atendimento** neste momento.
+
+No site, a comunicação recomendada é destacar que **o prazo é informado após a análise técnica**, evitando promessas fixas.
+
+### Formas de pagamento
+
+As formas atualmente praticadas são:
+
+- **Pix — forma preferencial**;
+- cartão de crédito;
+- cartão de débito;
+- transferência bancária;
+- dinheiro.
+
+Para pagamentos em cartão pela máquina Ton/Stone, podem existir juros/taxas conforme a modalidade escolhida. O valor final e as condições devem ser informados no atendimento antes do pagamento, sem transformar taxas variáveis em informação fixa no site.
+
+No site, a comunicação deve ser simples: **Pix como forma preferencial**, com indicação de que **cartão também é aceito**. Transferência e dinheiro podem permanecer como alternativas de atendimento, sem receber destaque comercial.
+
+A confirmação do pagamento e o envio do comprovante **antes da retirada do equipamento** devem ser tratados operacionalmente pelo WhatsApp, não como uma instrução extensa na página principal.
+
 ### Resultado parcial da validação — 2026-08-20
 
 O proprietário informou que o perfil do Google possui **151 avaliações**. A contagem anterior de 140 no código está desatualizada.
 
-A prova social fictícia será substituída por seis avaliações reais selecionadas. Os demais dados comerciais ainda dependem de validação antes de alterações definitivas.
+A prova social fictícia será substituída por seis avaliações reais selecionadas. Os dados comerciais agora validados permitem definir uma comunicação mais fiel sobre entrega, análise, prazo, peças e pagamentos.
 
-As informações de garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto permanecem pendentes de confirmação operacional.
+Ainda permanece pendente a validação do atendimento remoto e a revisão final de Hero, serviços, diferenciais e FAQ.
 
 ---
 
 ## 14. Próxima tarefa recomendada
 
-A próxima etapa da Fase 2 é confirmar as informações comerciais e operacionais pendentes antes de implementar a nova prova social ou iniciar alterações estruturais.
+A próxima etapa da Fase 2 é confirmar o **atendimento remoto** e revisar os textos da Hero, serviços, diferenciais e FAQ à luz das informações operacionais já validadas.
 
-Após essa validação, a seção de avaliações poderá ser implementada conforme o formato já definido e deverá ser validada em desktop e mobile.
+Depois dessa revisão, a seção de avaliações poderá ser implementada conforme o formato já definido e deverá ser validada em desktop e mobile.
 
 ## Regra permanente de validação
 
