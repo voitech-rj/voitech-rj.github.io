@@ -38,6 +38,8 @@ header {
 
 .desktop-nav {
   gap: 1.75rem;
+  margin-left: auto;
+  justify-content: flex-end;
 }
 
 .desktop-nav .nav-link {
@@ -87,21 +89,9 @@ header {
   background: #3d6899;
 }
 
+/* O menu hamburguer existe somente no mobile. */
 .mobile-menu-btn {
-  color: #f8f8f8;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid rgba(248, 248, 248, 0.1);
-  border-radius: 0.45rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-menu-btn:hover {
-  color: #f8f8f8;
-  background-color: rgba(52, 90, 135, 0.18);
-  border-color: rgba(52, 90, 135, 0.55);
+  display: none;
 }
 
 .mobile-nav {
@@ -141,5 +131,22 @@ header {
   .header-content {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    color: #f8f8f8;
+    border: 1px solid rgba(248, 248, 248, 0.1);
+    border-radius: 0.45rem;
+  }
+
+  .mobile-menu-btn:hover {
+    color: #f8f8f8;
+    background-color: rgba(52, 90, 135, 0.18);
+    border-color: rgba(52, 90, 135, 0.55);
   }
 }
