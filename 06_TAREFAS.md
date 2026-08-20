@@ -109,11 +109,15 @@ Principais pontos registrados em `AUDITORIA.md`:
 ## 6. Fase 2 — Validação do conteúdo e operação
 
 **Prioridade:** Alta  
-**Status:** Próxima etapa
+**Status:** Em validação
 
 ### Tarefas
 
-- [ ] Validar textos da Hero.
+- [x] Comparar o conteúdo publicado com `05_CONTEUDO.md` e o código atual.
+- [x] Confirmar o WhatsApp utilizado pelo site: `(21) 99447-2406`.
+- [x] Confirmar a atuação/localização em Niterói/RJ.
+- [x] Confirmar que o site utiliza avaliações Google e identificar o número atualmente exibido.
+- [ ] Validar textos da Hero com a operação real.
 - [ ] Validar serviços realmente oferecidos.
 - [ ] Validar diferenciais e promessas comerciais.
 - [ ] Validar informações sobre garantia.
@@ -123,9 +127,24 @@ Principais pontos registrados em `AUDITORIA.md`:
 - [ ] Validar formas de pagamento.
 - [ ] Validar endereço e regras de entrega/retirada.
 - [ ] Validar disponibilidade de atendimento remoto.
-- [ ] Validar quantidade e nota das avaliações exibidas.
 - [ ] Substituir ou confirmar depoimentos atualmente demonstrativos.
 - [ ] Revisar FAQ com base nas informações operacionais confirmadas.
+
+### Resultado parcial da validação — 2026-08-20
+
+A análise do repositório confirmou que o código atual contém:
+
+- WhatsApp `(21) 99447-2406`, também confirmado no cadastro público encontrado para a Voitechrj;
+- atuação em Niterói/RJ;
+- nota `5,0` e `140 avaliações` exibidas na prova social;
+- quatro serviços destacados: instalação de SSD, limpeza completa, troca de pasta térmica e formatação;
+- afirmação comercial de `Até 10x mais velocidade` para SSD;
+- afirmações sobre garantia de satisfação e componentes originais;
+- depoimentos com nomes genéricos/demonstrativos (`Maria Silva`, `João Pereira`, `Ana Costa` e `Carlos Santos`).
+
+A prova social precisa ser tratada com atenção: o cadastro público atualmente encontrado confirma **5,0 e 140 avaliações**, portanto o número exibido no código está coerente com essa fonte no momento da validação. Isso não valida os quatro depoimentos, que continuam sem comprovação de correspondência com avaliações reais.
+
+As informações de garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto não foram consideradas validadas apenas por aparecerem ou não no código. Permanecem pendentes de confirmação operacional antes de serem tratadas como conteúdo definitivo.
 
 ### Resultado esperado
 
@@ -298,7 +317,7 @@ Documentação ✓
     ↓
 Auditoria do código atual ✓
     ↓
-Validação do conteúdo ← PRÓXIMA ETAPA
+Validação do conteúdo ← EM VALIDAÇÃO
     ↓
 Estrutura e UX
     ↓
@@ -323,14 +342,14 @@ Essa ordem evita investir tempo em detalhes visuais antes de conhecer limitaçõ
 
 A auditoria do código atual foi concluída e registrada em `AUDITORIA.md`.
 
-A próxima tarefa é a **Fase 2 — Validação do conteúdo e operação**. Ela deve confirmar as informações que serão efetivamente publicadas no site, principalmente serviços, promessas comerciais, garantias, horários, atendimento, localização, formas de pagamento e prova social.
+A Fase 2 está em validação. A análise do código e das informações públicas confirmou o canal de WhatsApp, a atuação em Niterói/RJ e os dados atuais da prova social, mas ainda existem informações operacionais que precisam ser confirmadas antes de avançar para mudanças estruturais ou redesign visual significativo.
 
-Somente após essa validação deve-se avançar para mudanças estruturais ou redesign visual significativo.
+O próximo bloqueio é a confirmação das condições comerciais e operacionais que não podem ser inferidas com segurança apenas pelo código: garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto. Os depoimentos também precisam ser confirmados ou substituídos por avaliações reais.
 
 ---
 
 ## 15. Estado do documento
 
-**Status:** atualizado após conclusão da auditoria em 2026-08-19.
+**Status:** atualizado em 2026-08-20 após a primeira rodada de validação do conteúdo e da operação.
 
 Este arquivo representa o roadmap atual do projeto e deve ser atualizado conforme as tarefas forem executadas, reordenadas ou descartadas.
