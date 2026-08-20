@@ -32,11 +32,13 @@ Principais seções atualmente presentes:
 - Prova social / avaliações (`#social-proof`);
 - Diferenciais (`#features`);
 - Benefícios;
-- Agendamento (`#booking`);
+- Solicitação de atendimento (`#booking`);
 - FAQ (`#faq`);
 - Footer.
 
-O site possui navegação por âncoras, menu responsivo, formulário de agendamento direcionado ao WhatsApp, modais para privacidade e termos, botão de voltar ao topo e interações em JavaScript.
+O site possui navegação por âncoras, menu responsivo, formulário de solicitação de atendimento direcionado ao WhatsApp, modais para privacidade e termos, botão de voltar ao topo e interações em JavaScript.
+
+O formulário representa uma solicitação inicial de atendimento. O envio não confirma horário nem a execução do serviço.
 
 ## 4. Tecnologias e dependências atuais
 
@@ -60,6 +62,8 @@ O site possui referências para:
 - Google para avaliações;
 - Link direto para avaliação no Google;
 - Navegação interna por âncoras.
+
+O formulário coleta nome, sobrenome, equipamento, descrição do problema e, opcionalmente, quando o problema começou. Os dados são usados para montar a mensagem inicial enviada ao WhatsApp.
 
 O JavaScript atual utiliza, entre outras, as funções `openModal` e `closeModal` e eventos para menu, formulário, FAQ, modais, rolagem e botão de voltar ao topo.
 
