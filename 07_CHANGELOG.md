@@ -81,9 +81,28 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 - Fluxo de primeiro contato mais claro.
 - Regras comerciais internas ficam separadas do conteúdo público.
 
+### 2026-08-20 — Redesign inicial do Header
+
+#### Alterado
+- Header reorganizado visualmente para uma apresentação mais discreta e técnica.
+- Navegação principal passou de botões controlados por JavaScript para links semânticos com âncoras.
+- `Solicitar atendimento` mantido como principal ação do Header, com destaque visual moderado.
+- Menu mobile preservado e ajustado para continuar funcionando com a nova navegação.
+- Estados de foco e atributos de acessibilidade adicionados ao menu.
+- Criado `header.css` para concentrar o tratamento visual específico desta etapa do redesign.
+
+#### Motivo
+- Os itens `Diferenciais`, `Solicitar atendimento`, `Depoimentos` e `Dúvidas frequentes` são destinos internos da mesma página, portanto links são semanticamente mais adequados que botões.
+- Iniciar o redesign pelo Header conforme a ordem definida no documento de identidade visual.
+
+#### Impacto
+- Navegação mais coerente semanticamente.
+- Header mais próximo da direção visual definida.
+- Funcionalidades existentes de navegação suave e menu mobile preservadas.
+
 ### Próxima etapa — Revisão visual e UX
 
-- Revisar visual e experiência do usuário do website com base no código atual e em referências visuais fornecidas pelo proprietário.
+- Continuar o redesign progressivo do website a partir da Hero.
 - Preservar as funcionalidades e regras operacionais já definidas.
 
 ---
