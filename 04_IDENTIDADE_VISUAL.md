@@ -2,41 +2,61 @@
 
 ## 1. Objetivo
 
-Este documento registra a identidade visual atualmente implementada no Voitechrj Website e estabelece referências para futuras alterações visuais.
+Este documento registra a identidade visual definida para o Voitechrj Website e estabelece referências para futuras alterações visuais.
 
 A identidade deve ser tratada como um sistema único, preservando consistência entre seções, componentes e dispositivos.
 
-## 2. Direção visual atual
+## 2. Direção visual
 
-O website utiliza uma estética predominantemente escura, tecnológica e institucional, combinando fundo preto/cinza muito escuro com azul como cor principal de destaque.
+A direção visual definida para a Voitechrj é **escura, técnica, profissional e discreta**.
 
-A interface utiliza superfícies escuras em diferentes níveis, azul institucional para ações e destaques, tipografia sem serifa, cards com bordas discretas, cantos arredondados, sombras, efeitos de brilho pontuais, transições suaves e imagens relacionadas a serviços de informática.
+O site deve transmitir:
 
-A direção visual deve transmitir profissionalismo, confiança, tecnologia e clareza sem transformar o site em uma interface excessivamente complexa.
+- confiança;
+- competência técnica;
+- clareza;
+- atendimento direto;
+- simplicidade;
+- profissionalismo.
+
+A aparência deve se aproximar de um site profissional de manutenção e suporte de informática, e não de uma landing page genérica de SaaS ou de um template visual excessivamente produzido.
+
+O design deve ter personalidade própria e evitar aparência de conteúdo ou layout gerado automaticamente.
+
+### Princípios visuais
+
+1. Menos efeitos decorativos e mais hierarquia visual.
+2. Espaço negativo suficiente para melhorar leitura e percepção de qualidade.
+3. Azul utilizado como destaque, não como preenchimento indiscriminado da interface.
+4. Superfícies escuras com diferenças sutis de profundidade.
+5. Imagens e elementos gráficos somente quando contribuírem para a apresentação do serviço.
+6. Componentes consistentes entre as diferentes seções.
+7. Responsividade tratada como parte do design, não como adaptação posterior.
 
 ## 3. Paleta de cores
 
-As cores globais são centralizadas em variáveis CSS no `:root` do `style.css`.
+A nova direção visual utiliza três cores principais:
 
-| Função | Variável | Valor atual |
-|---|---|---|
-| Primária | `--color-primary` | `#034694` |
-| Primária hover | `--color-primary-hover` | `#023675` |
-| Secundária | `--color-secondary` | `#1f2937` |
-| Fundo | `--color-background` | `#0a0a0a` |
-| Superfície | `--color-surface` | `#171717` |
-| Superfície clara | `--color-surface-light` | `#1e1e1e` |
-| Superfície mais clara | `--color-surface-lighter` | `#2a2a2a` |
-| Texto principal | `--color-text` | `#f3f4f6` |
-| Texto secundário | `--color-text-muted` | `#9ca3af` |
-| Borda | `--color-border` | `rgba(255, 255, 255, 0.1)` |
-| Borda destacada | `--color-border-light` | `rgba(255, 255, 255, 0.2)` |
+| Função | Valor |
+|---|---|
+| Fundo principal | `#222222` |
+| Azul institucional / destaque | `#345A87` |
+| Texto principal / contraste claro | `#F8F8F8` |
 
-Valores recorrentes devem continuar centralizados nas variáveis CSS quando fizer sentido.
+Cores auxiliares podem ser derivadas dessas referências quando necessárias para criar hierarquia, estados de interação, bordas e superfícies, mas não devem descaracterizar a paleta principal.
+
+Sugestões de uso:
+
+- `#222222`: fundo predominante da página;
+- `#345A87`: botões primários, links em destaque, indicadores e elementos de interação;
+- `#F8F8F8`: títulos, textos principais e elementos de alto contraste;
+- variações de cinza: textos secundários, bordas e superfícies intermediárias.
+
+O azul deve ser utilizado com moderação. A interface não deve parecer predominantemente azul.
 
 ## 4. Tipografia
 
-O projeto utiliza duas famílias tipográficas carregadas pelo Google Fonts.
+O projeto utiliza atualmente duas famílias tipográficas carregadas pelo Google Fonts.
 
 ### Montserrat
 
@@ -50,113 +70,191 @@ Utilizada como fonte principal para textos e interface.
 
 `--font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;`
 
-A hierarquia tipográfica deve ser preservada para manter contraste entre títulos, textos auxiliares e elementos de ação.
+A hierarquia tipográfica deve ser clara, mas sem excesso de tamanhos, pesos ou estilos diferentes.
 
 ## 5. Logo e marca
 
 A logo principal está armazenada em `assets/voitechrj-logo.png`.
 
-No header, a imagem é apresentada dentro de um contêiner circular de aproximadamente `2rem`, com borda discreta e fundo preto.
+A logo deve permanecer legível e reconhecível, sem efeitos que prejudiquem sua identidade.
 
-A marca não deve receber efeitos ou alterações que prejudiquem sua legibilidade ou reconhecimento.
+O tratamento da marca deve ser discreto e integrado ao tema escuro.
 
 ## 6. Layout e espaçamento
 
-O layout utiliza um contêiner global com largura máxima de `1200px`.
+O layout deve priorizar:
 
-Em telas menores, o contêiner utiliza padding horizontal de `1rem`. A partir de `768px`, a implementação atual utiliza largura de `80%`.
+- alinhamento consistente;
+- espaço negativo;
+- leitura confortável;
+- hierarquia clara;
+- largura adequada de conteúdo;
+- adaptação natural entre desktop e mobile.
 
-As seções utilizam espaçamentos verticais amplos, principalmente em áreas institucionais e de destaque. A organização deve priorizar hierarquia visual clara, leitura confortável, alinhamento consistente e adaptação adequada para telas pequenas.
+O contêiner global atual de aproximadamente `1200px` pode ser preservado enquanto continuar adequado ao conteúdo.
+
+Não utilizar espaços exagerados apenas para preencher a tela.
 
 ## 7. Botões e ações
 
-O botão primário utiliza fundo azul `--color-primary`, texto branco, padding consistente, formato pill com `border-radius: 9999px`, peso tipográfico `600`, ícones alinhados ao texto quando utilizados e transição de aproximadamente `0.3s`.
+Os botões devem ter aparência profissional e objetiva.
 
-No hover, o botão altera a cor para `--color-primary-hover` e utiliza leve deslocamento vertical.
+O botão primário deve utilizar o `#345A87` como destaque, com texto `#F8F8F8`.
 
-Botões secundários utilizam superfícies escuras, bordas discretas e o azul como destaque no hover.
+O formato pill (`border-radius: 9999px`) não deve ser tratado como regra obrigatória. O formato dos botões deve ser definido conforme a composição visual e pode utilizar cantos moderadamente arredondados.
+
+Evitar botões excessivamente grandes, chamativos ou com efeitos de brilho.
+
+Estados de hover e foco devem ser perceptíveis sem exagero.
 
 ## 8. Cards
 
-Os cards são utilizados em diferentes áreas do site, incluindo serviços e prova social.
+Cards podem ser utilizados quando ajudarem a organizar informações, mas não devem transformar toda a página em uma coleção de caixas flutuantes.
 
-Características visuais recorrentes:
+Características preferenciais:
 
-- fundo em superfície escura;
-- borda sutil;
-- cantos arredondados;
-- espaçamento interno proporcional ao dispositivo;
-- transições discretas;
-- destaque azul em estados de interação quando aplicável.
+- superfícies discretamente diferentes do fundo;
+- bordas sutis;
+- cantos moderadamente arredondados;
+- espaçamento interno adequado;
+- pouca ou nenhuma sombra pesada;
+- destaque visual somente quando necessário.
 
-Cards não devem receber estilos completamente diferentes entre seções sem uma necessidade de design clara.
+Sempre avaliar se determinado conteúdo realmente precisa de um card antes de criar um novo componente.
 
 ## 9. Hero
 
-A Hero é visualmente mais rica que as demais seções.
+A Hero é a principal área de apresentação do site e deve estabelecer imediatamente a identidade da Voitechrj.
 
-A implementação atual utiliza fundo em gradiente escuro, brilhos azuis desfocados, conteúdo sobreposto ao fundo, título de grande destaque, descrição secundária, ações principais e cards visuais relacionados aos serviços.
+A direção preferencial é:
 
-O efeito visual deve continuar subordinado à mensagem principal e às ações de conversão.
+- fundo escuro;
+- título forte e direto;
+- descrição curta e clara;
+- ação principal evidente;
+- informação secundária sem competir com a ação principal;
+- elemento visual relacionado à informática somente quando agregar valor.
+
+Evitar:
+
+- excesso de gradientes;
+- glow azul espalhado pela composição;
+- excesso de cards sobrepostos;
+- ilustrações genéricas de tecnologia;
+- aparência de template SaaS.
+
+A mensagem deve ter prioridade sobre os efeitos visuais.
 
 ## 10. Header e navegação
 
-O header utiliza posicionamento sticky e fundo escuro com transparência, blur e borda inferior discreta.
+O header deve ser limpo e discreto.
 
-A navegação desktop utiliza links simples com destaque azul no hover. No mobile, a navegação é substituída por menu específico, mantendo a identidade visual das superfícies escuras.
+A navegação deve utilizar o fundo escuro como base e o azul somente para estados de destaque.
 
-A navegação deve continuar clara e funcional sem competir visualmente com a Hero.
+O header não deve competir visualmente com a Hero.
+
+No mobile, o menu deve manter a mesma linguagem visual, com interação simples e clara.
 
 ## 11. Imagens e tratamentos visuais
 
-As imagens utilizadas em cards de serviço ocupam integralmente o espaço disponível, utilizando `object-fit: cover`.
+Imagens devem possuir relação direta com manutenção, computadores, notebooks ou atendimento técnico.
 
-Os cards possuem overlay em gradiente escuro para preservar a legibilidade dos textos sobre as imagens. Em hover, as imagens de serviço utilizam zoom suave.
+Evitar imagens genéricas de banco que transmitam uma sensação artificial ou pouco relacionada à realidade da Voitechrj.
 
-Imagens futuras devem seguir o princípio de relevância ao serviço, boa qualidade, otimização de tamanho e coerência com a identidade tecnológica/institucional.
+Quando uma imagem não acrescentar informação ou personalidade à seção, é preferível utilizar composição tipográfica e elementos da própria interface.
+
+Overlays, zoom e efeitos similares devem ser discretos.
 
 ## 12. Bordas, sombras e profundidade
 
-A interface utiliza bordas com baixa opacidade para separar superfícies sem criar divisões visuais pesadas.
+A profundidade da interface deve ser construída principalmente através de pequenas diferenças entre fundo, superfícies e bordas.
 
-Sombras são utilizadas de maneira moderada, principalmente em elementos de navegação e ações.
+Sombras devem ser moderadas.
 
-Efeitos de blur e glow devem ser utilizados com parcimônia, especialmente em dispositivos móveis, considerando desempenho e legibilidade.
+Glow, blur e efeitos luminosos devem ser utilizados apenas quando houver uma justificativa visual clara.
+
+A interface não deve parecer excessivamente futurista.
 
 ## 13. Animações e transições
 
-As animações atuais são predominantemente sutis e funcionais, incluindo transições de hover, entrada do menu mobile, zoom de imagens, animações associadas à rolagem e pequenos deslocamentos de botões e elementos.
+As animações devem ser sutis e funcionais.
 
-Novas animações devem melhorar a percepção de interação ou hierarquia. Não devem existir apenas como efeito decorativo. Também devem ser avaliadas quanto a desempenho e acessibilidade.
+Prioridades:
+
+- indicar interação;
+- melhorar percepção de navegação;
+- dar continuidade à experiência.
+
+Evitar animações apenas decorativas ou excessivas.
+
+Também devem ser consideradas acessibilidade e desempenho em dispositivos móveis.
 
 ## 14. Responsividade visual
 
-A identidade visual deve permanecer consistente em desktop, notebook, tablet e smartphone.
+A identidade deve permanecer consistente em desktop, notebook, tablet e smartphone.
 
-A implementação atual utiliza breakpoints, entre outros, em `640px`, `768px`, `1024px` e `1280px`.
-
-Em telas menores podem ocorrer adaptações específicas, como redução de tamanhos, alteração de disposição dos elementos e simplificação de informações secundárias. Essas adaptações devem preservar a hierarquia visual e a conversão.
+A versão mobile não deve ser simplesmente uma versão comprimida do desktop. Elementos secundários podem ser reduzidos ou reorganizados para preservar a hierarquia.
 
 ## 15. Acessibilidade visual
 
-Alterações visuais devem considerar contraste entre texto e fundo, tamanho adequado de textos, estados claros de hover/foco, legibilidade em telas pequenas, navegação por teclado e não dependência exclusiva de cor para comunicar estados.
+Alterações visuais devem considerar:
 
-O azul utilizado como identidade não deve ser aplicado indiscriminadamente em textos ou fundos quando comprometer contraste.
+- contraste adequado;
+- legibilidade;
+- tamanho de texto;
+- estados de foco;
+- navegação por teclado;
+- não dependência exclusiva de cor para comunicar estados.
 
-## 16. Regras para futuras alterações
+O `#345A87` não deve ser usado em textos pequenos sobre fundos escuros se o contraste resultante prejudicar a leitura.
 
-1. Preservar a identidade escura e azul enquanto ela continuar adequada ao posicionamento da empresa.
-2. Utilizar as variáveis CSS existentes para cores e fontes recorrentes.
-3. Evitar introduzir novas cores sem necessidade visual clara.
-4. Evitar misturar estilos de design incompatíveis entre seções.
-5. Priorizar consistência entre componentes semelhantes.
-6. Avaliar desktop e mobile antes de considerar uma alteração visual concluída.
-7. Considerar desempenho ao adicionar imagens, blur, glow ou animações.
-8. Não alterar a logo sem uma decisão específica de identidade visual.
-9. Alterações permanentes ou estruturais devem ser refletidas neste documento.
+## 16. O que evitar
 
-## 17. Estado atual
+A identidade visual da Voitechrj deve evitar deliberadamente:
 
-**Status:** documento inicial baseado na implementação visual existente no `style.css`.
+- aparência genérica de IA;
+- estética de dashboard/SaaS sem relação com o negócio;
+- excesso de gradientes;
+- excesso de neon ou glow;
+- excesso de cards;
+- excesso de elementos arredondados;
+- ilustrações tecnológicas genéricas;
+- excesso de ícones decorativos;
+- animações chamativas;
+- linguagem visual excessivamente corporativa ou impessoal.
 
-Este documento representa a identidade visual atual conhecida do projeto. Ele poderá ser atualizado quando ocorrer um redesign ou quando novos padrões visuais forem definidos de forma permanente.
+## 17. Regras para futuras alterações
+
+1. Preservar a identidade escura e técnica.
+2. Priorizar `#222222`, `#345A87` e `#F8F8F8`.
+3. Evitar introduzir novas cores sem necessidade clara.
+4. Usar o azul com moderação.
+5. Priorizar clareza e hierarquia sobre efeitos decorativos.
+6. Evitar soluções com aparência genérica de template ou IA.
+7. Avaliar desktop e mobile antes de considerar uma alteração visual concluída.
+8. Preservar a legibilidade e o reconhecimento da logo.
+9. Considerar desempenho ao adicionar imagens, blur ou animações.
+10. Registrar neste documento qualquer decisão visual permanente.
+
+## 18. Próxima etapa visual
+
+O redesign será realizado progressivamente, começando por:
+
+1. Header;
+2. Hero;
+3. Serviços e diferenciais;
+4. Prova social;
+5. Benefícios;
+6. Formulário;
+7. FAQ;
+8. Footer;
+9. Revisão mobile;
+10. Revisão final de consistência.
+
+Nenhuma dessas etapas deve alterar as regras operacionais ou o conteúdo já validado sem decisão específica.
+
+## 19. Estado do documento
+
+**Status:** direção visual definida para o próximo redesign.
+
+Este documento substitui a descrição anterior da identidade visual quando houver conflito entre as duas. A implementação no `style.css` ainda deverá ser ajustada progressivamente conforme o redesign for executado.
