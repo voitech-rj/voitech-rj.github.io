@@ -6,18 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuIcon = document.getElementById('menu-icon');
 
   menuBtn.addEventListener('click', () => {
-    mobileNav.classList.toggle('active');
-    menuIcon.setAttribute('data-lucide', mobileNav.classList.contains('active') ? 'x' : 'menu');
+    const isOpen = mobileNav.classList.toggle('active');
+    menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
     lucide.createIcons();
   });
 
-  document.querySelectorAll('button[data-scroll]').forEach(link => {
-    link.addEventListener('click', () => {
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', (event) => {
       const targetElement = document.getElementById(link.getAttribute('data-scroll'));
-      if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+      if (!targetElement) return;
+
+      event.preventDefault();
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+
       if (mobileNav.classList.contains('active')) {
         mobileNav.classList.remove('active');
         menuIcon.setAttribute('data-lucide', 'menu');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'Abrir menu');
         lucide.createIcons();
       }
     });
