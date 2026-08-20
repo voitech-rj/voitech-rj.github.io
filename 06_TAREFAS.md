@@ -117,10 +117,11 @@ Principais pontos registrados em `AUDITORIA.md`:
 - [x] Comparar o conteúdo publicado com `05_CONTEUDO.md` e o código atual.
 - [x] Confirmar o WhatsApp utilizado pelo site: `(21) 99447-2406`.
 - [x] Confirmar a atuação/localização em Niterói/RJ.
-- [x] Confirmar que o site utiliza avaliações Google e identificar o número atualmente exibido.
+- [x] Confirmar que o site utiliza avaliações Google e identificar a contagem atual.
 - [x] Definir direção visual para a prova social: **6 avaliações reais em grade 3×2 no desktop**, adaptada para coluna única no mobile.
 - [x] Definir CTA da prova social: **“Veja as mais de 150 avaliações no Google”**.
-- [ ] Selecionar as 6 avaliações reais que serão destacadas.
+- [x] Analisar 5 avaliações reais fornecidas pelo proprietário e definir candidatos para a seção.
+- [ ] Selecionar a 6ª avaliação real.
 - [ ] Validar textos da Hero com a operação real.
 - [ ] Validar serviços realmente oferecidos.
 - [ ] Validar diferenciais e promessas comerciais.
@@ -140,7 +141,7 @@ A análise do repositório confirmou que o código atual contém:
 
 - WhatsApp `(21) 99447-2406`, também confirmado no cadastro público encontrado para a Voitechrj;
 - atuação em Niterói/RJ;
-- nota `5,0` e contagem de avaliações que já está desatualizada no código;
+- nota `5,0` e contagem de avaliações que estava desatualizada no código;
 - quatro serviços destacados: instalação de SSD, limpeza completa, troca de pasta térmica e formatação;
 - afirmação comercial de `Até 10x mais velocidade` para SSD;
 - afirmações sobre garantia de satisfação e componentes originais;
@@ -148,9 +149,41 @@ A análise do repositório confirmou que o código atual contém:
 
 Foi informado pelo proprietário que o perfil do Google já possui **151 avaliações**. Portanto, o valor anterior de `140 avaliações` no código deve ser tratado como desatualizado e não deve ser reutilizado. A direção definida é usar uma chamada sem número fixo no componente principal, com o CTA **“Veja as mais de 150 avaliações no Google”**, evitando manutenção frequente da contagem.
 
-A prova social visual será composta por **6 avaliações reais**, organizadas em **3 colunas × 2 linhas no desktop** e empilhadas no mobile. A seleção das seis avaliações ainda precisa ser feita a partir do conteúdo real do perfil.
+### Avaliações reais recebidas para seleção
 
-A tentativa de consultar diretamente a página de resultados do Google fornecida pelo proprietário não permitiu recuperar as avaliações individuais de forma confiável. Portanto, nenhuma avaliação específica será inventada ou escolhida com base em fonte secundária.
+Foram fornecidos cinco registros reais por captura de tela. Todos são avaliações de 5 estrelas e apresentam conteúdo específico sobre a experiência com o serviço.
+
+**Candidatos selecionados para a seção:**
+
+1. **Rômulo Passos** — destaca rapidez, solução do problema e confiança para futuros atendimentos.
+2. **Eduardo Cardoso** — destaca atendimento, indicação de custo-benefício, rapidez, preço justo e recomendação para amigos.
+3. **Fabrício Jotha** — destaca solução rápida do problema, atenção e intenção de continuar utilizando os serviços.
+4. **Thiago Lauriano** — destaca recuperação de dados, rapidez, clareza, segurança e resultado superior ao esperado.
+5. **Bruno Cruz** — destaca empenho, rapidez e solução de um problema que o cliente considerava difícil de resolver.
+
+A seleção é forte porque apresenta **variedade de benefícios**: rapidez, confiança, atendimento, custo-benefício, recuperação de dados e resolução de problemas difíceis. Também evita que os seis cards repitam a mesma mensagem comercial.
+
+A 6ª avaliação ainda não foi fornecida. Ela deve ser adicionada antes da implementação para manter a decisão de utilizar seis cards.
+
+### Formato visual definido
+
+A seção de prova social será planejada como:
+
+- 6 avaliações reais;
+- 3 colunas × 2 linhas no desktop;
+- coluna única no mobile;
+- estrelas de 5 pontos;
+- nome real do avaliador;
+- comentário real, podendo haver redução de texto apenas por critérios de apresentação, sem alterar seu sentido;
+- CTA para o Google após os cards;
+- destaque para `5,0 ★ no Google`;
+- evitar fixar a quantidade exata de avaliações no texto principal, pois ela muda com o tempo.
+
+### Fonte e manutenção
+
+A seção não utilizará um widget externo do Google nem uma integração com API nesta etapa. As avaliações destacadas serão conteúdo estático selecionado manualmente, enquanto o CTA apontará para as avaliações reais no Google.
+
+Isso reduz dependências, evita complexidade técnica e permite que a prova social continue funcionando mesmo quando a quantidade de avaliações mudar.
 
 As informações de garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto não foram consideradas validadas apenas por aparecerem ou não no código. Permanecem pendentes de confirmação operacional antes de serem tratadas como conteúdo definitivo.
 
@@ -352,7 +385,7 @@ A auditoria do código atual foi concluída e registrada em `AUDITORIA.md`.
 
 A Fase 2 está em validação. A análise do código e das informações públicas confirmou o canal de WhatsApp e a atuação em Niterói/RJ. A contagem antiga de 140 avaliações foi considerada desatualizada após confirmação do proprietário de que o perfil já possui 151 avaliações.
 
-A direção da prova social já foi definida: seis avaliações reais em grade 3×2 no desktop, empilhadas no mobile, acompanhadas de um CTA para as mais de 150 avaliações no Google. Falta selecionar as seis avaliações reais antes da implementação.
+A direção da prova social já foi definida: seis avaliações reais em grade 3×2 no desktop, empilhadas no mobile, acompanhadas de um CTA para as mais de 150 avaliações no Google. Cinco avaliações reais já foram analisadas e selecionadas como candidatas; falta apenas uma sexta avaliação.
 
 O próximo bloqueio continua sendo a confirmação das condições comerciais e operacionais que não podem ser inferidas com segurança apenas pelo código: garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto.
 
@@ -360,6 +393,6 @@ O próximo bloqueio continua sendo a confirmação das condições comerciais e 
 
 ## 15. Estado do documento
 
-**Status:** atualizado em 2026-08-20 após definição da direção visual da prova social e inclusão da validação obrigatória em mobile.
+**Status:** atualizado em 2026-08-20 após análise de cinco avaliações reais fornecidas pelo proprietário e definição do formato da prova social.
 
 Este arquivo representa o roadmap atual do projeto e deve ser atualizado conforme as tarefas forem executadas, reordenadas ou descartadas.
