@@ -19,11 +19,12 @@ As tarefas devem seguir estas regras:
 3. Preservar funcionalidades que não fazem parte da tarefa.
 4. Priorizar soluções simples, nativas e fáceis de manter.
 5. Considerar desktop e mobile em alterações de layout.
-6. Validar funcionalidades após alterações relevantes.
-7. Evitar implementar várias mudanças estruturais simultaneamente sem validação intermediária.
-8. Atualizar a documentação quando uma decisão permanente for tomada.
-9. Não tratar conteúdo provisório ou não validado como definitivo.
-10. Alterações diretas no `main` somente mediante autorização explícita.
+6. **Toda alteração de interface, conteúdo visual ou comportamento deve ser validada em desktop e mobile antes de ser considerada concluída.**
+7. Validar funcionalidades após alterações relevantes.
+8. Evitar implementar várias mudanças estruturais simultaneamente sem validação intermediária.
+9. Atualizar a documentação quando uma decisão permanente for tomada.
+10. Não tratar conteúdo provisório ou não validado como definitivo.
+11. Alterações diretas no `main` somente mediante autorização explícita.
 
 ---
 
@@ -117,6 +118,9 @@ Principais pontos registrados em `AUDITORIA.md`:
 - [x] Confirmar o WhatsApp utilizado pelo site: `(21) 99447-2406`.
 - [x] Confirmar a atuação/localização em Niterói/RJ.
 - [x] Confirmar que o site utiliza avaliações Google e identificar o número atualmente exibido.
+- [x] Definir direção visual para a prova social: **6 avaliações reais em grade 3×2 no desktop**, adaptada para coluna única no mobile.
+- [x] Definir CTA da prova social: **“Veja as mais de 150 avaliações no Google”**.
+- [ ] Selecionar as 6 avaliações reais que serão destacadas.
 - [ ] Validar textos da Hero com a operação real.
 - [ ] Validar serviços realmente oferecidos.
 - [ ] Validar diferenciais e promessas comerciais.
@@ -136,13 +140,17 @@ A análise do repositório confirmou que o código atual contém:
 
 - WhatsApp `(21) 99447-2406`, também confirmado no cadastro público encontrado para a Voitechrj;
 - atuação em Niterói/RJ;
-- nota `5,0` e `140 avaliações` exibidas na prova social;
+- nota `5,0` e contagem de avaliações que já está desatualizada no código;
 - quatro serviços destacados: instalação de SSD, limpeza completa, troca de pasta térmica e formatação;
 - afirmação comercial de `Até 10x mais velocidade` para SSD;
 - afirmações sobre garantia de satisfação e componentes originais;
 - depoimentos com nomes genéricos/demonstrativos (`Maria Silva`, `João Pereira`, `Ana Costa` e `Carlos Santos`).
 
-A prova social precisa ser tratada com atenção: o cadastro público atualmente encontrado confirma **5,0 e 140 avaliações**, portanto o número exibido no código está coerente com essa fonte no momento da validação. Isso não valida os quatro depoimentos, que continuam sem comprovação de correspondência com avaliações reais.
+Foi informado pelo proprietário que o perfil do Google já possui **151 avaliações**. Portanto, o valor anterior de `140 avaliações` no código deve ser tratado como desatualizado e não deve ser reutilizado. A direção definida é usar uma chamada sem número fixo no componente principal, com o CTA **“Veja as mais de 150 avaliações no Google”**, evitando manutenção frequente da contagem.
+
+A prova social visual será composta por **6 avaliações reais**, organizadas em **3 colunas × 2 linhas no desktop** e empilhadas no mobile. A seleção das seis avaliações ainda precisa ser feita a partir do conteúdo real do perfil.
+
+A tentativa de consultar diretamente a página de resultados do Google fornecida pelo proprietário não permitiu recuperar as avaliações individuais de forma confiável. Portanto, nenhuma avaliação específica será inventada ou escolhida com base em fonte secundária.
 
 As informações de garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto não foram consideradas validadas apenas por aparecerem ou não no código. Permanecem pendentes de confirmação operacional antes de serem tratadas como conteúdo definitivo.
 
@@ -286,7 +294,7 @@ Melhorar a acessibilidade sem adicionar complexidade desnecessária.
 ### Checklist mínimo antes de publicar alterações relevantes
 
 - [ ] Testar desktop.
-- [ ] Testar mobile.
+- [ ] **Testar mobile em pelo menos uma largura de smartphone e revisar a adaptação do layout.**
 - [ ] Testar navegação interna.
 - [ ] Testar menu responsivo.
 - [ ] Testar formulário.
@@ -342,14 +350,16 @@ Essa ordem evita investir tempo em detalhes visuais antes de conhecer limitaçõ
 
 A auditoria do código atual foi concluída e registrada em `AUDITORIA.md`.
 
-A Fase 2 está em validação. A análise do código e das informações públicas confirmou o canal de WhatsApp, a atuação em Niterói/RJ e os dados atuais da prova social, mas ainda existem informações operacionais que precisam ser confirmadas antes de avançar para mudanças estruturais ou redesign visual significativo.
+A Fase 2 está em validação. A análise do código e das informações públicas confirmou o canal de WhatsApp e a atuação em Niterói/RJ. A contagem antiga de 140 avaliações foi considerada desatualizada após confirmação do proprietário de que o perfil já possui 151 avaliações.
 
-O próximo bloqueio é a confirmação das condições comerciais e operacionais que não podem ser inferidas com segurança apenas pelo código: garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto. Os depoimentos também precisam ser confirmados ou substituídos por avaliações reais.
+A direção da prova social já foi definida: seis avaliações reais em grade 3×2 no desktop, empilhadas no mobile, acompanhadas de um CTA para as mais de 150 avaliações no Google. Falta selecionar as seis avaliações reais antes da implementação.
+
+O próximo bloqueio continua sendo a confirmação das condições comerciais e operacionais que não podem ser inferidas com segurança apenas pelo código: garantia, peças/componentes, horários, prazo, pagamentos, regras de entrega/retirada e atendimento remoto.
 
 ---
 
 ## 15. Estado do documento
 
-**Status:** atualizado em 2026-08-20 após a primeira rodada de validação do conteúdo e da operação.
+**Status:** atualizado em 2026-08-20 após definição da direção visual da prova social e inclusão da validação obrigatória em mobile.
 
 Este arquivo representa o roadmap atual do projeto e deve ser atualizado conforme as tarefas forem executadas, reordenadas ou descartadas.
