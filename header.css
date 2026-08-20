@@ -1,0 +1,145 @@
+/* Header redesign — Voitechrj */
+
+header {
+  background-color: rgba(34, 34, 34, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(248, 248, 248, 0.08);
+}
+
+.header-content {
+  min-height: 4.5rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.logo-container {
+  gap: 0.7rem;
+  color: #f8f8f8;
+}
+
+.logo-container:focus-visible,
+.nav-link:focus-visible,
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid #345a87;
+  outline-offset: 4px;
+}
+
+.header-logo-wrapper {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-color: rgba(248, 248, 248, 0.12);
+  background-color: #222222;
+}
+
+.logo-text {
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.desktop-nav {
+  gap: 1.75rem;
+}
+
+.desktop-nav .nav-link {
+  position: relative;
+  color: rgba(248, 248, 248, 0.78);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.45rem 0;
+}
+
+.desktop-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #345a87;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.desktop-nav .nav-link:hover,
+.desktop-nav .nav-link:focus-visible {
+  color: #f8f8f8;
+}
+
+.desktop-nav .nav-link:hover::after,
+.desktop-nav .nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.desktop-nav .nav-link.nav-cta {
+  color: #f8f8f8;
+  background: #345a87;
+  padding: 0.6rem 1rem;
+  border-radius: 0.45rem;
+}
+
+.desktop-nav .nav-link.nav-cta::after {
+  display: none;
+}
+
+.desktop-nav .nav-link.nav-cta:hover,
+.desktop-nav .nav-link.nav-cta:focus-visible {
+  background: #3d6899;
+}
+
+.mobile-menu-btn {
+  color: #f8f8f8;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(248, 248, 248, 0.1);
+  border-radius: 0.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-btn:hover {
+  color: #f8f8f8;
+  background-color: rgba(52, 90, 135, 0.18);
+  border-color: rgba(52, 90, 135, 0.55);
+}
+
+.mobile-nav {
+  background-color: #222222;
+  border-top: 1px solid rgba(248, 248, 248, 0.08);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+}
+
+.mobile-nav-content {
+  padding: 1rem;
+  gap: 0.25rem;
+}
+
+.mobile-nav .nav-link {
+  display: block;
+  width: 100%;
+  padding: 0.8rem 0.25rem;
+  color: rgba(248, 248, 248, 0.82);
+  font-size: 0.95rem;
+}
+
+.mobile-nav .nav-link:hover,
+.mobile-nav .nav-link:focus-visible {
+  color: #f8f8f8;
+}
+
+.mobile-nav .nav-cta {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.45rem;
+  background: #345a87;
+  color: #f8f8f8;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .header-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
