@@ -1435,14 +1435,6 @@ textarea.form-input {
   gap: 1rem;
 }
 
-@media (max-width: 639px) {
-  .footer-bottom-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.85rem;
-  }
-}
-
 .footer-copy {
   color: #d1d5db;
   font-size: 0.85rem;
@@ -1476,6 +1468,88 @@ textarea.form-input {
   color: #6b7280;
   font-size: 0.75rem;
   user-select: none;
+}
+
+/* Footer Mobile Centering (Apenas em telas mobile) */
+@media (max-width: 639px) {
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-title {
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-links li a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-links li a:hover {
+    transform: none;
+  }
+
+  .footer-contact-list {
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-contact-item {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-address-block {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-status-pill {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-brand {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.85rem;
+  }
+
+  .footer-copy {
+    text-align: center;
+  }
+
+  .footer-legal {
+    justify-content: center;
+  }
 }
 
 /* Modals */
