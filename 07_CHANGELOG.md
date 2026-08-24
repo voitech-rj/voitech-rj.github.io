@@ -48,6 +48,18 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-08-24 — Alinhamento à esquerda da seção Hero no Mobile
+
+#### Alterado
+- **Hero (`.hero-text-banner`, `.hero-desc`, `.hero-banner-actions`)**:
+  - Ajustado o comportamento responsivo para telas móveis e tablets (`max-width: 991px`), alinhando o título ("Manutenção de informática com clareza e confiança"), subtítulo/tagline, texto descritivo e botão CTA à esquerda (`text-align: left`, `align-items: flex-start`, `justify-content: flex-start`), padronizando o alinhamento com a identidade do desktop e do rodapé.
+
+#### Motivo
+- Atendimento à solicitação visual para manter a leitura do bloco hero alinhada à esquerda em dispositivos móveis.
+
+#### Impacto
+- Leitura mais confortável e coerente na visualização mobile.
+
 ### 2026-08-24 — Alinhamento de Políticas de Privacidade, Termos de Serviço e FAQ
 
 #### Alterado
@@ -73,13 +85,15 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 ### 2026-08-24 — Redesign do Rodapé (Dark Technical & Minimalist Elegance)
 
 #### Alterado
-- Implementada nova estrutura e estilos para o rodapé (`.site-footer`), organizado em 4 colunas balanceadas de larguras perfeitamente iguais (`repeat(4, 1fr)`) e barra inferior:
+- Implementada nova estrutura e estilos para o rodapé (`.site-footer`), organizado em 4 colunas balanceadas de larguras simétricas (`repeat(4, 1fr)`) e barra inferior:
   - **Coluna 1 (Navegação)**: Links rápidos para todas as seções com rolagem suave (`data-scroll`), em estilo neutro e limpo.
   - **Coluna 2 (Serviços)**: Links diretos para as especialidades (Formatação, Limpeza Térmica, Upgrades, Montagem, Revisão).
   - **Coluna 3 (Atendimento)**: Telefone/WhatsApp, e-mail, endereço com lembrete de agendamento prévio e badge técnico monocromático (preto e branco) no mesmo padrão refinado dos botões de redes sociais.
   - **Coluna 4 (Marca & Redes)**: Logo oficial com avatar sutil, nome institucional, descrição clara dos serviços em Niterói/RJ e botões estilizados para Instagram e Facebook.
   - **Barra Inferior**: Copyright 2026 com contraste mais nítido e claro, e botões interativos para abertura dos modais de Política de Privacidade e Termos de Serviço.
-- Adicionadas regras de CSS responsivo com grid adaptativo (4 colunas simétricas em desktop, 2x2 tablet, coluna única mobile) e micro-interações refinadas de hover.
+- Ajustada a centralização horizontal do contêiner (`max-width: 1200px; margin: 0 auto;`) com alinhamento rigorosamente à esquerda para todos os textos, títulos e blocos internos.
+- Ajuste mobile específico: largura do contêiner reduzida para `max-width: 280px` e centralizada na viewport, mantendo todo o conteúdo alinhado à esquerda de forma compacta e elegante.
+- Adicionadas regras de CSS responsivo com grid adaptativo e micro-interações refinadas de hover.
 
 #### Motivo
 - Conferir ao rodapé um fechamento visual profissional, elegante, discreto e funcional, 100% alinhado com a identidade visual e os blocos da página.
@@ -314,14 +328,21 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Motivo
 - Refinar o acabamento visual da seção de avaliações, tornando o banner inferior mais integrado e clean, além de garantir acesso imediato às avaliações oficiais no Google.
 
-### 2026-08-24 — Remoção da Seção de Benefícios
+### 2026-08-24 — Ajuste Fino da Seção de Avaliações (Inversão, Centralização do 5.0 & Altura Travada em 280px)
 
 #### Alterado
-- **Remoção da Seção Azul de Benefícios:** Removida a seção `<section class="benefits">` ("Mais do que manutenção, uma solução clara para o seu equipamento") e limpos os seus estilos CSS associados.
-- **Fluxo Direto de Navegação:** O fluxo da página agora avança harmoniosamente de *Avaliações* diretamente para *Dúvidas Frequentes (FAQ)* e *Solicitar Atendimento*.
+- **Centralização Completa do Bloco de Prova Social (Desktop, Tablet e Mobile):**
+  - O bloco de **5.0 estrelas + (+150 avaliações no Google.)** foi perfeitamente centralizado no eixo horizontal.
+  - A caixa de texto explicativo fica centralizada no meio da seção com o texto interno alinhado à esquerda (`text-align: left; margin: 0 auto;`), e o botão "Conferir avaliações no Google" centralizado.
+- **Inversão de Posição dos Blocos (Todos os Dispositivos):**
+  - O bloco de 5.0 estrelas agora fica imediatamente abaixo do grid de avaliações, e os controles de navegação (setas e bolinhas) ficam logo abaixo do banner.
+- **Remoção Total da Linha Divisória:** Sem bordas ou caixas delimitadoras em desktop, tablet ou celular, proporcionando máxima fluidez visual.
+- **Padronização Rígida de Altura (280px):**
+  - Fixada a altura das linhas do grid desktop em `grid-template-rows: repeat(2, minmax(280px, 1fr))` com `min-height: 280px` e `height: 100%` nos cards.
+  - Eliminada qualquer oscilação vertical da seção ao alternar de página.
 
 #### Motivo
-- Simplificar a página, eliminar redundâncias de mensagens e manter um fluxo de leitura mais direto e focado nas seções essenciais.
+- Garantir simetria, alinhamento centralizado impecável e estabilidade visual do carrossel em qualquer dispositivo e resolução.
 
 ---
 
