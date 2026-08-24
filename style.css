@@ -1511,24 +1511,93 @@ textarea.form-input {
 
   .footer-col {
     width: 100%;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Títulos alinhados à esquerda */
+  .footer-title {
     text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
   .footer-brand {
     justify-content: flex-start;
+    align-self: flex-start;
     text-align: left;
+    width: 100%;
+  }
+
+  /* Textos, links e elementos centralizados */
+  .footer-links {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-links li {
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-links li a {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-links li a:hover {
+    transform: none;
+  }
+
+  .footer-contact-list {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-contact-item {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-link {
+    text-align: center;
+  }
+
+  .contact-address-block {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-subtext {
+    text-align: center;
+  }
+
+  .footer-status-pill {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.78rem;
   }
 
   .footer-desc {
-    text-align: left;
+    text-align: center;
     max-width: 100%;
     font-size: 0.85rem;
+    width: 100%;
   }
 
   .footer-socials {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 0.5rem;
+    width: 100%;
   }
 
   .footer-social-btn {
@@ -1536,36 +1605,34 @@ textarea.form-input {
     font-size: 0.8rem;
   }
 
-  .footer-status-pill {
-    margin-left: 0;
-    align-self: flex-start;
-    padding: 0.45rem 0.75rem;
-    font-size: 0.78rem;
-  }
-
   .footer-bottom {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
     width: 100%;
+    text-align: center;
   }
 
   .footer-bottom-inner {
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     gap: 0.75rem;
     width: 100%;
   }
 
   .footer-copy {
-    text-align: left;
+    text-align: center;
     font-size: 0.8rem;
+    width: 100%;
   }
 
   .footer-legal {
-    text-align: left;
+    justify-content: center;
+    text-align: center;
     flex-wrap: wrap;
     gap: 0.5rem;
+    width: 100%;
   }
 }
 

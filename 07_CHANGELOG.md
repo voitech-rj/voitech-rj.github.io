@@ -92,7 +92,7 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
   - **Coluna 4 (Marca & Redes)**: Logo oficial com avatar sutil, nome institucional, descrição clara dos serviços em Niterói/RJ e botões estilizados para Instagram e Facebook.
   - **Barra Inferior**: Copyright 2026 com contraste mais nítido e claro, e botões interativos para abertura dos modais de Política de Privacidade e Termos de Serviço.
 - Ajustada a centralização horizontal do contêiner (`max-width: 1200px; margin: 0 auto;`) com alinhamento rigorosamente à esquerda para todos os textos, títulos e blocos internos.
-- Ajuste mobile específico: largura do contêiner reduzida para `max-width: 280px` e centralizada na viewport, mantendo todo o conteúdo alinhado à esquerda de forma compacta e elegante.
+- Ajuste mobile exclusivo: contêiner compacto de `max-width: 280px` centralizado na tela, mantendo os títulos das seções (`.footer-title` e marca) alinhados à esquerda e todos os textos, links, itens de contato, botões e copyright centralizados. O layout desktop permaneceu 100% inalterado.
 - Adicionadas regras de CSS responsivo com grid adaptativo e micro-interações refinadas de hover.
 
 #### Motivo
