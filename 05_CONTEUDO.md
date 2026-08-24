@@ -185,33 +185,26 @@ A quantidade e a nota exibidas no site devem ser mantidas atualizadas quando for
 
 ### Diferenciais atuais
 
-#### Transparência
-
-> Preços claros, sem surpresas. Orçamentos detalhados e comunicação aberta.
+#### Transparência Total
+> Explicamos o diagnóstico antes de qualquer ação, sem surpresas ou intervenções desnecessárias.
 
 #### Rapidez e Eficiência
+> Prazos ágeis com foco em devolver seu equipamento pronto para uso o mais rápido possível.
 
-> Atendimento rápido e soluções eficazes para minimizar o tempo de inatividade.
+#### Custo-Benefício Real
+> Avaliação honesta sobre a viabilidade e o melhor retorno antes de realizar o serviço.
 
-#### Custo-Benefício
+#### Atendimento Ágil
+> Comunicação rápida e prática via WhatsApp, com triagem eficiente e suporte focado no seu equipamento.
 
-> Serviços de alta qualidade com preços acessíveis para o seu orçamento.
+#### Garantia do Serviço
+> Tranquilidade e segurança com acompanhamento técnico dedicado e garantia focada no serviço executado.
 
-#### Suporte Dedicado
-
-> Assistência profissional para resolver suas dúvidas e problemas de informática.
-
-#### Garantia de Satisfação
-
-> Garantimos a qualidade dos nossos serviços. Sua satisfação é nossa prioridade.
-
-#### Peças de Qualidade
-
-> Trabalhamos apenas com componentes originais e de marcas reconhecidas no mercado.
+#### Orientação em Peças
+> Auxílio técnico transparente na escolha e compra dos componentes ideais para o seu setup.
 
 ### Diretriz de conteúdo
-
-Afirmações sobre peças originais, garantia e demais condições comerciais devem refletir exatamente a prática da empresa. Caso a regra comercial seja alterada, o texto deve ser atualizado junto com a informação operacional correspondente.
+Afirmações sobre orientação de peças, garantia e demais condições comerciais devem refletir exatamente a prática da empresa. Caso a regra comercial seja alterada, o texto deve ser atualizado junto com a informação operacional correspondente.
 
 ---
 
