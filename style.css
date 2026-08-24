@@ -1470,85 +1470,106 @@ textarea.form-input {
   user-select: none;
 }
 
-/* Footer Mobile Centering (Apenas em telas mobile) */
+/* Footer Mobile Compact 2-Column Layout (Opção 1) */
 @media (max-width: 639px) {
+  .site-footer {
+    padding: 3.5rem 0 2rem 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.25rem 1.25rem;
+  }
+
   .footer-col {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Coluna 3 (Atendimento) e Coluna 4 (Marca & Redes) ocupam largura total */
+  .footer-col-contact,
+  .footer-col-brand {
+    grid-column: 1 / -1;
   }
 
   .footer-title {
-    text-align: center;
+    text-align: left;
+    margin-bottom: 0.9rem;
+    font-size: 0.825rem;
   }
 
   .footer-links {
-    align-items: center;
-    width: 100%;
-  }
-
-  .footer-links li {
-    width: 100%;
-    text-align: center;
+    align-items: flex-start;
+    gap: 0.65rem;
   }
 
   .footer-links li a {
-    justify-content: center;
-    width: 100%;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    justify-content: flex-start;
   }
 
   .footer-links li a:hover {
-    transform: none;
+    transform: translateX(3px);
   }
 
   .footer-contact-list {
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    gap: 0.85rem;
   }
 
   .footer-contact-item {
-    justify-content: center;
-    text-align: center;
-    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .contact-address-block {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .footer-status-pill {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.15rem;
   }
 
   .footer-brand {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .footer-desc {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
   }
 
   .footer-socials {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    margin-top: 2.75rem;
+    padding-top: 1.5rem;
   }
 
   .footer-bottom-inner {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.85rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.75rem;
   }
 
   .footer-copy {
-    text-align: center;
+    text-align: left;
   }
 
   .footer-legal {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 
