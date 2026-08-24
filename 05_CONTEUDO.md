@@ -341,11 +341,12 @@ A ordem de preferência é:
 
 No atendimento presencial, o pagamento ocorre após a conclusão do serviço e antes da devolução do equipamento.
 
-### 13.8 Garantia
+### 13.8 Garantia e responsabilidade pelo serviço
 
-- A garantia padrão do serviço é de **7 dias**.
-- A garantia está relacionada ao serviço efetivamente realizado.
-- O surgimento de uma nova falha, alteração posterior, uso inadequado ou outro problema não relacionado ao serviço não caracteriza automaticamente garantia.
+- A garantia está estritamente relacionada ao serviço técnico efetivamente realizado.
+- Não publicar prazo fixo de 7 dias no site sem validação comercial e jurídica definitiva.
+- A comunicação deve enfatizar suporte dedicado e reavaliação caso surja anomalia diretamente ligada ao serviço executado.
+- O surgimento de uma nova falha em outros componentes, alteração posterior, uso inadequado, vírus ou problema não relacionado ao serviço não caracteriza garantia.
 
 ### 13.9 Retirada do equipamento
 

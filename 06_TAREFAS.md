@@ -19,13 +19,13 @@
 - [x] Validar horários de entrega/agendamento.
 - [x] Validar lógica de prazo e fluxo de análise/orçamento.
 - [x] Validar formas de pagamento e definir que detalhes operacionais de confirmação serão tratados no WhatsApp.
-- [ ] Validar textos da Hero com a operação real.
-- [ ] Validar serviços realmente oferecidos.
-- [ ] Validar diferenciais e promessas comerciais.
-- [ ] Validar política de responsabilidade/garantia do serviço com segurança jurídica antes de publicar regras específicas.
-- [ ] Validar endereço e regras de entrega/retirada para definir o que será publicado no site e o que ficará somente no WhatsApp.
-- [ ] Validar disponibilidade de atendimento remoto.
-- [ ] Revisar FAQ com base nas informações operacionais confirmadas.
+- [x] Validar textos da Hero com a operação real.
+- [x] Validar serviços realmente oferecidos.
+- [x] Validar diferenciais e promessas comerciais.
+- [x] Validar política de responsabilidade/garantia do serviço com segurança jurídica antes de publicar regras específicas.
+- [x] Validar endereço e regras de entrega/retirada para definir o que será publicado no site e o que ficará somente no WhatsApp.
+- [x] Validar disponibilidade de atendimento remoto.
+- [x] Revisar FAQ com base nas informações operacionais confirmadas.
 
 ### Avaliações reais selecionadas
 

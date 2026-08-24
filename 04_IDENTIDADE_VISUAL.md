@@ -56,19 +56,23 @@ O azul deve ser utilizado com moderação. A interface não deve parecer predomi
 
 ## 4. Tipografia
 
-O projeto utiliza atualmente duas famílias tipográficas carregadas pelo Google Fonts.
+O projeto utiliza a família **Roboto** carregada pelo Google Fonts, complementada por **Roboto Mono** para dados e elementos técnicos.
 
-### Montserrat
+### Roboto (Principal & Display)
 
-Utilizada como fonte de display para títulos e elementos de destaque.
+Utilizada tanto para textos de leitura quanto para títulos e elementos de interface. Cria um visual técnico, sólido, legível e coeso.
 
-`--font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;`
+- Títulos: `Roboto` com pesos 700 (Bold) / 900 (Black) e `letter-spacing: -0.02em`.
+- Corpo de texto e interface: `Roboto` com pesos 400 (Regular) e 500 (Medium).
 
-### Open Sans
+`--font-sans: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;`
+`--font-display: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;`
 
-Utilizada como fonte principal para textos e interface.
+### Roboto Mono (Auxiliar Técnica)
 
-`--font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;`
+Utilizada pontualmente para badges, tags e elementos de dados técnicos (ex.: tags de fotos, especificações ou indicadores).
+
+`--font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;`
 
 A hierarquia tipográfica deve ser clara, mas sem excesso de tamanhos, pesos ou estilos diferentes.
 
