@@ -1286,7 +1286,28 @@ textarea.form-input {
   transform: scale(1.1);
 }
 
-/* Títulos das Colunas */
+/* Títulos e Botões de Acordeão do Rodapé */
+.footer-accordion-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  cursor: default;
+  display: block;
+  font-family: inherit;
+}
+
+.footer-accordion-icon {
+  display: none;
+}
+
+.footer-accordion-content {
+  display: block;
+  width: 100%;
+}
+
 .footer-title {
   font-size: 0.875rem;
   font-weight: 700;
@@ -1352,42 +1373,41 @@ textarea.form-input {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.75rem;
   width: 100%;
   text-align: left;
 }
 
-.footer-contact-icon {
-  color: #9ca3af;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-  width: 18px;
-  height: 18px;
-  transition: color 0.2s ease;
-}
-
-.footer-contact-item:hover .footer-contact-icon {
-  color: #ffffff;
-}
-
-.contact-link {
+.contact-link-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: #d1d5db;
   font-size: 0.885rem;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
-  text-align: left;
 }
 
-.contact-link:hover {
+.contact-link-row:hover {
   color: #ffffff;
 }
 
-.contact-address-block {
+.contact-link-row .footer-contact-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  transition: color 0.2s ease;
+}
+
+.contact-link-row:hover .footer-contact-icon {
+  color: #ffffff;
+}
+
+.footer-contact-item-location {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-align: left;
   gap: 0.2rem;
 }
 
@@ -1495,46 +1515,103 @@ textarea.form-input {
   }
 
   .site-footer .container {
-    max-width: 280px;
+    max-width: 420px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     box-sizing: border-box;
   }
 
   .footer-grid {
-    gap: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
     width: 100%;
   }
 
-  .footer-col {
+  /* Acordeão Mobile */
+  .footer-col-accordion {
     width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    background-color: #111319;
+    overflow: hidden;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .footer-col-accordion:hover {
+    border-color: rgba(52, 90, 135, 0.45);
+    background-color: #13161e;
+  }
+
+  .footer-col-accordion.active {
+    border-color: rgba(52, 90, 135, 0.7);
+    background-color: #141822;
+  }
+
+  .footer-accordion-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.05rem 1.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .footer-accordion-btn .footer-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #f3f4f6;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col-accordion.active .footer-accordion-btn .footer-title,
+  .footer-accordion-btn:hover .footer-title {
+    color: #ffffff;
+  }
+
+  .footer-accordion-icon {
+    display: block;
+    color: #9ca3af;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-col-accordion.active .footer-accordion-icon {
+    color: #8ab4f8;
+    transform: rotate(180deg);
+  }
+
+  .footer-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  .footer-col-accordion.active .footer-accordion-content {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .footer-accordion-content .footer-links,
+  .footer-accordion-content .footer-contact-list {
+    padding: 1.15rem 1.25rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  /* Títulos alinhados à esquerda */
-  .footer-title {
-    text-align: left;
-    align-self: flex-start;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .footer-brand {
-    justify-content: flex-start;
-    align-self: flex-start;
-    text-align: left;
-    width: 100%;
-  }
-
-  /* Textos, links e elementos centralizados */
-  .footer-links {
-    align-items: center;
-    text-align: center;
-    width: 100%;
+    gap: 0.85rem;
   }
 
   .footer-links li {
@@ -1545,17 +1622,11 @@ textarea.form-input {
   .footer-links li a {
     justify-content: center;
     text-align: center;
-    width: 100%;
+    font-size: 0.9rem;
   }
 
   .footer-links li a:hover {
     transform: none;
-  }
-
-  .footer-contact-list {
-    align-items: center;
-    text-align: center;
-    width: 100%;
   }
 
   .footer-contact-item {
@@ -1565,21 +1636,26 @@ textarea.form-input {
     width: 100%;
   }
 
-  .contact-link {
+  .contact-link-row {
+    justify-content: center;
     text-align: center;
+    gap: 0.5rem;
   }
 
-  .contact-address-block {
+  .footer-contact-item-location {
     align-items: center;
     text-align: center;
-    width: 100%;
   }
 
   .contact-subtext {
     text-align: center;
+    font-size: 0.775rem;
+    color: #9ca3af;
+    margin-top: 0.2rem;
   }
 
   .footer-status-pill {
+    margin-top: 1rem;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
@@ -1587,16 +1663,35 @@ textarea.form-input {
     font-size: 0.78rem;
   }
 
+  /* Coluna 4: Marca & Redes no Mobile */
+  .footer-col-brand {
+    margin-top: 1.5rem;
+    padding: 0.5rem 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand {
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+  }
+
   .footer-desc {
     text-align: center;
     max-width: 100%;
     font-size: 0.85rem;
     width: 100%;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
   }
 
   .footer-socials {
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.65rem;
     width: 100%;
   }
 
@@ -1606,7 +1701,7 @@ textarea.form-input {
   }
 
   .footer-bottom {
-    margin-top: 2.5rem;
+    margin-top: 2.25rem;
     padding-top: 1.5rem;
     width: 100%;
     text-align: center;

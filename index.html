@@ -996,58 +996,77 @@
   <footer class="site-footer" id="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Coluna 1: Navegação Rápida -->
-        <div class="footer-col">
-          <h3 class="footer-title">Navegação</h3>
-          <ul class="footer-links">
-            <li><a href="#hero" data-scroll="hero">Início</a></li>
-            <li><a href="#services" data-scroll="services">Serviços</a></li>
-            <li><a href="#features" data-scroll="features">Diferenciais</a></li>
-            <li><a href="#social-proof" data-scroll="social-proof">Avaliações Google 5.0</a></li>
-            <li><a href="#faq" data-scroll="faq">Dúvidas Frequentes</a></li>
-            <li><a href="#booking" data-scroll="booking">Solicitar Atendimento</a></li>
-          </ul>
-        </div>
-
-        <!-- Coluna 2: Serviços Especializados -->
-        <div class="footer-col">
-          <h3 class="footer-title">Serviços</h3>
-          <ul class="footer-links">
-            <li><a href="#services" data-scroll="services">Formatação & Backup</a></li>
-            <li><a href="#services" data-scroll="services">Limpeza & Troca Térmica</a></li>
-            <li><a href="#services" data-scroll="services">Upgrades de SSD e RAM</a></li>
-            <li><a href="#services" data-scroll="services">Montagem & Otimização</a></li>
-            <li><a href="#contact-faq" data-scroll="contact-faq">Diagnóstico & Revisão</a></li>
-          </ul>
-        </div>
-
-        <!-- Coluna 3: Atendimento & Contato Rápido -->
-        <div class="footer-col footer-col-contact">
-          <h3 class="footer-title">Atendimento</h3>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item">
-              <i data-lucide="phone" class="icon-sm footer-contact-icon"></i>
-              <a href="tel:+5521994472406" class="contact-link">(21) 99447-2406</a>
-            </li>
-            <li class="footer-contact-item">
-              <i data-lucide="mail" class="icon-sm footer-contact-icon"></i>
-              <a href="mailto:voitechrj@gmail.com" class="contact-link">voitechrj@gmail.com</a>
-            </li>
-            <li class="footer-contact-item">
-              <i data-lucide="map-pin" class="icon-sm footer-contact-icon"></i>
-              <div class="contact-address-block">
-                <a href="https://www.google.com/maps/search/?api=1&query=Condominio+7+de+Setembro+Fonseca+Niteroi+RJ" target="_blank" rel="noopener noreferrer" class="contact-link">Niterói, RJ</a>
-                <span class="contact-subtext">Entrega e retirada com agendamento</span>
-              </div>
-            </li>
-          </ul>
-          <div class="footer-status-pill">
-            <span class="status-dot"></span>
-            <span>Atendimento com agendamento</span>
+        <!-- Coluna 1: Navegação Rápida (Acordeão no Mobile) -->
+        <div class="footer-col footer-col-accordion">
+          <button class="footer-accordion-btn" type="button" aria-expanded="false">
+            <h3 class="footer-title">Navegação</h3>
+            <i data-lucide="chevron-down" class="footer-accordion-icon"></i>
+          </button>
+          <div class="footer-accordion-content">
+            <ul class="footer-links">
+              <li><a href="#hero" data-scroll="hero">Início</a></li>
+              <li><a href="#services" data-scroll="services">Serviços</a></li>
+              <li><a href="#features" data-scroll="features">Diferenciais</a></li>
+              <li><a href="#social-proof" data-scroll="social-proof">Avaliações Google 5.0</a></li>
+              <li><a href="#faq" data-scroll="faq">Dúvidas Frequentes</a></li>
+              <li><a href="#booking" data-scroll="booking">Solicitar Atendimento</a></li>
+            </ul>
           </div>
         </div>
 
-        <!-- Coluna 4: Marca, Posicionamento e Redes -->
+        <!-- Coluna 2: Serviços Especializados (Acordeão no Mobile) -->
+        <div class="footer-col footer-col-accordion">
+          <button class="footer-accordion-btn" type="button" aria-expanded="false">
+            <h3 class="footer-title">Serviços</h3>
+            <i data-lucide="chevron-down" class="footer-accordion-icon"></i>
+          </button>
+          <div class="footer-accordion-content">
+            <ul class="footer-links">
+              <li><a href="#services" data-scroll="services">Formatação & Backup</a></li>
+              <li><a href="#services" data-scroll="services">Limpeza & Troca Térmica</a></li>
+              <li><a href="#services" data-scroll="services">Upgrades de SSD e RAM</a></li>
+              <li><a href="#services" data-scroll="services">Montagem & Otimização</a></li>
+              <li><a href="#contact-faq" data-scroll="contact-faq">Diagnóstico & Revisão</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Atendimento & Contato Rápido (Acordeão no Mobile) -->
+        <div class="footer-col footer-col-accordion footer-col-contact">
+          <button class="footer-accordion-btn" type="button" aria-expanded="false">
+            <h3 class="footer-title">Atendimento</h3>
+            <i data-lucide="chevron-down" class="footer-accordion-icon"></i>
+          </button>
+          <div class="footer-accordion-content">
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item">
+                <a href="tel:+5521994472406" class="contact-link-row">
+                  <i data-lucide="phone" class="icon-sm footer-contact-icon"></i>
+                  <span>(21) 99447-2406</span>
+                </a>
+              </li>
+              <li class="footer-contact-item">
+                <a href="mailto:voitechrj@gmail.com" class="contact-link-row">
+                  <i data-lucide="mail" class="icon-sm footer-contact-icon"></i>
+                  <span>voitechrj@gmail.com</span>
+                </a>
+              </li>
+              <li class="footer-contact-item footer-contact-item-location">
+                <a href="https://www.google.com/maps/search/?api=1&query=Condominio+7+de+Setembro+Fonseca+Niteroi+RJ" target="_blank" rel="noopener noreferrer" class="contact-link-row">
+                  <i data-lucide="map-pin" class="icon-sm footer-contact-icon"></i>
+                  <span>Niterói, RJ</span>
+                </a>
+                <span class="contact-subtext">Entrega e retirada com agendamento</span>
+              </li>
+            </ul>
+            <div class="footer-status-pill">
+              <span class="status-dot"></span>
+              <span>Atendimento com agendamento</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna 4: Marca, Posicionamento e Redes (Sempre visível / não retrátil) -->
         <div class="footer-col footer-col-brand">
           <div class="footer-brand">
             <div class="footer-logo-wrapper">

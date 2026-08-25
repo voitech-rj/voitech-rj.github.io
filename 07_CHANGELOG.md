@@ -48,6 +48,21 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-08-25 — Acordeão Retrátil no Rodapé Mobile e Ajuste de Ícones de Contato
+
+#### Alterado
+- **Rodapé Mobile (`.site-footer`)**:
+  - Implementado sistema de acordeão retrátil para as seções **Navegação**, **Serviços** e **Atendimento** no mobile (`@media (max-width: 767px)`), permitindo expandir e recolher cada bloco com toque, ícone indicador chevron animado e transição suave.
+  - A 4ª coluna com a marca **voitechrj**, descrição e botões de redes sociais (Instagram e Facebook) permanece sempre visível e centralizada abaixo dos acordeões.
+  - Corrigido o alinhamento do ícone de mapa (`map-pin`): agora agrupado diretamente ao lado de "Niterói, RJ" via classe `.contact-link-row`, eliminando o distanciamento indesejado no mobile.
+  - No desktop (`min-width: 768px`), o layout permanece em 4 colunas estáticas abertas sem alteração visual.
+
+#### Motivo
+- Atendimento à solicitação visual para tornar o rodapé móvel mais compacto, organizado e interativo no modelo de acordeão retrátil, corrigindo o espaçamento do ícone de localização.
+
+#### Impacto
+- Navegação mobile muito mais enxuta, ergonômica e com acabamento de alto padrão.
+
 ### 2026-08-24 — Alinhamento à esquerda da seção Hero no Mobile
 
 #### Alterado
