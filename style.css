@@ -664,190 +664,64 @@ header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: #
   background-color: #14161b;
   width: 20px;
   border-radius: 9999px;
-}
-
+}/* =================================================== */
+/* BANNER DE PROVA SOCIAL GOOGLE (TRUST BAR 1200PX)   */
 /* =================================================== */
-/* 3 OPÇÕES DE LAYOUT PROVA SOCIAL NO MOBILE          */
-/* =================================================== */
-
-/* OPÇÃO 1: Card de Reputação Google (Mobile Badge Card) */
-.mob-proof-opt1 {
-  margin: 24px auto 16px auto;
-  padding: 1.25rem 1.35rem;
-  background-color: #f8fafc;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 0.875rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  width: 100%;
-  max-width: 500px;
-}
-
-.mob-opt1-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.mob-opt1-google-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.mob-opt1-score {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #14161b;
-}
-
-.mob-opt1-count {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #555c68;
-}
-
-.mob-opt1-text {
-  color: #555c68;
-  font-size: 0.875rem;
-  line-height: 1.45;
-  margin: 0;
-}
-
-.mob-opt1-text strong {
-  color: #14161b;
-}
-
-.mob-proof-opt1 .btn-google-reviews {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 0.885rem;
-}
-
-/* OPÇÃO 2: Linha Única Super Compacta (Mini Trust Bar) */
-.mob-proof-opt2 {
-  margin: 24px auto 16px auto;
-  padding: 12px 0;
+.social-proof-banner {
+  margin: 20px auto 20px auto;
+  padding: 10px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 1200px;
 }
 
-.mob-opt2-left {
+.proof-score-col {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-}
-
-.mob-opt2-score {
-  font-size: 1.75rem;
-  font-weight: 800;
-  font-family: var(--font-display);
-  color: #14161b;
-  line-height: 1;
-}
-
-.mob-opt2-stars-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.mob-opt2-count {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #14161b;
-}
-
-.btn-google-reviews-compact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1rem;
-  background-color: #345a87;
-  color: #ffffff;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.825rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-  box-shadow: 0 3px 10px rgba(52, 90, 135, 0.3);
-}
-
-/* OPÇÃO 3: Bloco Centralizado Minimalista (Sem Linhas) */
-.mob-proof-opt3 {
-  margin: 24px auto 16px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.85rem;
-  width: 100%;
-  max-width: 500px;
-}
-
-.mob-opt3-score-box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
-.mob-opt3-score {
-  font-size: 2.15rem;
+.proof-score-num {
+  font-size: 2.25rem;
   font-weight: 800;
   font-family: var(--font-display);
   color: #14161b;
   line-height: 1;
 }
 
-.mob-opt3-stars-wrap {
+.proof-stars-col {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  align-items: flex-start;
+  gap: 0.2rem;
 }
 
-.mob-opt3-count {
-  font-size: 0.8rem;
+.proof-count-text {
+  font-size: 0.825rem;
   font-weight: 600;
   color: #14161b;
 }
 
-.mob-opt3-desc {
+.proof-desc-text {
   color: #555c68;
-  font-size: 0.875rem;
-  line-height: 1.45;
+  font-size: 0.925rem;
+  line-height: 1.5;
   margin: 0;
+  flex: 1;
+  text-align: left;
 }
 
-.mob-opt3-desc strong {
+.proof-desc-text strong {
   color: #14161b;
 }
 
-.mob-proof-opt3 .btn-google-reviews {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 0.885rem;
-}
-
-/* No desktop, apenas exibimos em linha bonita */
-@media (min-width: 861px) {
-  .mob-proof-opt1,
-  .mob-proof-opt2,
-  .mob-proof-opt3 {
-    max-width: 1200px;
-  }
+.proof-action-col {
+  flex-shrink: 0;
 }
 
 .btn-google-reviews {
@@ -858,7 +732,7 @@ header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: #
   padding: 0.8rem 1.4rem;
   background-color: #345a87;
   color: #ffffff;
-  border-radius: 0.5rem;
+  border-radius: 0.45rem;
   font-weight: 600;
   font-size: 0.925rem;
   text-decoration: none;
@@ -866,16 +740,62 @@ header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: #
   box-shadow: 0 4px 14px rgba(52, 90, 135, 0.35);
 }
 
-@media (max-width: 767px) {
-  .btn-google-reviews {
-    width: 100%;
-  }
-}
-
 .btn-google-reviews:hover {
   background-color: #3f6b9f;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(52, 90, 135, 0.45);
+}
+
+.btn-text-full {
+  display: inline;
+}
+
+.btn-text-mobile {
+  display: none;
+}
+
+/* Responsividade Mobile - Linha Única Harmônica */
+@media (max-width: 767px) {
+  .social-proof-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 10px 0;
+    margin: 20px auto;
+  }
+
+  .proof-score-col {
+    gap: 0.5rem;
+  }
+
+  .proof-score-num {
+    font-size: 1.75rem;
+  }
+
+  .proof-count-text {
+    font-size: 0.75rem;
+  }
+
+  .proof-desc-text {
+    display: none;
+  }
+
+  .btn-text-full {
+    display: none;
+  }
+
+  .btn-text-mobile {
+    display: inline;
+  }
+
+  .btn-google-reviews {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.825rem;
+    border-radius: 0.45rem;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(52, 90, 135, 0.3);
+  }
 }
 
 

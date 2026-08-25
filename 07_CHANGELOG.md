@@ -346,16 +346,17 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Motivo
 - Refinar o acabamento visual da seção de avaliações, tornando o banner inferior mais integrado e clean, além de garantir acesso imediato às avaliações oficiais no Google.
 
-### 2026-08-25 — Implementação das 3 Opções de Prova Social no Mobile para Escolha
+### 2026-08-25 — Barra de Prova Social Google Definitiva no Mobile (Linha Única & Botão Padrão PC)
 
 #### Alterado
-- **Renderização de 3 Propostas Exclusivas para Mobile:**
-  - **Opção 1 (Card de Reputação Google / Mobile Badge Card):** Cartão suave delimitado (`#f8fafc`) com badge Google, nota 5.0, estrelas, texto explicativo e botão de ação em largura total.
-  - **Opção 2 (Linha Única Super Compacta / Mini Trust Bar):** Barra horizontal de apenas 1 linha com nota 5.0 e estrelas à esquerda e botão pílula compacto à direita.
-  - **Opção 3 (Bloco Centralizado Minimalista):** Estrutura aberta e fluida sem linhas de corte, com todos os elementos centralizados de forma harmônica.
+- **Adoção da Linha Única no Mobile (Mini Trust Bar):**
+  - **Lado Esquerdo:** Nota `5.0` em destaque + 5 estrelas douradas + `+150 avaliações no Google` em formato compacto.
+  - **Lado Direito:** Botão de ação *"Ver no Google ↗"*, alinhado na mesma linha horizontal.
+  - **Padronização dos Cantos do Botão:** Substituído o formato pílula extremo pelo mesmo acabamento retangular suave do desktop (`border-radius: 0.45rem;`), garantindo consistência visual em todas as telas.
+  - **Otimização de Espaço de Tela:** Sem texto longo empurrando a página no celular, mantendo a altura da barra em menos de 55px com 10px de padding e 20px de margem.
 
 #### Motivo
-- Permitir ao usuário visualizar e comparar na prática na tela do smartphone as 3 opções de acabamento para escolher a versão definitiva no mobile.
+- Atender à escolha do usuário por um visual idêntico e consistente com o desktop, eliminando excessos de rolagem no smartphone.
 
 ---
 
