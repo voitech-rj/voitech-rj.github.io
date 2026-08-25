@@ -358,6 +358,15 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Motivo
 - Atender à escolha do usuário por um visual idêntico e consistente com o desktop, eliminando excessos de rolagem no smartphone.
 
+### 2026-08-25 — Correção do Link Direto de Abertura do Modal de Avaliações Google
+
+#### Alterado
+- **Correção da URL de Avaliações (#lrd):**
+  - Ajustada a sintaxe do parâmetro `#lrd=0x97013146222ed5:0x9e8be72486a0b8c6,1` removendo vírgulas excedentes no final que impediam o carregamento automático do modal de comentários/reviews do Google em navegadores Desktop e Mobile.
+
+#### Motivo
+- Garantir que o clique no botão abra instantaneamente o pop-up com todas as avaliações reais dos clientes da Voitechrj.
+
 ---
 
 ## 5. Estado do documento
