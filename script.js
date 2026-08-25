@@ -70,6 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `Quando começou? ${started || 'Não informado'}`
       ].join('\n');
 
+      // Disparo de Conversão (Lead) para o Google Analytics
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'Conversão',
+          event_label: `WhatsApp - ${equipment}`,
+          equipment_type: equipment
+        });
+      }
+
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/5521994472406?text=${encodedMessage}`, '_blank');
     });
@@ -505,6 +514,29 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // GOOGLE ANALYTICS EVENT TRACKING (Engajamento e Cliques)
+  if (typeof gtag === 'function') {
+    // Rastrear cliques nos botões de Solicitar Atendimento (Hero e Menu)
+    document.querySelectorAll('.btn-hero-banner-cta, .nav-cta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        gtag('event', 'cta_click', {
+          event_category: 'Engajamento',
+          event_label: btn.textContent.trim()
+        });
+      });
+    });
+
+    // Rastrear cliques para redes sociais e avaliações do Google
+    document.querySelectorAll('.footer-social-btn, .btn-google-reviews').forEach(link => {
+      link.addEventListener('click', () => {
+        gtag('event', 'outbound_click', {
+          event_category: 'Links Externos',
+          event_label: link.getAttribute('href') || link.getAttribute('aria-label')
+        });
+      });
     });
   }
 });
