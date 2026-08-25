@@ -48,14 +48,17 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
-### 2026-08-25 — Acordeão Retrátil no Rodapé Mobile e Ajuste de Ícones de Contato
+### 2026-08-25 — Acordeão Retrátil no Rodapé Mobile, Remoção de Badge e Ajuste de Alinhamento
 
 #### Alterado
 - **Rodapé Mobile (`.site-footer`)**:
-  - Implementado sistema de acordeão retrátil para as seções **Navegação**, **Serviços** e **Atendimento** no mobile (`@media (max-width: 767px)`), permitindo expandir e recolher cada bloco com toque, ícone indicador chevron animado e transição suave.
-  - A 4ª coluna com a marca **voitechrj**, descrição e botões de redes sociais (Instagram e Facebook) permanece sempre visível e centralizada abaixo dos acordeões.
-  - Corrigido o alinhamento do ícone de mapa (`map-pin`): agora agrupado diretamente ao lado de "Niterói, RJ" via classe `.contact-link-row`, eliminando o distanciamento indesejado no mobile.
-  - No desktop (`min-width: 768px`), o layout permanece em 4 colunas estáticas abertas sem alteração visual.
+  - Implementado sistema de acordeão retrátil para as seções **Navegação**, **Serviços** e **Atendimento** no mobile (`@media (max-width: 767px)`), com botões em formato de card (borda fixa, cantos arredondados, fundo escuro e seta animada).
+  - Removida a borda do conteúdo expandido (links e contatos agora expandem diretamente abaixo do botão, sem caixa envolvente ou bordas extras).
+  - Removido o badge "Atendimento com agendamento" (`.footer-status-pill`).
+  - Largura convencional ajustada para ~82% da tela do celular (`max-width: 480px; width: 82%;`), centralizada na tela.
+  - Todos os títulos, listas de links, dados de atendimento e a 4ª coluna da marca **voitechrj** (logo, descrição e redes sociais Instagram e Facebook) foram alinhados à esquerda dentro dessa largura.
+  - Corrigido o alinhamento do ícone de mapa (`map-pin`): agora agrupado diretamente ao lado de "Niterói, RJ" via classe `.contact-link-row`.
+  - No desktop (`min-width: 768px`), o layout permanece estático em 4 colunas abertas sem qualquer alteração visual.
 
 #### Motivo
 - Atendimento à solicitação visual para tornar o rodapé móvel mais compacto, organizado e interativo no modelo de acordeão retrátil, corrigindo o espaçamento do ícone de localização.
@@ -343,21 +346,16 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Motivo
 - Refinar o acabamento visual da seção de avaliações, tornando o banner inferior mais integrado e clean, além de garantir acesso imediato às avaliações oficiais no Google.
 
-### 2026-08-24 — Ajuste Fino da Seção de Avaliações (Inversão, Centralização do 5.0 & Altura Travada em 280px)
+### 2026-08-25 — Implementação das 3 Opções de Prova Social no Mobile para Escolha
 
 #### Alterado
-- **Centralização Completa do Bloco de Prova Social (Desktop, Tablet e Mobile):**
-  - O bloco de **5.0 estrelas + (+150 avaliações no Google.)** foi perfeitamente centralizado no eixo horizontal.
-  - A caixa de texto explicativo fica centralizada no meio da seção com o texto interno alinhado à esquerda (`text-align: left; margin: 0 auto;`), e o botão "Conferir avaliações no Google" centralizado.
-- **Inversão de Posição dos Blocos (Todos os Dispositivos):**
-  - O bloco de 5.0 estrelas agora fica imediatamente abaixo do grid de avaliações, e os controles de navegação (setas e bolinhas) ficam logo abaixo do banner.
-- **Remoção Total da Linha Divisória:** Sem bordas ou caixas delimitadoras em desktop, tablet ou celular, proporcionando máxima fluidez visual.
-- **Padronização Rígida de Altura (280px):**
-  - Fixada a altura das linhas do grid desktop em `grid-template-rows: repeat(2, minmax(280px, 1fr))` com `min-height: 280px` e `height: 100%` nos cards.
-  - Eliminada qualquer oscilação vertical da seção ao alternar de página.
+- **Renderização de 3 Propostas Exclusivas para Mobile:**
+  - **Opção 1 (Card de Reputação Google / Mobile Badge Card):** Cartão suave delimitado (`#f8fafc`) com badge Google, nota 5.0, estrelas, texto explicativo e botão de ação em largura total.
+  - **Opção 2 (Linha Única Super Compacta / Mini Trust Bar):** Barra horizontal de apenas 1 linha com nota 5.0 e estrelas à esquerda e botão pílula compacto à direita.
+  - **Opção 3 (Bloco Centralizado Minimalista):** Estrutura aberta e fluida sem linhas de corte, com todos os elementos centralizados de forma harmônica.
 
 #### Motivo
-- Garantir simetria, alinhamento centralizado impecável e estabilidade visual do carrossel em qualquer dispositivo e resolução.
+- Permitir ao usuário visualizar e comparar na prática na tela do smartphone as 3 opções de acabamento para escolher a versão definitiva no mobile.
 
 ---
 
