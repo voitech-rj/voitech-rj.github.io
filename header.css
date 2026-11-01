@@ -1,5 +1,16 @@
-/* Header redesign — Voitechrj */
+/* =================================================================
+// MÓDULO: Estilização do Cabeçalho e Sistema de Navegação (Header)
+// Objetivo: Definir regras visuais e responsivas para a barra superior,
+//           logotipo, menus de navegação (desktop e gaveta mobile) e CTAs.
+// Compatibilidade: Navegadores modernos com suporte a CSS Flexbox e Backdrop Filter.
+// ================================================================= */
 
+/* ---------------------------------------------------------------
+// 1. ESTRUTURA GERAL DO CONTAINER HEADER
+// --------------------------------------------------------------- */
+/* O header adota semitransparência com desfoque de fundo (glassmorphism).
+   Nota didática: 'backdrop-filter: blur(10px)' cria o efeito de vidro fosco
+   ao passar sobre o conteúdo rolável, mantendo a legibilidade do texto. */
 header {
   width: 100%;
   background-color: rgba(34, 34, 34, 0.96);
@@ -13,11 +24,17 @@ header {
   padding-bottom: 0.65rem;
 }
 
+/* ---------------------------------------------------------------
+// 2. IDENTIDADE VISUAL E LOGOTIPO
+// --------------------------------------------------------------- */
 .logo-container {
   gap: 0.7rem;
   color: #f8f8f8;
 }
 
+/* Nota didática: ':focus-visible' ativa o contorno de foco apenas quando
+   a navegação é realizada via teclado (Tab), preservando a estética para usuários de mouse
+   sem ferir as diretrizes de acessibilidade WCAG 2.1. */
 .logo-container:focus-visible,
 .nav-link:focus-visible,
 .mobile-menu-btn:focus-visible {
@@ -37,6 +54,9 @@ header {
   letter-spacing: -0.02em;
 }
 
+/* ---------------------------------------------------------------
+// 3. NAVEGAÇÃO DESKTOP E EFEITO HOVER SUAVE
+// --------------------------------------------------------------- */
 .desktop-nav {
   gap: 1.35rem;
   margin-left: auto;
@@ -57,6 +77,7 @@ header {
   line-height: inherit;
 }
 
+/* Sublinhado dinâmico animado a partir do centro */
 .desktop-nav .nav-link::after {
   content: "";
   position: absolute;
@@ -80,6 +101,7 @@ header {
   transform: scaleX(1);
 }
 
+/* Botão de Destaque / CTA Principal no Header */
 .desktop-nav .nav-link.nav-cta {
   color: #f8f8f8;
   background: #345a87;
@@ -96,7 +118,10 @@ header {
   background: #3d6899;
 }
 
-/* O menu hamburguer existe somente no mobile. */
+/* ---------------------------------------------------------------
+// 4. MENU GAVETA MOBILE (DRAWER) E BOTÃO HAMBÚRGUER
+// --------------------------------------------------------------- */
+/* Oculto por padrão em telas amplas (desktop-first para o gatilho) */
 .mobile-menu-btn {
   display: none;
 }
@@ -139,6 +164,9 @@ header {
   text-align: center;
 }
 
+/* ---------------------------------------------------------------
+// 5. MEDIA QUERIES E ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS
+// --------------------------------------------------------------- */
 @media (max-width: 767px) {
   .header-content {
     padding-left: 1rem;

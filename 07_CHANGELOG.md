@@ -367,6 +367,28 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Motivo
 - Garantir que o clique no botão abra instantaneamente o pop-up com todas as avaliações reais dos clientes da Voitechrj.
 
+### 2026-08-25 — Remoção das Bordas Circulares das Setas de Navegação
+
+#### Alterado
+- **Setas Minimalistas e Limpas (Serviços e Avaliações):**
+  - Removido o contorno circular (`border: 1px solid...`, `border-radius: 50%` e `background-color`) dos botões de seta anterior/próximo (`.services-nav-btn` e `.testimonials-nav-btn`).
+  - As setas agora são renderizadas de forma limpa e direta, com efeito de destaque suave e transição de cor no hover em Desktop e Mobile.
+
+#### Motivo
+- Atender ao pedido do usuário por um acabamento ainda mais minimalista e fluido nos controles dos carrosséis.
+
+### 2026-11-01 — Aplicação do Padrão Pedagógico de Código (Explicador Didático)
+
+#### Alterado
+- **Padronização Didática de Código (`script.js`, `header.css`, `style.css`):**
+  - Aplicação integral dos três pilares da skill `explicador-didatico`.
+  - Inclusão de contratos estruturados de módulo e funções (Pilar 1).
+  - Divisão do fluxo lógico em blocos numerados e delimitados (Pilar 2).
+  - Adição de comentários conceituais focados no 'porquê', edge cases e notas didáticas pedagógicas (`// Nota didática:`) (Pilar 3).
+
+#### Motivo
+- Elevar a manutenibilidade, legibilidade e conformidade arquitetural do código com os padrões do Antigravity.
+
 ---
 
 ## 5. Estado do documento

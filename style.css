@@ -1,5 +1,15 @@
+/* =================================================================
+// MÓDULO: Folha de Estilos Principal (Design System & Layout Global)
+// Objetivo: Definir variáveis de tema, tipografia, reset, utilitários,
+//           seções (Hero, Serviços, Prova Social, FAQ, Modal, Rodapé)
+//           e animações de transição para a landing page da Voitechrj.
+// ================================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;600&display=swap');
 
+/* ---------------------------------------------------------------
+// 1. VARIÁVEIS DE TEMA (DESIGN TOKENS)
+// --------------------------------------------------------------- */
 :root {
   --color-primary: #034694;
   --color-primary-hover: #023675;
@@ -334,24 +344,21 @@ header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: #
 }
 
 .services-nav-btn {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: none;
   color: #14161b;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0.25rem;
   transition: all 0.2s ease;
 }
 
 .services-nav-btn:hover {
-  background-color: #14161b;
-  border-color: #14161b;
-  color: #ffffff;
-  transform: scale(1.08);
+  background: transparent;
+  color: #345a87;
+  transform: scale(1.2);
 }
 
 .services-dots-container {
@@ -614,29 +621,26 @@ header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: #
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  margin-top: 1.75rem;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 .testimonials-nav-btn {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: none;
   color: #14161b;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0.25rem;
   transition: all 0.2s ease;
 }
 
 .testimonials-nav-btn:hover {
-  background-color: #14161b;
-  border-color: #14161b;
-  color: #ffffff;
-  transform: scale(1.08);
+  background: transparent;
+  color: #345a87;
+  transform: scale(1.2);
 }
 
 .testimonials-dots-container {
@@ -664,11 +668,13 @@ header { position: sticky; top: 0; z-index: 50; width: 100%; background-color: #
   background-color: #14161b;
   width: 20px;
   border-radius: 9999px;
-}/* =================================================== */
+}
+
+/* =================================================== */
 /* BANNER DE PROVA SOCIAL GOOGLE (TRUST BAR 1200PX)   */
 /* =================================================== */
 .social-proof-banner {
-  margin: 20px auto 20px auto;
+  margin: 25px auto 20px auto;
   padding: 10px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
