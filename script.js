@@ -1,8 +1,8 @@
 // =================================================================
 // MÓDULO: Orquestrador de Interatividade e Comportamento da Interface
 // Objetivo: Centralizar a inicialização de componentes visuais, 
-//           gerenciar estados de carrosséis, acessibilidade (A11y),
-//           modais, navegação suave e despacho de eventos de telemetria.
+//           gerenciar estados de carrosséis de forma reaproveitável,
+//           acessibilidade (A11y), modais, navegação suave e telemetria.
 // Dependências: Lucide Icons (global window.lucide), Google Tag (gtag)
 // Ambiente: Navegadores Web modernos (DOM Level 3 / ES6+)
 // =================================================================
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (event) => {
       const targetId = link.getAttribute('data-scroll');
 
-      // Caso especial para retorno ao topo (hero banner)
+      // Retorno ao topo quando alvo for hero banner ou scroll para elemento de destino
       if (targetId === 'hero') {
         event.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isActive) {
         col.classList.add('active');
         btn.setAttribute('aria-expanded', 'true');
-        content.style.maxHeight = `${content.scrollHeight + 40}px`;
+        content.style.maxHeight = `${content.scrollHeight}px`;
       } else {
         col.classList.remove('active');
         btn.setAttribute('aria-expanded', 'false');
@@ -219,12 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------------------------------------------------------------
-  // 7. SISTEMA DE DIÁLOGOS MODAIS (TERMOS & PRIVACIDADE)
+  // 7. SISTEMA DECLARATIVO DE DIÁLOGOS MODAIS
   // ---------------------------------------------------------------
-  const privacyModal = document.getElementById('privacy-modal');
-  const termsModal = document.getElementById('terms-modal');
-  const openPrivacyBtns = document.querySelectorAll('[data-modal="privacy"]');
-  const openTermsBtns = document.querySelectorAll('[data-modal="terms"]');
   const closeBtns = document.querySelectorAll('.modal-close');
 
   // =================================================================
@@ -255,10 +251,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  // Vinculação de gatilhos de abertura e fechamento
-  openPrivacyBtns.forEach(btn => btn.addEventListener('click', () => openModal(privacyModal)));
-  openTermsBtns.forEach(btn => btn.addEventListener('click', () => openModal(termsModal)));
-  closeBtns.forEach(btn => btn.addEventListener('click', e => closeModal(e.target.closest('.modal-overlay'))));
+  // Despacho declarativo de abertura via atributo [data-modal]
+  // Nota didática: Elimina acoplamento manual mapeando dinamicamente
+  // 'data-modal="xyz"' para o elemento '#xyz-modal'.
+  document.querySelectorAll('[data-modal]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modalType = btn.getAttribute('data-modal');
+      const targetModal = document.getElementById(`${modalType}-modal`);
+      if (targetModal) openModal(targetModal);
+    });
+  });
+
+  // Botões de fechar internos
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      closeModal(e.target.closest('.modal-overlay'));
+    });
+  });
 
   // Fechamento ao clicar fora da caixa de conteúdo (backdrop)
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
@@ -267,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Fechamento via tecla universal Escape (acessibilidade teclado)
+  // Fechamento unificado via tecla universal Escape (acessibilidade teclado)
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-overlay.active').forEach(modal => closeModal(modal));
@@ -301,11 +310,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentDirIdx = 0;
   let bannerTimer = null;
 
-  // Sequência cíclica de 4 direções pré-estabelecida:
-  // 1. De cima para baixo
-  // 2. Da esquerda para a direita
-  // 3. De baixo para cima
-  // 4. Da direita para a esquerda
+  // Sequência cíclica de 4 direções:
+  // 1. De cima para baixo | 2. Da esquerda para a direita
+  // 3. De baixo para cima | 4. Da direita para a esquerda
   const directions = [
     { inClass: 'slide-in-down', outClass: 'slide-out-down' },
     { inClass: 'slide-in-right', outClass: 'slide-out-right' },
@@ -387,259 +394,161 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------------------------------------------------------------
-  // 10. CARROSSEL DE SERVIÇOS (PAGINAÇÃO GRID 2x2 & CONTROLES)
+  // 10. FÁBRICA GENÉRICA DE CARROSSÉIS PAGINADOS
   // ---------------------------------------------------------------
-  const servicesPages = document.querySelectorAll('.services-page');
-  const servicesDots = document.querySelectorAll('.services-dot');
-  const servicesPrevBtn = document.getElementById('services-prev-btn');
-  const servicesNextBtn = document.getElementById('services-next-btn');
-  const servicesCarouselWrapper = document.getElementById('services-carousel');
-  let currentServicesPage = 0;
-  let servicesTimer = null;
-
   // =================================================================
-  // FUNÇÃO: showServicesPage
-  // Objetivo: Ativar a página correspondente do catálogo de serviços
-  // Entrada: pageIndex (number) - Índice numérico pretendido (com suporte a overflow)
-  // Retorno: void
+  // FUNÇÃO: createPaginatedCarousel
+  // Objetivo: Orquestrar carrosséis paginados (páginas em grade, dots,
+  //           navegação anterior/próxima e ciclo de autoplay com pausa no hover).
+  // Entrada: config (Object) - Configuração de nós DOM e intervalo:
+  //          - pagesSelector (string): Seletor das páginas
+  //          - dotsSelector (string): Seletor dos botões de indicadores
+  //          - prevBtnId (string): ID do botão de voltar
+  //          - nextBtnId (string): ID do botão de avançar
+  //          - wrapperId (string): ID do container para controle de hover
+  //          - interval (number) [opcional, padrão 5000ms]
+  // Retorno: Object { showPage, startAutoPlay, stopAutoPlay } ou null
   // =================================================================
-  function showServicesPage(pageIndex) {
-    if (!servicesPages.length) return;
-    // Nota didática: A operação modular '(index + length) % length' garante
-    // que números negativos ou superiores ao limite façam o wrap-around cíclico perfeito.
-    currentServicesPage = (pageIndex + servicesPages.length) % servicesPages.length;
+  function createPaginatedCarousel({
+    pagesSelector,
+    dotsSelector,
+    prevBtnId,
+    nextBtnId,
+    wrapperId,
+    interval = 5000
+  }) {
+    const pages = document.querySelectorAll(pagesSelector);
+    const dots = document.querySelectorAll(dotsSelector);
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+    const wrapper = document.getElementById(wrapperId);
 
-    servicesPages.forEach((page, idx) => {
-      page.classList.toggle('active', idx === currentServicesPage);
-    });
+    if (!pages.length) return null;
 
-    servicesDots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentServicesPage);
-    });
+    let currentPage = 0;
+    let timer = null;
 
-    lucide.createIcons();
-  }
+    function showPage(pageIndex) {
+      // Nota didática: A operação modular '(index + length) % length' garante
+      // que números negativos ou superiores ao limite façam o wrap-around cíclico perfeito.
+      currentPage = (pageIndex + pages.length) % pages.length;
 
-  // =================================================================
-  // FUNÇÃO: startServicesAutoPlay
-  // Objetivo: Iniciar a rotação automática das páginas de serviços a cada 5s
-  // Entrada: Nenhuma
-  // Retorno: void
-  // =================================================================
-  function startServicesAutoPlay() {
-    stopServicesAutoPlay();
-    if (servicesPages.length > 1) {
-      servicesTimer = setInterval(() => {
-        showServicesPage(currentServicesPage + 1);
-      }, 5000);
+      pages.forEach((page, idx) => {
+        page.classList.toggle('active', idx === currentPage);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentPage);
+      });
+
+      lucide.createIcons();
     }
-  }
 
-  // =================================================================
-  // FUNÇÃO: stopServicesAutoPlay
-  // Objetivo: Interromper a rotação automática dos serviços
-  // Entrada: Nenhuma
-  // Retorno: void
-  // =================================================================
-  function stopServicesAutoPlay() {
-    if (servicesTimer) {
-      clearInterval(servicesTimer);
-      servicesTimer = null;
+    function startAutoPlay() {
+      stopAutoPlay();
+      if (pages.length > 1) {
+        timer = setInterval(() => {
+          showPage(currentPage + 1);
+        }, interval);
+      }
     }
-  }
 
-  if (servicesPages.length > 0) {
-    startServicesAutoPlay();
+    function stopAutoPlay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
 
-    if (servicesPrevBtn) {
-      servicesPrevBtn.addEventListener('click', () => {
-        showServicesPage(currentServicesPage - 1);
-        startServicesAutoPlay();
+    startAutoPlay();
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        showPage(currentPage - 1);
+        startAutoPlay();
       });
     }
 
-    if (servicesNextBtn) {
-      servicesNextBtn.addEventListener('click', () => {
-        showServicesPage(currentServicesPage + 1);
-        startServicesAutoPlay();
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        showPage(currentPage + 1);
+        startAutoPlay();
       });
     }
 
-    servicesDots.forEach((dot) => {
+    dots.forEach(dot => {
       dot.addEventListener('click', () => {
         const pageIdx = parseInt(dot.getAttribute('data-page'), 10);
         if (!isNaN(pageIdx)) {
-          showServicesPage(pageIdx);
-          startServicesAutoPlay();
+          showPage(pageIdx);
+          startAutoPlay();
         }
       });
     });
 
-    if (servicesCarouselWrapper) {
-      servicesCarouselWrapper.addEventListener('mouseenter', stopServicesAutoPlay);
-      servicesCarouselWrapper.addEventListener('mouseleave', startServicesAutoPlay);
+    if (wrapper) {
+      wrapper.addEventListener('mouseenter', stopAutoPlay);
+      wrapper.addEventListener('mouseleave', startAutoPlay);
     }
 
-    // -------------------------------------------------------------
-    // PRÉ-PREENCHIMENTO DO FORMULÁRIO VIA CARDS DE SERVIÇO
-    // -------------------------------------------------------------
-    // Ao clicar em um serviço, preenche os campos do formulário e faz scroll suave
-    const serviceCards = document.querySelectorAll('.service-card-clean');
-    serviceCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const serviceName = card.getAttribute('data-service');
-        const equipment = card.getAttribute('data-equipment');
-        const summaryTextarea = document.getElementById('summary');
-        const equipmentSelect = document.getElementById('equipment');
-        const bookingSection = document.getElementById('booking');
-
-        if (serviceName && summaryTextarea) {
-          summaryTextarea.value = `Olá! Gostaria de solicitar o serviço de ${serviceName}.`;
-        }
-
-        if (equipment && equipmentSelect) {
-          equipmentSelect.value = equipment;
-        }
-
-        if (bookingSection) {
-          bookingSection.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => {
-            if (summaryTextarea) {
-              summaryTextarea.focus();
-              summaryTextarea.classList.add('highlight-field');
-              setTimeout(() => {
-                summaryTextarea.classList.remove('highlight-field');
-              }, 2000);
-            }
-          }, 600);
-        }
-      });
-    });
+    return { showPage, startAutoPlay, stopAutoPlay };
   }
 
-  // ---------------------------------------------------------------
-  // 11. CARROSSEL DE AVALIAÇÕES E DEPOIMENTOS DE CLIENTES
-  // ---------------------------------------------------------------
-  const testimonialsPages = document.querySelectorAll('.testimonials-page');
-  const testimonialsDots = document.querySelectorAll('.testimonials-dot');
-  const testimonialsPrevBtn = document.getElementById('testimonials-prev-btn');
-  const testimonialsNextBtn = document.getElementById('testimonials-next-btn');
-  const testimonialsCarouselWrapper = document.getElementById('testimonials-carousel');
-  let currentTestimonialsPage = 0;
-  let testimonialsTimer = null;
+  // Instanciação unificada dos carrosséis de Serviços e Depoimentos
+  createPaginatedCarousel({
+    pagesSelector: '.services-page',
+    dotsSelector: '.services-dot',
+    prevBtnId: 'services-prev-btn',
+    nextBtnId: 'services-next-btn',
+    wrapperId: 'services-carousel'
+  });
 
-  // =================================================================
-  // FUNÇÃO: showTestimonialsPage
-  // Objetivo: Atualizar o slide visível de depoimentos e sincronizar paginação
-  // Entrada: pageIndex (number) - Posição de página desejada
-  // Retorno: void
-  // =================================================================
-  function showTestimonialsPage(pageIndex) {
-    if (!testimonialsPages.length) return;
-    currentTestimonialsPage = (pageIndex + testimonialsPages.length) % testimonialsPages.length;
-
-    testimonialsPages.forEach((page, idx) => {
-      page.classList.toggle('active', idx === currentTestimonialsPage);
-    });
-
-    testimonialsDots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentTestimonialsPage);
-    });
-
-    lucide.createIcons();
-  }
-
-  // =================================================================
-  // FUNÇÃO: startTestimonialsAutoPlay
-  // Objetivo: Rotação periódica automática de depoimentos a cada 5 segundos
-  // Entrada: Nenhuma
-  // Retorno: void
-  // =================================================================
-  function startTestimonialsAutoPlay() {
-    stopTestimonialsAutoPlay();
-    if (testimonialsPages.length > 1) {
-      testimonialsTimer = setInterval(() => {
-        showTestimonialsPage(currentTestimonialsPage + 1);
-      }, 5000);
-    }
-  }
-
-  // =================================================================
-  // FUNÇÃO: stopTestimonialsAutoPlay
-  // Objetivo: Parar o temporizador de rotação de depoimentos
-  // Entrada: Nenhuma
-  // Retorno: void
-  // =================================================================
-  function stopTestimonialsAutoPlay() {
-    if (testimonialsTimer) {
-      clearInterval(testimonialsTimer);
-      testimonialsTimer = null;
-    }
-  }
-
-  if (testimonialsPages.length > 0) {
-    startTestimonialsAutoPlay();
-
-    if (testimonialsPrevBtn) {
-      testimonialsPrevBtn.addEventListener('click', () => {
-        showTestimonialsPage(currentTestimonialsPage - 1);
-        startTestimonialsAutoPlay();
-      });
-    }
-
-    if (testimonialsNextBtn) {
-      testimonialsNextBtn.addEventListener('click', () => {
-        showTestimonialsPage(currentTestimonialsPage + 1);
-        startTestimonialsAutoPlay();
-      });
-    }
-
-    testimonialsDots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const pageIdx = parseInt(dot.getAttribute('data-page'), 10);
-        if (!isNaN(pageIdx)) {
-          showTestimonialsPage(pageIdx);
-          startTestimonialsAutoPlay();
-        }
-      });
-    });
-
-    if (testimonialsCarouselWrapper) {
-      testimonialsCarouselWrapper.addEventListener('mouseenter', stopTestimonialsAutoPlay);
-      testimonialsCarouselWrapper.addEventListener('mouseleave', startTestimonialsAutoPlay);
-    }
-  }
-
-  // ---------------------------------------------------------------
-  // 12. CONTROLADOR DO MODAL LIGHTBOX DE IMAGENS
-  // ---------------------------------------------------------------
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxClose = document.getElementById('lightbox-close');
-  const lightboxBackdrop = document.querySelector('.lightbox-backdrop');
-
-  // =================================================================
-  // FUNÇÃO: closeLightboxModal
-  // Objetivo: Fechar a visualização expandida de fotos da galeria
-  // Entrada: Nenhuma
-  // Retorno: void
-  // =================================================================
-  function closeLightboxModal() {
-    if (!lightboxModal) return;
-    lightboxModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightboxModal);
-  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightboxModal);
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('active')) {
-      closeLightboxModal();
-    }
+  createPaginatedCarousel({
+    pagesSelector: '.testimonials-page',
+    dotsSelector: '.testimonials-dot',
+    prevBtnId: 'testimonials-prev-btn',
+    nextBtnId: 'testimonials-next-btn',
+    wrapperId: 'testimonials-carousel'
   });
 
   // ---------------------------------------------------------------
-  // 13. BOTÃO VOLTAR AO TOPO COM DEBOUNCING VIA REQUESTANIMATIONFRAME
+  // 11. PRÉ-PREENCHIMENTO DO FORMULÁRIO VIA CARDS DE SERVIÇO
+  // ---------------------------------------------------------------
+  // Ao clicar em um serviço, preenche os campos do formulário e faz scroll suave
+  const serviceCards = document.querySelectorAll('.service-card-clean');
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const serviceName = card.getAttribute('data-service');
+      const equipment = card.getAttribute('data-equipment');
+      const summaryTextarea = document.getElementById('summary');
+      const equipmentSelect = document.getElementById('equipment');
+      const bookingSection = document.getElementById('booking');
+
+      if (serviceName && summaryTextarea) {
+        summaryTextarea.value = `Olá! Gostaria de solicitar o serviço de ${serviceName}.`;
+      }
+
+      if (equipment && equipmentSelect) {
+        equipmentSelect.value = equipment;
+      }
+
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          if (summaryTextarea) {
+            summaryTextarea.focus();
+            summaryTextarea.classList.add('highlight-field');
+            setTimeout(() => {
+              summaryTextarea.classList.remove('highlight-field');
+            }, 2000);
+          }
+        }, 600);
+      }
+    });
+  });
+
+  // ---------------------------------------------------------------
+  // 12. BOTÃO VOLTAR AO TOPO COM DEBOUNCING VIA REQUESTANIMATIONFRAME
   // ---------------------------------------------------------------
   const backToTopBtn = document.getElementById('back-to-top');
   if (backToTopBtn) {
@@ -686,7 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------------------------------------------------------------
-  // 14. TELEMETRIA E TELEMEDIÇÃO DE EVENTOS (GOOGLE ANALYTICS 4)
+  // 13. TELEMETRIA E TELEMEDIÇÃO DE EVENTOS (GOOGLE ANALYTICS 4)
   // ---------------------------------------------------------------
   if (typeof gtag === 'function') {
     // Rastreia cliques nos botões de Chamada para Ação (CTAs principais)

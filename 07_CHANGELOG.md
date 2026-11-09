@@ -389,6 +389,24 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 #### Motivo
 - Elevar a manutenibilidade, legibilidade e conformidade arquitetural do código com os padrões do Antigravity.
 
+### 2026-11-08 — Refatoração Estrutural e Eliminação de Débito Técnico (Untangle Codebase)
+
+#### Alterado
+- **Consolidação de Estilos e Eliminação de `header.css`:**
+  - Unificação completa das regras de estilização do cabeçalho em `style.css`, eliminando o arquivo redundante `header.css` e a requisição HTTP secundária em `index.html`.
+  - Remoção de regras herdadas e obsoletas do header em `style.css` que eram silenciosamente sobrescritas.
+- **Unificação da Orquestração de Carrosséis (`script.js`):**
+  - Implementação da fábrica `createPaginatedCarousel`, eliminando 100+ linhas de duplicação entre os carrosséis de Serviços e Depoimentos.
+- **Remoção de Código Morto (Dead Code / Surplus):**
+  - Exclusão do `#lightbox-modal` não utilizado em `index.html`, suas regras de exibição em `style.css` e o controlador/listener de teclado redundante em `script.js`.
+- **Despacho Declarativo de Modais (`script.js`):**
+  - Abertura de modais generalizada via seletor dinâmico `[data-modal]`, desacoplando o código de IDs específicos.
+- **Normalização de Altura Dinâmica:**
+  - Ajuste na expansão do acordeão mobile do rodapé utilizando o `scrollHeight` natural, eliminando a constante mágica de compensação (`+ 40px`).
+
+#### Motivo
+- Simplificar a arquitetura de código, reduzir tokens lidos em manutenções futuras, prevenir quebras ocultas e melhorar performance de carregamento.
+
 ---
 
 ## 5. Estado do documento
