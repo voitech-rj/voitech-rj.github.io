@@ -23,6 +23,24 @@
     })(window, document, "clarity", "script", "y7ye0ys0d6");
   </script>
 
+  <!-- ============================================================= -->
+  <!-- MÓDULO: Tipografia e Pré-Conexão de Recursos Críticos -->
+  <!-- Objetivo: Eliminar cadeia de bloqueio (@import em CSS) e carregar -->
+  <!--           a família oficial Roboto e Roboto Mono com display swap -->
+  <!-- ============================================================= -->
+  <!-- ----------------------------------------------------------- -->
+  <!-- 1. PRÉ-CONEXÃO COM ORIGENS DO GOOGLE FONTS -->
+  <!-- ----------------------------------------------------------- -->
+  <!-- Nota didática: Reduz a latência de DNS lookup e handshake TLS antes da requisição dos arquivos woff2 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- 2. FOLHA DE ESTILOS TIPOGRÁFICA OFICIAL -->
+  <!-- ----------------------------------------------------------- -->
+  <!-- Nota didática: Carrega explicitamente os pesos 400, 500, 600, 700, 900 de Roboto, evitando síntese artificial de faux-bold, além de Roboto Mono para metadados e números tabulares -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;600&display=swap" />
+
   <link rel="icon" href="./assets/voitechrj-logo.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>

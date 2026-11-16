@@ -48,6 +48,31 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-16 — Auditoria e Refatoração Tipográfica Sistemática (Skill Impeccable)
+
+#### Alterado
+- **Carregamento e Entrega de Fontes (`index.html` & `style.css`)**:
+  - Eliminado `@import` bloqueante de renderização no topo do `style.css`.
+  - Inseridos `<link rel="preconnect">` e `<link rel="stylesheet">` oficiais no `<head>` do `index.html` com `display=swap`.
+  - Incluído explicitamente o peso 600 do Roboto no carregamento para eliminar síntese artificial de faux-bold, além de Roboto Mono para metadados técnicos.
+- **Tokens de Escala Tipográfica Modular (`:root` em `style.css`)**:
+  - Criadas variáveis semânticas de escala tipográfica (`--text-2xs` a `--text-6xl`), alturas de linha (`--leading-*`) e tracking (`--tracking-*`).
+  - Eliminada a fragmentação caótica de 14 tamanhos arbitrários inferiores a 1rem (`0.885rem`, `0.765rem`, `0.835rem`, etc.).
+- **Rítmica, Quebra de Linhas e Números Tabulares**:
+  - Inserido `text-wrap: balance` em títulos (`h1..h6`, `.hero-title`, `.section-title`, `.service-card-title`, etc.) prevenindo viúvas/órfãs responsivas.
+  - Inserido `text-wrap: pretty` em parágrafos de corpo e descrições.
+  - Aplicado `font-variant-numeric: tabular-nums` e `--font-mono` em dados numéricos, notas, badges (`.verified-badge`, `.google-review-pill`, `.proof-score-num`).
+  - Adicionado estilo dedicado para `::selection` e `text-underline-offset: 3px`.
+- **Acessibilidade e Contraste**:
+  - Elevado o piso de legibilidade de badges e micro-legendas para mínimo de 12px/13px (`--text-2xs`/`--text-xs`).
+  - Aprimorado o contraste de placeholders no formulário sobre fundo escuro.
+
+#### Motivo
+- Padronização e refinamento visual de alto padrão segundo os critérios da skill `impeccable` (`typeset` e `craft floor`), eliminando micro-fragmentações e inconsistências tipográficas.
+
+#### Impacto
+- FCP e LCP otimizados pela eliminação do `@import` bloqueante, hierarquia visual nítida e consistente, leitura mais confortável em qualquer viewport sem palavras soltas em quebras de linha.
+
 ### 2026-08-25 — Acordeão Retrátil no Rodapé Mobile, Remoção de Badge e Ajuste de Alinhamento
 
 #### Alterado
