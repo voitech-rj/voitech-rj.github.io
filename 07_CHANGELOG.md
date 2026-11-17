@@ -48,6 +48,22 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Avaliações 100% Reais com Link Individual no Google Maps e Hover Clicável
+
+#### Alterado
+- **Seção de Avaliações (`index.html`, `style.css`, `script.js`)**:
+  - Substituídos os textos genéricos anteriores por **18 avaliações 100% reais** extraídas do perfil da Voitechrj no Google Maps (5 estrelas, sem truncamento e com **18 links individuais únicos** `maps.app.goo.gl/...`), fechando **3 telas exatas de 3×2** no desktop.
+  - Reordenadas estrategicamente as 6 primeiras avaliações (Tela 1) por impacto de conversão: **Anna Clara** (montagem PC), **Julio Orlando** (vídeos/fotos em tempo real + entrega em 1 dia), **Thiago Lauriano** (recuperação de dados + segurança), **Fernando Souza** (honestidade no orçamento), **Matheus Fiaux** (reparo crítico + prazo/valor) e **Raisa Beatriz** (atenção preventiva + cuidado na entrega).
+  - Convertido cada card em `<a href="..." target="_blank" rel="noopener noreferrer">` com `cursor: pointer`, destaque visual no `hover` (`translateY(-4px) scale(1.012)`, borda/fundo azulado institucional `#345a87`, destaque na pílula `Google` e rótulo flutuante `"Ver no Google ↗"`).
+  - Atualizado `initHorizontalDragScroll` em `script.js` com limiar de arrasto (`DRAG_THRESHOLD_PX = 6`), bloqueio de `dragstart` nativo e cancelamento de clique pós-arrasto para impedir aberturas acidentais ao deslizar no desktop.
+  - Removido o botão redundante `"Conferir avaliações no Google"` abaixo da trilha, mantendo apenas a dica de rolagem lateral.
+
+#### Motivo
+- Elevar a autenticidade da prova social permitindo verificar cada depoimento diretamente na avaliação pública real no Google Maps, priorizando nas primeiras posições os relatos que mais quebram objeções de contratação.
+
+#### Impacto
+- Prova social 100% verificável clique a clique, UX clara de clicabilidade no desktop e mobile sem conflito com o arrasto horizontal, e 3 telas exatas de 3×2 sem sobras na última coluna.
+
 ### 2026-11-17 — Avaliações Desktop em Grade 3×2 Expandida (6 Cards Inteiros por Rolagem)
 
 #### Alterado

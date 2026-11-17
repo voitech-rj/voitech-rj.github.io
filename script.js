@@ -545,46 +545,80 @@ document.addEventListener('DOMContentLoaded', () => {
   // =================================================================
   // FUNÇÃO: initHorizontalDragScroll
   // Objetivo: Permitir arrasto horizontal com clique-e-arraste do mouse
-  //           em trilhas com 'overflow-x: auto' no desktop, complementando
-  //           o swipe nativo por toque em dispositivos móveis.
+  //           em trilhas com 'overflow-x: auto' no desktop sem disparar
+  //           cliques acidentais nos cards de avaliação clicáveis (<a href>).
   // Entrada: selector (string) - Seletor CSS do container rolável
   // Retorno: void
   // =================================================================
   function initHorizontalDragScroll(selector) {
+    // 1. Validação de existência do container rolável
     const track = document.querySelector(selector);
     if (!track) return;
 
+    // 2. Estado interno de arrasto e limiar de diferenciação clique vs drag
+    const DRAG_THRESHOLD_PX = 6;
     let isDown = false;
+    let hasDragged = false;
+    let suppressNextClick = false;
     let startX = 0;
     let startScrollLeft = 0;
 
-    track.addEventListener('mousedown', (event) => {
-      // Ignora botões que não sejam o esquerdo do mouse
-      if (event.button !== 0) return;
-      isDown = true;
-      startX = event.pageX - track.offsetLeft;
-      startScrollLeft = track.scrollLeft;
-      track.classList.add('is-dragging');
+    // Nota didática: Desabilita o arrasto nativo de âncoras ('dragstart') para
+    // evitar que o browser arraste uma miniatura fantasma do link <a> em vez de
+    // deslizar a trilha horizontal.
+    track.addEventListener('dragstart', (event) => {
+      event.preventDefault();
     });
 
+    // 3. Início do gesto de mouse (sem ativar '.is-dragging' antes do limiar)
+    track.addEventListener('mousedown', (event) => {
+      if (event.button !== 0) return;
+      isDown = true;
+      hasDragged = false;
+      startX = event.pageX - track.offsetLeft;
+      startScrollLeft = track.scrollLeft;
+    });
+
+    // 4. Encerramento do gesto e bloqueio de clique residual pós-arrasto
     const stopDragging = () => {
       if (!isDown) return;
       isDown = false;
       track.classList.remove('is-dragging');
+      if (hasDragged) {
+        suppressNextClick = true;
+        window.setTimeout(() => {
+          suppressNextClick = false;
+        }, 0);
+      }
+      hasDragged = false;
     };
 
     track.addEventListener('mouseleave', stopDragging);
     window.addEventListener('mouseup', stopDragging);
 
+    // 5. Deslocamento horizontal com proteção contra clique acidental
     // Nota didática: Multiplicador 1.25 suaviza a resposta do arraste em
     // mouses convencionais sem perder precisão ao soltar no scroll-snap.
     track.addEventListener('mousemove', (event) => {
       if (!isDown) return;
-      event.preventDefault();
       const x = event.pageX - track.offsetLeft;
-      const walk = (x - startX) * 1.25;
-      track.scrollLeft = startScrollLeft - walk;
+      const deltaX = x - startX;
+      if (!hasDragged && Math.abs(deltaX) > DRAG_THRESHOLD_PX) {
+        hasDragged = true;
+        track.classList.add('is-dragging');
+      }
+      if (!hasDragged) return;
+      event.preventDefault();
+      track.scrollLeft = startScrollLeft - deltaX * 1.25;
     });
+
+    // 6. Interceptação em fase de captura caso o gesto tenha sido arrasto
+    track.addEventListener('click', (event) => {
+      if (!suppressNextClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressNextClick = false;
+    }, true);
   }
 
   initHorizontalDragScroll('#testimonials-carousel .testimonials-slider');
@@ -687,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Rastreia saídas para links externos (redes sociais e avaliações Google)
-    document.querySelectorAll('.footer-social-btn, .btn-google-reviews').forEach(link => {
+    document.querySelectorAll('.footer-social-btn, a.testimonial-card-premium').forEach(link => {
       link.addEventListener('click', () => {
         gtag('event', 'outbound_click', {
           event_category: 'Links Externos',
