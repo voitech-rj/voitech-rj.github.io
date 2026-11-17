@@ -48,6 +48,19 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Centralização e Snap ao Centro no Mobile (Serviços e Avaliações)
+
+#### Alterado
+- **Carrosséis Mobile (`style.css` — exclusivamente `@media (max-width: 767px)`)**:
+  - Aplicado `scroll-snap-align: center` e `scroll-snap-stop: always` nos cards de **Serviços** (`.service-card-clean`) e **Avaliações** (`.testimonial-card-premium`).
+  - Corrigida a largura full-bleed de `.services-slider` (`width: auto` junto a `margin: 0 -1rem`), zerado `scroll-padding-inline: 0` e calculado o respiro lateral simétrico (`padding-inline: max(1rem, calc((100% + 2rem - min(84vw, 336px)) / 2))`) para que o 1º, os intermediários e o último card encaixem exatamente no centro da tela.
+
+#### Motivo
+- Eliminar o desalinhamento à esquerda dos cards de Serviços e Avaliações no mobile e garantir encaixe centralizado um a um durante o swipe lateral, sem qualquer impacto no layout desktop.
+
+#### Impacto
+- Alinhamento visual simétrico desde o primeiro carregamento no celular e navegação lateral precisa centralizando cada card seguinte.
+
 ### 2026-11-17 — Avaliações 100% Reais com Link Individual no Google Maps e Hover Clicável
 
 #### Alterado

@@ -1251,6 +1251,10 @@ a.testimonial-card-premium[href]:focus-visible .google-review-pill {
 }
 
 @media (max-width: 767px) {
+  /* Nota didática: O padding lateral calculado como metade da sobra entre a
+  // largura real da trilha (100% do container + 2rem da margem negativa) e a
+  // largura do card centraliza exatamente o 1º, os intermediários e o último
+  // card no eixo horizontal ao usar 'scroll-snap-align: center'. */
   .testimonials-slider {
     display: flex;
     flex-direction: row;
@@ -1258,8 +1262,8 @@ a.testimonial-card-premium[href]:focus-visible .google-review-pill {
     width: auto;
     gap: 0.9rem;
     margin: 0 -1rem;
-    padding: 0.25rem 1rem 0.75rem 1rem;
-    scroll-padding-left: 1rem;
+    padding: 0.35rem max(1rem, calc((100% + 2rem - min(84vw, 336px)) / 2)) 0.85rem;
+    scroll-padding-inline: 0;
     scrollbar-width: none;
     cursor: auto;
   }
@@ -1269,11 +1273,12 @@ a.testimonial-card-premium[href]:focus-visible .google-review-pill {
   }
 
   .testimonial-card-premium {
-    flex: 0 0 84vw;
+    flex: 0 0 min(84vw, 336px);
     max-width: 336px;
     min-height: 224px;
     padding: 1.25rem;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 }
 
@@ -3213,18 +3218,19 @@ section[id],
 
   /* Nota didática: 'display: contents' nos wrappers intermediários achata
   // as 2 páginas desktop diretamente em uma única trilha flexível no mobile,
-  // expondo todos os 8 cards em swipe nativo sem alterar a estrutura HTML. */
+  // expondo todos os 8 cards em swipe nativo centralizado sem alterar o HTML. */
   .services-slider {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    width: auto;
     gap: 0.9rem;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    scroll-padding-left: 1rem;
+    scroll-padding-inline: 0;
     -webkit-overflow-scrolling: touch;
-    padding: 0.25rem 1rem 0.75rem 1rem;
+    padding: 0.35rem max(1rem, calc((100% + 2rem - min(84vw, 336px)) / 2)) 0.85rem;
     margin: 0 -1rem;
     scrollbar-width: none;
   }
@@ -3243,9 +3249,10 @@ section[id],
   }
 
   .service-card-clean {
-    flex: 0 0 84vw;
+    flex: 0 0 min(84vw, 336px);
     max-width: 336px;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
     flex-direction: column-reverse;
     align-items: stretch;
     justify-content: space-between;
