@@ -48,6 +48,26 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Otimização Exclusiva Mobile (Hero, Swipe de Serviços, Diferenciais Compactos e Ergonomia)
+
+#### Alterado
+- **Hero Mobile (`style.css`, `<= 991px`)**:
+  - Aplicado véu escuro vertical/radial dedicado no `.hero-banner-fade` e elevada a cor de `.hero-desc` para `#d6dbe3` com `text-shadow` sutil, eliminando perda de contraste sobre o gabinete claro (`gallery-2.jpg`).
+  - Ajustado enquadramento de `.hero-banner-slider` (`scale(1.12)` ancorado ao topo) + fechamento escuro na base para ocultar a marca d'água inferior da foto sem conflitar com as animações dos slides.
+  - Botão `.btn-hero-banner-cta` expandido para `width: 100%` (`52px` de altura) em telas `<= 580px`.
+- **Serviços Mobile (`style.css`, `script.js`, `<= 767px`)**:
+  - Transformados os 8 serviços em trilha horizontal de **swipe nativo com snap** (`84vw` + peek do próximo card) usando `display: contents` nos wrappers de página, preservando 100% do carrossel 2×2 no desktop e desativando o timer automático JS no mobile (`disableBelowWidth: 767`).
+- **Diferenciais, Avaliações, Âncoras e Rodapé Mobile (`style.css`)**:
+  - Cards de Diferenciais compactados em **layout horizontal** (CSS Grid 2 colunas com ícone à esquerda) em `<= 639px`.
+  - Adicionado `scroll-margin-top: 76px` nas seções e âncoras (`#faq`, `#booking`) para compensar o header fixo.
+  - Botões de navegação de Avaliações ampliados para área mínima de toque `44×44px` e largura do `.site-footer .container` alinhada em `100%` (`padding: 0 1rem`) com o restante da página.
+
+#### Motivo
+- Corrigir problemas reais de legibilidade, marca d'água aparente, scroll longo demais e ergonomia de toque identificados em inspeção real de tela mobile, mantendo o desktop 100% inalterado.
+
+#### Impacto
+- Leitura nítida na primeira tela do celular, descoberta imediata dos 8 serviços por arrasto natural, menor altura de rolagem e alvos de toque confortáveis.
+
 ### 2026-11-17 — Degradês Tonais e Transições Interativas entre Seções
 
 #### Alterado

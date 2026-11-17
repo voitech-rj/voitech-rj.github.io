@@ -2913,3 +2913,278 @@ textarea.form-input {
     transition: none;
   }
 }
+
+/* =================================================================
+// MÓDULO: Otimização Exclusiva Mobile (Legibilidade, Ergonomia e Swipe)
+// Objetivo: Corrigir contraste do Hero sobre gabinete claro, ocultar
+//           marca d'água da foto de fundo, transformar Serviços em
+//           carrossel swipe nativo com os 8 itens acessíveis, compactar
+//           Diferenciais em cards horizontais e padronizar áreas de toque.
+// Escopo:   Regras estritamente condicionadas a breakpoints mobile/tablet
+//           (<= 991px), preservando integralmente o layout desktop.
+// ================================================================= */
+
+/* ---------------------------------------------------------------
+// 1. COMPENSAÇÃO DE HEADER STICKY EM ÂNCORAS DE NAVEGAÇÃO
+// --------------------------------------------------------------- */
+/* Nota didática: Impede que o cabeçalho fixo (~72px) cubra o título da
+// seção de destino quando o usuário navega pelos links internos. */
+section[id],
+#faq,
+#booking {
+  scroll-margin-top: 76px;
+}
+
+/* ---------------------------------------------------------------
+// 2. HERO MOBILE — CONTRASTE, RECORTE DA MARCA D'ÁGUA E CTA FULL-WIDTH
+// --------------------------------------------------------------- */
+@media (max-width: 991px) {
+  /* Nota didática: Aplicamos 'scale(1.12)' com origem no topo no container
+  // pai '.hero-banner-slider' (e não na <img> animada) para empurrar a faixa
+  // inferior com a marca d'água para fora da máscara sem conflitar com os
+  // keyframes de transição direcional dos slides. */
+  .hero-banner-visual {
+    width: 100%;
+    opacity: 0.46;
+  }
+
+  .hero-banner-slider {
+    transform: scale(1.12);
+    transform-origin: center top;
+  }
+
+  .hero-banner-slide {
+    object-position: center 20%;
+  }
+
+  /* Véu vertical + radial dedicado ao mobile: elimina a transparência
+  // direita herdada do desktop que fazia o texto cinza sumir sobre o PC branco */
+  .hero-banner-fade {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(20, 22, 27, 0.72) 0%,
+        rgba(20, 22, 27, 0.78) 52%,
+        rgba(20, 22, 27, 0.94) 80%,
+        #14161b 100%
+      ),
+      radial-gradient(
+        ellipse 95% 80% at 35% 45%,
+        rgba(20, 22, 27, 0.42) 0%,
+        rgba(20, 22, 27, 0.16) 100%
+      );
+  }
+
+  .hero-title {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .hero-desc {
+    color: #d6dbe3;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-banner-overlay {
+    padding: 44px 0 48px 0;
+  }
+
+  .hero-tagline {
+    font-size: 0.75rem;
+    margin-bottom: 0.85rem;
+    color: #d6dbe3;
+    line-height: 1.4;
+  }
+
+  .hero-title {
+    font-size: 2.05rem;
+    line-height: 1.14;
+    margin-bottom: 1rem;
+  }
+
+  .hero-desc {
+    font-size: 0.96rem;
+    line-height: 1.58;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-banner-actions {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .btn-hero-banner-cta {
+    width: 100%;
+    height: 52px;
+    font-size: 1rem;
+  }
+}
+
+/* ---------------------------------------------------------------
+// 3. SERVIÇOS MOBILE — SWIPE HORIZONTAL NATIVO COM TODOS OS 8 ITENS
+// --------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .services-carousel-wrapper {
+    margin-top: 1.75rem;
+  }
+
+  /* Nota didática: 'display: contents' nos wrappers intermediários achata
+  // as 2 páginas desktop diretamente em uma única trilha flexível no mobile,
+  // expondo todos os 8 cards em swipe nativo sem alterar a estrutura HTML. */
+  .services-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.9rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.25rem 1rem 0.75rem 1rem;
+    margin: 0 -1rem;
+    scrollbar-width: none;
+  }
+
+  .services-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-page,
+  .services-page.active,
+  .services-grid-2x2 {
+    display: contents !important;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .service-card-clean {
+    flex: 0 0 84vw;
+    max-width: 336px;
+    scroll-snap-align: start;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 1.1rem;
+    gap: 1rem;
+  }
+
+  .service-card-img-wrap {
+    width: 100%;
+    max-width: 100%;
+    height: 176px;
+  }
+
+  .service-card-title {
+    font-size: 1.0625rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .service-card-desc {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card-link {
+    min-height: 36px;
+    padding: 0.25rem 0;
+  }
+
+  /* Substitui os controles de 2 páginas por dica discreta de arrasto nativo */
+  .services-carousel-controls {
+    display: none;
+  }
+
+  .services-carousel-wrapper::after {
+    content: "Deslize para o lado para ver todos os 8 serviços →";
+    display: block;
+    text-align: center;
+    margin-top: 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #555c68;
+  }
+}
+
+/* ---------------------------------------------------------------
+// 4. DIFERENCIAIS MOBILE — CARDS HORIZONTAIS COMPACTOS
+// --------------------------------------------------------------- */
+@media (max-width: 639px) {
+  .features-grid {
+    gap: 0.8rem;
+    margin-top: 1.75rem;
+  }
+
+  /* Nota didática: CSS Grid de 2 colunas transforma o card empilhado em
+  // linha horizontal compacta (ícone à esquerda ocupando 2 linhas),
+  // reduzindo em ~40% a altura vertical sem alterar o HTML. */
+  .feature-card {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    column-gap: 0.9rem;
+    row-gap: 0.25rem;
+    align-items: start;
+    padding: 1.05rem 1.1rem;
+  }
+
+  .feature-icon-wrapper {
+    grid-row: 1 / 3;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0.1rem;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+/* ---------------------------------------------------------------
+// 5. AVALIAÇÕES, RODAPÉ E ERGONOMIA DE TOQUE MOBILE (44x44px)
+// --------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .testimonials-carousel-controls {
+    margin-top: 1.25rem;
+    gap: 1rem;
+  }
+
+  .testimonials-nav-btn {
+    min-width: 44px;
+    min-height: 44px;
+    border: 1px solid rgba(20, 22, 27, 0.12);
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+  }
+
+  /* Alinha o container do rodapé à mesma margem lateral (1rem) do restante da página */
+  .site-footer .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-accordion-btn {
+    min-height: 48px;
+  }
+
+  .modal-content {
+    max-height: 85dvh;
+  }
+
+  .modal-header,
+  .modal-body {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}

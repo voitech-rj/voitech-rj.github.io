@@ -428,6 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //          - nextBtnId (string): ID do botão de avançar
   //          - wrapperId (string): ID do container para controle de hover
   //          - interval (number) [opcional, padrão 5000ms]
+  //          - disableBelowWidth (number) [opcional, desativa paginação JS em swipe nativo mobile]
   // Retorno: Object { showPage, startAutoPlay, stopAutoPlay } ou null
   // =================================================================
   function createPaginatedCarousel({
@@ -436,7 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtnId,
     nextBtnId,
     wrapperId,
-    interval = 5000
+    interval = 5000,
+    disableBelowWidth = 0
   }) {
     const pages = document.querySelectorAll(pagesSelector);
     const dots = document.querySelectorAll(dotsSelector);
@@ -449,7 +451,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 0;
     let timer = null;
 
+    const isNativeMobileMode = () => disableBelowWidth > 0 && window.innerWidth <= disableBelowWidth;
+
     function showPage(pageIndex) {
+      if (isNativeMobileMode()) return;
+
       // Nota didática: A operação modular '(index + length) % length' garante
       // que números negativos ou superiores ao limite façam o wrap-around cíclico perfeito.
       currentPage = (pageIndex + pages.length) % pages.length;
@@ -467,7 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startAutoPlay() {
       stopAutoPlay();
-      if (pages.length > 1) {
+      if (pages.length > 1 && !isNativeMobileMode()) {
         timer = setInterval(() => {
           showPage(currentPage + 1);
         }, interval);
@@ -521,7 +527,8 @@ document.addEventListener('DOMContentLoaded', () => {
     dotsSelector: '.services-dot',
     prevBtnId: 'services-prev-btn',
     nextBtnId: 'services-next-btn',
-    wrapperId: 'services-carousel'
+    wrapperId: 'services-carousel',
+    disableBelowWidth: 767
   });
 
   createPaginatedCarousel({
