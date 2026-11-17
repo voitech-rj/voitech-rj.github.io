@@ -48,6 +48,21 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Avaliações Desktop em Grade 3×2 Expandida (6 Cards Inteiros por Rolagem)
+
+#### Alterado
+- **Seção de Avaliações (`index.html`, `style.css`)**:
+  - Removidos os 5 wrappers legados `.testimonials-page` / `.testimonials-grid-2x2`, deixando as 20 avaliações como filhas diretas de `.testimonials-slider`.
+  - Expandido o container exclusivamente de `#social-proof` no desktop (`max-width: 1520px; padding: 0 3rem`).
+  - Aplicada grade horizontal `3 colunas × 2 linhas` no desktop (`>= 1024px`) com cálculo exato de coluna (`calc((100% - 2.5rem - 1px) / 3)`), eliminando cortes na margem do 3º card e encaixando a rolagem de **6 em 6 avaliações** (`:nth-child(6n + 1)`).
+  - Tablet (`768px`–`1023px`) ajustado para `2×2` (4 cards por rolagem) e Mobile (`<= 767px`) mantido em trilha única de swipe nativo (`84vw`).
+
+#### Motivo
+- Corrigir o corte na borda direita do 3º card no desktop e exibir 6 avaliações completas por vez (3 em cima + 3 embaixo) em largura confortável exclusiva para a seção de Avaliações.
+
+#### Impacto
+- Leitura mais ampla e equilibrada no desktop sem nenhum card cortado nas margens, preservando 100% do swipe mobile e sem alterar o container das demais seções.
+
 ### 2026-11-17 — Avaliações em Rolagem Lateral Unificada e Remoção do Bloco 5.0 / Paginação
 
 #### Alterado

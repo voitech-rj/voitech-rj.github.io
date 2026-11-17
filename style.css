@@ -1079,29 +1079,54 @@ header {
   color: #4b5563;
 }
 
+/* Expansão exclusiva de largura para a seção de Avaliações no Desktop/Tablet */
+@media (min-width: 768px) {
+  .social-proof > .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-proof > .container {
+    max-width: 1520px;
+    padding: 0 3rem;
+  }
+}
+
 .testimonials-carousel-wrapper {
   position: relative;
   margin-top: 2.25rem;
 }
 
-/* Nota didática: Trilha horizontal unificada com scroll-snap tanto no desktop
-// (com arrasto de mouse via JS e barra discreta) quanto no mobile (swipe nativo). */
+/* Nota didática: No desktop (>=1024px) usa CSS Grid com 'grid-auto-flow: column'
+// e 2 linhas fixas × 3 colunas exatas ('calc((100% - 2.5rem - 1px) / 3)'),
+// exibindo 6 avaliações inteiras sem corte lateral e encaixando de 6 em 6
+// no scroll-snap. No mobile (<=767px) alterna para trilha flex de 1 linha. */
 .testimonials-slider {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-columns: calc((100% - 1.25rem - 1px) / 2);
   gap: 1.25rem;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 0.25rem;
+  scroll-padding-left: 4px;
   -webkit-overflow-scrolling: touch;
-  padding: 0.35rem 0.25rem 1.25rem 0.25rem;
+  padding: 0.5rem 4px 1.25rem 4px;
   cursor: grab;
   scrollbar-width: thin;
   scrollbar-color: rgba(52, 90, 135, 0.32) transparent;
+}
+
+@media (min-width: 1024px) {
+  .testimonials-slider {
+    grid-auto-columns: calc((100% - 2.5rem - 1px) / 3);
+    gap: 1.25rem;
+  }
 }
 
 .testimonials-slider.is-dragging {
@@ -1124,36 +1149,44 @@ header {
   border-radius: 9999px;
 }
 
-/* Achata os wrappers de página em uma única trilha contínua de 20 avaliações */
-.testimonials-page,
-.testimonials-page.active,
-.testimonials-grid-2x2 {
-  display: contents;
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
-
 .testimonial-card-premium {
-  flex: 0 0 380px;
-  max-width: 380px;
-  scroll-snap-align: start;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 224px;
+  scroll-snap-align: none;
   background-color: #ffffff;
-  padding: 1.5rem;
+  padding: 1.45rem;
   border-radius: 0.875rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 248px;
   box-sizing: border-box;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   text-align: left;
 }
 
+/* Snap exato por bloco: 4 em 4 no tablet (2x2) e 6 em 6 no desktop (3x2) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .testimonials-slider > .testimonial-card-premium:nth-child(4n + 1) {
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-slider > .testimonial-card-premium:nth-child(6n + 1) {
+    scroll-snap-align: start;
+  }
+}
+
 @media (max-width: 767px) {
   .testimonials-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: auto;
     gap: 0.9rem;
     margin: 0 -1rem;
     padding: 0.25rem 1rem 0.75rem 1rem;
@@ -1171,6 +1204,7 @@ header {
     max-width: 336px;
     min-height: 224px;
     padding: 1.25rem;
+    scroll-snap-align: start;
   }
 }
 
