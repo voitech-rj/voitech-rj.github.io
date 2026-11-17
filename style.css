@@ -1081,83 +1081,96 @@ header {
 
 .testimonials-carousel-wrapper {
   position: relative;
-  margin-top: 2.5rem;
+  margin-top: 2.25rem;
 }
 
+/* Nota didática: Trilha horizontal unificada com scroll-snap tanto no desktop
+// (com arrasto de mouse via JS e barra discreta) quanto no mobile (swipe nativo). */
 .testimonials-slider {
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.35rem 0.25rem 1.25rem 0.25rem;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(52, 90, 135, 0.32) transparent;
 }
 
-.testimonials-page {
-  display: none;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+.testimonials-slider.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
 }
 
-.testimonials-page.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-  animation: testimonialPageFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.testimonials-slider::-webkit-scrollbar {
+  height: 6px;
 }
 
-@keyframes testimonialPageFade {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.testimonials-slider::-webkit-scrollbar-track {
+  background: rgba(20, 22, 27, 0.05);
+  border-radius: 9999px;
 }
 
+.testimonials-slider::-webkit-scrollbar-thumb {
+  background: rgba(52, 90, 135, 0.32);
+  border-radius: 9999px;
+}
+
+/* Achata os wrappers de página em uma única trilha contínua de 20 avaliações */
+.testimonials-page,
+.testimonials-page.active,
 .testimonials-grid-2x2 {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.75rem 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 860px) {
-  .testimonials-grid-2x2 {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, minmax(280px, 1fr));
-    gap: 2rem 2.25rem;
-  }
+  display: contents;
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .testimonial-card-premium {
+  flex: 0 0 380px;
+  max-width: 380px;
+  scroll-snap-align: start;
   background-color: #ffffff;
-  padding: 1.65rem;
+  padding: 1.5rem;
   border-radius: 0.875rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  min-height: 248px;
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   text-align: left;
 }
 
-@media (min-width: 860px) {
-  .testimonial-card-premium {
-    min-height: 280px;
+@media (max-width: 767px) {
+  .testimonials-slider {
+    gap: 0.9rem;
+    margin: 0 -1rem;
+    padding: 0.25rem 1rem 0.75rem 1rem;
+    scroll-padding-left: 1rem;
+    scrollbar-width: none;
+    cursor: auto;
   }
-}
 
-@media (max-width: 639px) {
+  .testimonials-slider::-webkit-scrollbar {
+    display: none;
+  }
+
   .testimonial-card-premium {
-    padding: 1.35rem;
+    flex: 0 0 84vw;
+    max-width: 336px;
+    min-height: 224px;
+    padding: 1.25rem;
   }
 }
 
@@ -1166,6 +1179,30 @@ header {
   border-color: rgba(0, 0, 0, 0.16);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
   background-color: #ffffff;
+}
+
+.social-proof-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.15rem;
+  margin-top: 1.15rem;
+  text-align: center;
+}
+
+.testimonials-swipe-hint {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555c68;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .testimonials-swipe-hint {
+    font-size: 0.78rem;
+  }
 }
 
 .testimonial-card-top {

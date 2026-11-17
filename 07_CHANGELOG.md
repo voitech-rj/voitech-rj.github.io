@@ -48,6 +48,20 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Avaliações em Rolagem Lateral Unificada e Remoção do Bloco 5.0 / Paginação
+
+#### Alterado
+- **Seção de Avaliações (`index.html`, `style.css`, `script.js`)**:
+  - Removidos o bloco `5.0`, estrelas agregadas, texto `+150 avaliações no Google`, texto descritivo da barra e o menu de paginação (`<`, dots, `>`) em ambas as versões (mobile e desktop).
+  - Unificadas todas as 20 avaliações em uma **trilha horizontal de rolagem manual** (`scroll-snap-type: x mandatory`, `84vw` no mobile e cards de `380px` no desktop com arrasto de mouse `initHorizontalDragScroll` e zero autoplay brigando com a leitura).
+  - Mantidos centralizados abaixo da trilha apenas a instrução `"Deslize para o lado para ver mais avaliações →"` e o botão `"Conferir avaliações no Google"` / `"Ver no Google"`.
+
+#### Motivo
+- Padronizar a navegação por arrasto lateral entre Serviços (mobile) e Avaliações, limpar elementos repetitivos na base da prova social e eliminar conflito de transição automática durante a leitura.
+
+#### Impacto
+- Experiência de leitura de avaliações mais limpa, natural e controlada pelo visitante em celular e desktop.
+
 ### 2026-11-17 — Ajuste Mobile: Menu Drawer sem Duplicação de CTA e Hero em 2 Colunas com Degradê Horizontal
 
 #### Alterado

@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return { showPage, startAutoPlay, stopAutoPlay };
   }
 
-  // Instanciação unificada dos carrosséis de Serviços e Depoimentos
+  // Instanciação do carrossel paginado de Serviços (desktop >= 768px; swipe nativo no mobile)
   createPaginatedCarousel({
     pagesSelector: '.services-page',
     dotsSelector: '.services-dot',
@@ -539,13 +539,55 @@ document.addEventListener('DOMContentLoaded', () => {
     disableBelowWidth: 767
   });
 
-  createPaginatedCarousel({
-    pagesSelector: '.testimonials-page',
-    dotsSelector: '.testimonials-dot',
-    prevBtnId: 'testimonials-prev-btn',
-    nextBtnId: 'testimonials-next-btn',
-    wrapperId: 'testimonials-carousel'
-  });
+  // ---------------------------------------------------------------
+  // 10.1 ARRASTO HORIZONTAL COM MOUSE NAS AVALIAÇÕES (DESKTOP)
+  // ---------------------------------------------------------------
+  // =================================================================
+  // FUNÇÃO: initHorizontalDragScroll
+  // Objetivo: Permitir arrasto horizontal com clique-e-arraste do mouse
+  //           em trilhas com 'overflow-x: auto' no desktop, complementando
+  //           o swipe nativo por toque em dispositivos móveis.
+  // Entrada: selector (string) - Seletor CSS do container rolável
+  // Retorno: void
+  // =================================================================
+  function initHorizontalDragScroll(selector) {
+    const track = document.querySelector(selector);
+    if (!track) return;
+
+    let isDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    track.addEventListener('mousedown', (event) => {
+      // Ignora botões que não sejam o esquerdo do mouse
+      if (event.button !== 0) return;
+      isDown = true;
+      startX = event.pageX - track.offsetLeft;
+      startScrollLeft = track.scrollLeft;
+      track.classList.add('is-dragging');
+    });
+
+    const stopDragging = () => {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove('is-dragging');
+    };
+
+    track.addEventListener('mouseleave', stopDragging);
+    window.addEventListener('mouseup', stopDragging);
+
+    // Nota didática: Multiplicador 1.25 suaviza a resposta do arraste em
+    // mouses convencionais sem perder precisão ao soltar no scroll-snap.
+    track.addEventListener('mousemove', (event) => {
+      if (!isDown) return;
+      event.preventDefault();
+      const x = event.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.25;
+      track.scrollLeft = startScrollLeft - walk;
+    });
+  }
+
+  initHorizontalDragScroll('#testimonials-carousel .testimonials-slider');
 
   // ---------------------------------------------------------------
   // 11. PRÉ-PREENCHIMENTO DO FORMULÁRIO VIA CARDS DE SERVIÇO
