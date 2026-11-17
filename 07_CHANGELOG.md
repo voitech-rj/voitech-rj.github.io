@@ -48,6 +48,23 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Degradês Tonais e Transições Interativas entre Seções
+
+#### Alterado
+- **Transições de Cor Preservando Paleta Original (`style.css`)**:
+  - **Hero (`#hero`)**: adicionada camada de elevação tonal suave na base (`#14161b` $\rightarrow$ `#1b202b`) antes do encontro com a seção clara de Serviços.
+  - **Serviços (`#services`) e Avaliações (`#social-proof`)**: mantido o branco `#ffffff` puro atrás dos cards, com degradê de borda em névoa fria (`#e6ebf2` $\rightarrow$ `#f5f7fa` $\rightarrow$ `#ffffff`) e sombra interna sutil de acomodação nas divisas com o tema escuro.
+  - **Diferenciais (`#features`)**: adicionada luz atmosférica fria difusa no topo (`rgba(52, 90, 135, 0.17)`) e degradê tonal suave nas bordas sobre a base `#14161b`.
+  - **Contato & FAQ (`#contact-faq`) $\rightarrow$ Rodapé (`#site-footer`)**: fusão contínua por degradê vertical (`#161a24` $\rightarrow$ `#0e1015` $\rightarrow$ `#0b0d12`), eliminando o corte seco entre as duas seções escuras.
+- **Pontes Interativas de Fronteira (`style.css`, `script.js`)**:
+  - Implementadas linhas horizontais de precisão em degradê azul institucional (`::before`) no topo de cada seção que se expandem suavemente a partir do centro (`scaleX`) ao entrar na viewport via `IntersectionObserver` (`.seam-active`), com fallback estático para `prefers-reduced-motion: reduce`.
+
+#### Motivo
+- Eliminar a transição seca de `1px` entre seções alternadas (claro/escuro e escuro/escuro) sem alterar a cor principal, a tipografia nem o layout consolidado de nenhuma seção.
+
+#### Impacto
+- Fluxo visual mais fluido e integrado durante a rolagem, com sensação de profundidade entre planos e zero impacto em layout ou performance.
+
 ### 2026-11-16 — Auditoria e Refatoração Tipográfica Sistemática (Skill Impeccable)
 
 #### Alterado

@@ -2734,3 +2734,182 @@ textarea.form-input {
     height: 16px;
   }
 }
+
+/* =================================================================
+// MÓDULO: Transições Atmosféricas e Pontes Interativas entre Seções
+// Objetivo: Preservar integralmente a cor base de cada seção, mas
+//           substituir cortes secos de 1px por degradês tonais de
+//           borda, sombra de acomodação e linha de luz institucional
+//           que se expande conforme o usuário rola entre seções.
+// ================================================================= */
+
+/* ---------------------------------------------------------------
+// 1. EMPILHAMENTO SEGURO DE CONTEÚDO ACIMA DAS CAMADAS DE TRANSIÇÃO
+// --------------------------------------------------------------- */
+/* Nota didática: Garante que os pseudo-elementos decorativos (::before/::after)
+// nunca interceptem cliques ou sobreponham textos/botões internos. */
+.services > .container,
+.features > .container,
+.social-proof > .container,
+.contact-faq-section > .container,
+.site-footer > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------------------------------------------------------------
+// 2. DEGRADÊS TONAIS PRESERVANDO A COR ORIGINAL DE CADA SEÇÃO
+// --------------------------------------------------------------- */
+/* Hero (#14161b): suaviza a borda inferior antes da entrada clara de Serviços */
+.hero-banner-overlay {
+  border-bottom: none;
+}
+
+.hero-banner-overlay::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96px;
+  background: linear-gradient(180deg, transparent 0%, rgba(27, 32, 43, 0.72) 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Serviços (#ffffff) e Avaliações (#ffffff): centro branco puro com bordas
+// em névoa fria e profundidade interna para absorver o encontro com o escuro */
+.services,
+.social-proof {
+  background: linear-gradient(
+    180deg,
+    #e6ebf2 0%,
+    #f5f7fa 64px,
+    #ffffff 152px,
+    #ffffff calc(100% - 152px),
+    #f5f7fa calc(100% - 64px),
+    #e3e8f0 100%
+  );
+  border-top: none;
+  border-bottom: none;
+  box-shadow:
+    inset 0 20px 30px -24px rgba(14, 16, 21, 0.4),
+    inset 0 -20px 30px -24px rgba(14, 16, 21, 0.4);
+  overflow: hidden;
+}
+
+/* Diferenciais (#14161b): luz fria difusa no topo + respiração tonal nas bordas */
+.features {
+  background:
+    radial-gradient(ellipse 68% 190px at 50% 0%, rgba(52, 90, 135, 0.17), transparent 72%),
+    radial-gradient(ellipse 56% 150px at 50% 100%, rgba(52, 90, 135, 0.1), transparent 72%),
+    linear-gradient(180deg, #191d26 0%, #14161b 136px, #14161b calc(100% - 136px), #191d26 100%);
+  border-top: none;
+  border-bottom: none;
+  overflow: hidden;
+}
+
+/* Contato & FAQ (#0e1015): recebe o claro com luz superior e funde na base com o Footer (#0b0d12) */
+.contact-faq-section {
+  background:
+    radial-gradient(ellipse 66% 210px at 50% 0%, rgba(52, 90, 135, 0.16), transparent 72%),
+    linear-gradient(180deg, #161a24 0%, #0e1015 128px, #0e1015 calc(100% - 128px), #0b0d12 100%);
+  border-top: none;
+  overflow: hidden;
+}
+
+/* Rodapé (#0b0d12): continuidade absoluta com a base de Contato & FAQ */
+.site-footer {
+  background:
+    radial-gradient(ellipse 55% 120px at 50% 0%, rgba(52, 90, 135, 0.1), transparent 75%),
+    #0b0d12;
+  border-top: none;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------
+// 3. PONTES INTERATIVAS DE FRONTEIRA (SCROLL-REACTIVE SEAM BRIDGE)
+// --------------------------------------------------------------- */
+/* Nota didática: Cada seção exibe no topo uma linha de precisão em degradê
+// azul institucional que se expande suavemente a partir do centro (scaleX)
+// quando a seção entra na viewport via IntersectionObserver (.seam-active). */
+.services::before,
+.features::before,
+.social-proof::before,
+.contact-faq-section::before,
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  pointer-events: none;
+  z-index: 5;
+  transform: scaleX(0.18);
+  transform-origin: center;
+  opacity: 0.25;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease;
+}
+
+/* Tom da ponte sobre seções claras (Serviços e Avaliações) */
+.services::before,
+.social-proof::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(52, 90, 135, 0.25) 18%,
+    rgba(52, 90, 135, 0.85) 50%,
+    rgba(52, 90, 135, 0.25) 82%,
+    transparent 100%
+  );
+}
+
+/* Tom da ponte sobre seções escuras (Diferenciais, Contato & FAQ e Rodapé) */
+.features::before,
+.contact-faq-section::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(52, 90, 135, 0.35) 18%,
+    rgba(118, 165, 218, 0.9) 50%,
+    rgba(52, 90, 135, 0.35) 82%,
+    transparent 100%
+  );
+}
+
+/* Divisória mais discreta entre Contato (#0e1015) e Rodapé (#0b0d12) */
+.site-footer::before {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(118, 165, 218, 0.45) 50%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+}
+
+/* Estado ativado durante a rolagem */
+.services.seam-active::before,
+.features.seam-active::before,
+.social-proof.seam-active::before,
+.contact-faq-section.seam-active::before,
+.site-footer.seam-active::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Respeito integral à acessibilidade de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .services::before,
+  .features::before,
+  .social-proof::before,
+  .contact-faq-section::before,
+  .site-footer::before {
+    transform: scaleX(1);
+    opacity: 1;
+    transition: none;
+  }
+}

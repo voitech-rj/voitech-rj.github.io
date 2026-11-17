@@ -302,6 +302,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
   // ---------------------------------------------------------------
+  // 8.1 OBSERVADOR DE TRANSIÇÃO ENTRE SEÇÕES (INTERACTIVE SEAM BRIDGES)
+  // ---------------------------------------------------------------
+  // Ativa a expansão da linha de luz institucional no topo de cada seção
+  // conforme o usuário atravessa a fronteira durante a rolagem.
+  // Nota didática: Diferente do reveal único acima, este observador alterna
+  // a classe '.seam-active' dinamicamente (toggle) para responder tanto na
+  // descida quanto na subida da página sem custo de layout.
+  const seamTargets = document.querySelectorAll(
+    '#services, #features, #social-proof, #contact-faq, #site-footer'
+  );
+  if (seamTargets.length) {
+    const seamObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('seam-active', entry.isIntersecting);
+      });
+    }, { root: null, rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+    seamTargets.forEach(section => seamObserver.observe(section));
+  }
+
+  // ---------------------------------------------------------------
   // 9. CARROSSEL DO BANNER HERO (TRANSIÇÃO QUADRIDIRECIONAL CÍCLICA)
   // ---------------------------------------------------------------
   const bannerSlides = document.querySelectorAll('.hero-banner-slide');
