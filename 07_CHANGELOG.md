@@ -48,6 +48,22 @@ O registro deve ser objetivo e descrever o estado real do projeto. Não registra
 
 ## 4. Histórico
 
+### 2026-11-17 — Ajuste Mobile: Menu Drawer sem Duplicação de CTA e Hero em 2 Colunas com Degradê Horizontal
+
+#### Alterado
+- **Menu Hambúrguer Mobile (`style.css`, `<= 767px`)**:
+  - Expandida a altura mínima de `.mobile-nav` para `calc(100dvh - 4.5rem)`, cobrindo a área do Hero atrás do menu aberto e eliminando a duplicação visual do botão `"Solicitar atendimento"`.
+- **Hero Mobile (`style.css`, `<= 991px`)**:
+  - Substituído o véu vertical escuro pela composição em **2 colunas semelhante ao desktop**: coluna esquerda de texto (`max-width: 76%`–`78%`) sobre `#14161b` + degradê horizontal da esquerda para a direita (`90deg`) encontrando `.hero-banner-visual` nos 66% direitos com alta clareza (`opacity: 0.92`) e recorte superior que mantém a marca d'água oculta.
+  - Botão `.btn-hero-banner-cta` ajustado para largura proporcional à coluna esquerda (`min-width: 215px`), preservando a visibilidade das fotos à direita.
+  - Zero alterações na versão desktop (`>= 992px`).
+
+#### Motivo
+- Corrigir a sobreposição visual do CTA do Hero abaixo do menu hambúrguer aberto e devolver clareza e protagonismo à transição das fotos no Hero mobile.
+
+#### Impacto
+- Menu mobile limpo com apenas um CTA visível e Hero mobile com leitura nítida à esquerda e fotos bem iluminadas à direita, mantendo consistência visual com o desktop.
+
 ### 2026-11-17 — Otimização Exclusiva Mobile (Hero, Swipe de Serviços, Diferenciais Compactos e Ergonomia)
 
 #### Alterado

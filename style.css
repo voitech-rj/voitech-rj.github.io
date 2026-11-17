@@ -2936,89 +2936,129 @@ section[id],
 }
 
 /* ---------------------------------------------------------------
-// 2. HERO MOBILE — CONTRASTE, RECORTE DA MARCA D'ÁGUA E CTA FULL-WIDTH
+// 2. HERO MOBILE (ESTILO 2 COLUNAS DO DESKTOP) & MENU DRAWER LIMPO
 // --------------------------------------------------------------- */
 @media (max-width: 991px) {
-  /* Nota didática: Aplicamos 'scale(1.12)' com origem no topo no container
-  // pai '.hero-banner-slider' (e não na <img> animada) para empurrar a faixa
-  // inferior com a marca d'água para fora da máscara sem conflitar com os
-  // keyframes de transição direcional dos slides. */
+  /* Nota didática: Posiciona o carrossel de fotos ocupando os 66% direitos
+  // com alta clareza (opacity: 0.92), enquanto o degradê horizontal de 90deg
+  // funde a coluna escura da esquerda (#14161b) suavemente para a direita —
+  // replicando a composição editorial de 2 colunas do desktop no mobile. */
   .hero-banner-visual {
-    width: 100%;
-    opacity: 0.46;
+    width: 66%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    opacity: 0.92;
   }
 
+  /* Mantém o recorte superior para ocultar a marca d'água da borda inferior
+  // sem interferir nos keyframes de transição direcional das imagens */
   .hero-banner-slider {
     transform: scale(1.12);
     transform-origin: center top;
   }
 
   .hero-banner-slide {
-    object-position: center 20%;
+    object-position: center 22%;
   }
 
-  /* Véu vertical + radial dedicado ao mobile: elimina a transparência
-  // direita herdada do desktop que fazia o texto cinza sumir sobre o PC branco */
   .hero-banner-fade {
     background:
       linear-gradient(
-        180deg,
-        rgba(20, 22, 27, 0.72) 0%,
-        rgba(20, 22, 27, 0.78) 52%,
-        rgba(20, 22, 27, 0.94) 80%,
-        #14161b 100%
+        90deg,
+        #14161b 0%,
+        rgba(20, 22, 27, 0.86) 24%,
+        rgba(20, 22, 27, 0.44) 52%,
+        rgba(20, 22, 27, 0.1) 78%,
+        transparent 100%
       ),
-      radial-gradient(
-        ellipse 95% 80% at 35% 45%,
-        rgba(20, 22, 27, 0.42) 0%,
-        rgba(20, 22, 27, 0.16) 100%
+      linear-gradient(
+        180deg,
+        rgba(20, 22, 27, 0.32) 0%,
+        transparent 14%,
+        transparent 84%,
+        #14161b 100%
       );
   }
 
+  .hero-text-banner {
+    max-width: 78%;
+  }
+
   .hero-title {
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
   }
 
   .hero-desc {
     color: #d6dbe3;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.65);
   }
 }
 
 @media (max-width: 767px) {
+  /* Nota didática: Mantém a gaveta do menu compacta encerrando exatamente
+  // abaixo do botão "Solicitar atendimento" e oculta suavemente o CTA do Hero
+  // enquanto o menu estiver aberto, eliminando a duplicação sem área vazia. */
+  .mobile-nav {
+    min-height: auto;
+    height: auto;
+    background-color: #1a1c22;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-nav-content {
+    padding: 0.75rem 1rem 1rem 1rem;
+  }
+
+  .hero-banner-actions {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+
+  body.mobile-menu-open .hero-banner-actions {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   .hero-banner-overlay {
     padding: 44px 0 48px 0;
   }
 
+  .hero-text-banner {
+    max-width: 76%;
+  }
+
   .hero-tagline {
-    font-size: 0.75rem;
-    margin-bottom: 0.85rem;
+    font-size: 0.72rem;
+    margin-bottom: 0.8rem;
     color: #d6dbe3;
     line-height: 1.4;
   }
 
   .hero-title {
-    font-size: 2.05rem;
-    line-height: 1.14;
-    margin-bottom: 1rem;
+    font-size: 1.85rem;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
   }
 
   .hero-desc {
-    font-size: 0.96rem;
-    line-height: 1.58;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1.35rem;
   }
 
   .hero-banner-actions {
-    margin-top: 1.25rem;
+    margin-top: 1.15rem;
   }
 }
 
 @media (max-width: 580px) {
   .btn-hero-banner-cta {
-    width: 100%;
-    height: 52px;
-    font-size: 1rem;
+    width: auto;
+    min-width: 215px;
+    height: 48px;
+    padding: 0 1.35rem;
+    font-size: 0.95rem;
   }
 }
 

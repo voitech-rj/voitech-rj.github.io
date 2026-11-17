@@ -25,21 +25,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------------------------------------
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
-  const menuIcon = document.getElementById('menu-icon');
 
-  if (menuBtn && mobileNav && menuIcon) {
+  // =================================================================
+  // FUNÇÃO: setMobileMenuState
+  // Objetivo: Sincronizar visibilidade do drawer mobile, classe global
+  //           no body, atributos ARIA e ícone Lucide sem referência órfã.
+  // Entrada: isOpen (boolean) - Estado desejado do menu mobile
+  // Retorno: void
+  // =================================================================
+  function setMobileMenuState(isOpen) {
+    if (!menuBtn || !mobileNav) return;
+
+    mobileNav.classList.toggle('active', isOpen);
+    document.body.classList.toggle('mobile-menu-open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+
+    // Nota didática: Recriar o nó <i> interno antes de 'lucide.createIcons()'
+    // impede que a referência anterior fique desconectada (detached DOM node)
+    // após a primeira substituição de <i> por <svg>.
+    menuBtn.innerHTML = `<i id="menu-icon" data-lucide="${isOpen ? 'x' : 'menu'}"></i>`;
+    lucide.createIcons();
+  }
+
+  if (menuBtn && mobileNav) {
     menuBtn.addEventListener('click', () => {
-      // Alterna a classe de visibilidade e obtém o estado booleano resultante
-      const isOpen = mobileNav.classList.toggle('active');
-
-      // Sincroniza ícones e atributos de acessibilidade (WAI-ARIA)
-      // Nota didática: Manter 'aria-expanded' sincronizado garante que leitores
-      // de tela informem instantaneamente ao usuário com deficiência visual
-      // se o menu colapsável está aberto ou fechado.
-      menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
-      menuBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-      lucide.createIcons();
+      const nextState = !mobileNav.classList.contains('active');
+      setMobileMenuState(nextState);
     });
   }
 
@@ -66,11 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Recolhe o menu mobile se estiver aberto após o clique no link
       if (mobileNav && mobileNav.classList.contains('active')) {
-        mobileNav.classList.remove('active');
-        menuIcon.setAttribute('data-lucide', 'menu');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.setAttribute('aria-label', 'Abrir menu');
-        lucide.createIcons();
+        setMobileMenuState(false);
       }
     });
   });
